@@ -1,0 +1,11 @@
+# Name aliases. Each line creates symlinks so several icon names resolve to one
+# canonical SVG (avoids duplicating artwork). Format:
+#
+#   <context>/<size>  <canonical>  <alias> [<alias> ...]
+#
+# Regenerate the symlinks with:  icons gen-theme
+# (blank lines and #-comments are ignored)
+
+actions/16  list-add     gtk-add stock_add
+actions/16  list-remove  gtk-remove stock_remove
+places/16   folder       folder-open inode-directory

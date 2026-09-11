@@ -1,0 +1,34 @@
+# overlay.yaml — how this design set is applied into the icon theme.
+#
+# `make overlay` (the `icons overlay` tool) reads this file and, for every entry
+# in `links`, writes the `src` SVG here into
+# output/<category>/<size>/<name>.svg, overwriting any icon of the same
+# name. One source SVG fans out across every size (and name/alias) it lists —
+# the "1 source → N sizes" mapping. The SVG is stored once: the first size in
+# `sizes` is a real copy, the rest are relative symlinks to it
+# (e.g. apps/24/smb4k.svg -> ../16/smb4k.svg). Re-run after editing an SVG.
+#
+# Optional provenance (metadata only — ignored by `make overlay`):
+#   origin:   set-level; upstream `theme` name the artwork came from (no absolute
+#             path — that is machine-specific and may change).
+#   from      per-link; the source path within that upstream theme.
+#
+# Fields per link:
+#   src       source SVG in this folder (relative path).
+#   category  freedesktop context dir: apps, places, actions, mimetypes,
+#             devices, emblems, categories, status.
+#   names     one or more freedesktop icon names; each is published
+#             independently (its own first-size copy + symlinks). List several
+#             to publish the same art under aliases.
+#   sizes     size buckets to publish into; the first is the real copy, the
+#             rest symlink to it. Numeric buckets the theme supports: 16, 22,
+#             24, 32, 48, 64. Use `symbolic` for the symbolic bucket. (apps has
+#             no 22; places does — only list sizes the category has.)
+
+set: smb4k
+
+links:
+  - src: smb4k_icon.svg
+    category: apps
+    names: [smb4k]
+    sizes: [16, 24, 32, 48, 64]

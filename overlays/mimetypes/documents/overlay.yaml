@@ -1,0 +1,80 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# Document / office mimetype icons imported from the Tela icon theme.
+#
+# Tela keeps only a few distinct office icons and points every format at one of
+# them, so this set does the same: one source SVG per distinct icon, mapped to
+# all the freedesktop mimetype names that should share it (the `names` list).
+# Each Tela source is a single scalable SVG, published into the theme's
+# mimetypes buckets (16/24/32/64): the first size is a real copy per name, the
+# rest are relative symlinks to it.
+
+set: documents
+
+origin:
+  theme: Tela
+
+links:
+  # Word-processing documents: .odt / .doc / .docx
+  - src: x-office-document.svg
+    from: scalable/mimetypes/x-office-document.svg
+    category: mimetypes
+    names:
+      - x-office-document
+      - application-msword
+      - application-vnd.oasis.opendocument.text
+      - application-vnd.openxmlformats-officedocument.wordprocessingml.document
+    sizes: [16, 24, 32, 64]
+
+  # Spreadsheets: .csv / .tsv / .ods / .xls / .xlsx
+  - src: x-office-spreadsheet.svg
+    from: scalable/mimetypes/x-office-spreadsheet.svg
+    category: mimetypes
+    names:
+      - x-office-spreadsheet
+      - text-csv
+      - text-tab-separated-values
+      - application-vnd.ms-excel
+      - application-vnd.oasis.opendocument.spreadsheet
+      - application-vnd.openxmlformats-officedocument.spreadsheetml.sheet
+    sizes: [16, 24, 32, 64]
+
+  # Presentations: .odp / .ppt / .pptx
+  - src: x-office-presentation.svg
+    from: scalable/mimetypes/x-office-presentation.svg
+    category: mimetypes
+    names:
+      - x-office-presentation
+      - application-vnd.ms-powerpoint
+      - application-vnd.oasis.opendocument.presentation
+      - application-vnd.openxmlformats-officedocument.presentationml.presentation
+    sizes: [16, 24, 32, 64]
+
+  # PDF
+  - src: application-pdf.svg
+    from: scalable/mimetypes/application-pdf.svg
+    category: mimetypes
+    names: [application-pdf]
+    sizes: [16, 24, 32, 64]
+
+  # Markdown: .md
+  - src: text-markdown.svg
+    from: scalable/mimetypes/text-markdown.svg
+    category: mimetypes
+    names: [text-markdown, text-x-markdown]
+    sizes: [16, 24, 32, 64]
+
+  # Plain text: .txt (also the generic text/* fallback icon)
+  - src: text-x-generic.svg
+    from: scalable/mimetypes/text-x-generic.svg
+    category: mimetypes
+    names: [text-x-generic, text-plain]
+    sizes: [16, 24, 32, 64]
+
+  # JSON
+  - src: application-json.svg
+    from: scalable/mimetypes/application-json.svg
+    category: mimetypes
+    names: [application-json]
+    sizes: [16, 24, 32, 64]

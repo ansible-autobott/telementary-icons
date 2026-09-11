@@ -1,0 +1,29 @@
+name: "telementary-icons"
+arch: "all"
+platform: "linux"
+version: "${VERSION}"
+section: "default"
+priority: "optional"
+
+# Breeze is the inheritance fallback (Inherits=Breeze) for any icon this theme
+# does not provide, so recommend its icon set.
+recommends:
+- breeze-icon-theme
+
+maintainer: "Andres Bott <contact@andresbott.com>"
+description: |
+  Telementary — custom KDE icon theme based on Tela and elementary.
+license: "Mixed"
+
+# nfpm `contents:` is the single source of truth for what ships and where.
+contents:
+# the generated freedesktop icon theme (rebuilt by `make theme` into ./output);
+# installs under the theme id "telementary"
+- src: ./output
+  dst: /usr/share/icons/telementary
+
+# vendored Tela icon theme license + attribution (GPL-3.0)
+- src: ./tela-icons/COPYING
+  dst: /usr/share/doc/telementary-icons/Tela-COPYING
+- src: ./tela-icons/AUTHORS
+  dst: /usr/share/doc/telementary-icons/Tela-AUTHORS

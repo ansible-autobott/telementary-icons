@@ -1,0 +1,13 @@
+# overlay.yaml — applies this design set into the icon theme via `make overlay`.
+# See icons/designs/apps/smb4k/overlay.yaml for the full field reference.
+#
+# One source SVG fans out across the listed sizes: the first size is a real
+# copy, the rest are relative symlinks to it (e.g. mimetypes/24/... -> ../16/...).
+
+set: ark-zip
+
+links:
+  - src: icon.svg
+    category: mimetypes
+    names: [package-x-generic]
+    sizes: [16, 24, 32, 64]

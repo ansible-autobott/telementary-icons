@@ -1,0 +1,92 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# Per-format image mimetype icons imported from the Tela icon theme. Each Tela
+# source is a single scalable SVG, published into the theme's mimetypes buckets
+# (16/24/32/64): first size is a real copy, the rest relative symlinks to it.
+# Replaces the older hand-designed set (now disabled).
+
+set: image
+
+origin:
+  theme: Tela
+
+links:
+  - src: image-bmp.svg
+    from: scalable/mimetypes/image-bmp.svg
+    category: mimetypes
+    names: [image-bmp]
+    sizes: [16, 24, 32, 64]
+
+  - src: image-gif.svg
+    from: scalable/mimetypes/image-gif.svg
+    category: mimetypes
+    names: [image-gif]
+    sizes: [16, 24, 32, 64]
+
+  - src: image-jpeg.svg
+    from: scalable/mimetypes/image-jpeg.svg
+    category: mimetypes
+    names: [image-jpeg]
+    sizes: [16, 24, 32, 64]
+
+  - src: image-png.svg
+    from: scalable/mimetypes/image-png.svg
+    category: mimetypes
+    names: [image-png]
+    sizes: [16, 24, 32, 64]
+
+  - src: image-svg+xml.svg
+    from: scalable/mimetypes/image-svg+xml.svg
+    category: mimetypes
+    names: [image-svg+xml]
+    sizes: [16, 24, 32, 64]
+
+  - src: image-tiff.svg
+    from: scalable/mimetypes/image-tiff.svg
+    category: mimetypes
+    names: [image-tiff]
+    sizes: [16, 24, 32, 64]
+
+  - src: image-vnd.adobe.photoshop.svg
+    from: scalable/mimetypes/image-vnd.adobe.photoshop.svg
+    category: mimetypes
+    names: [image-vnd.adobe.photoshop]
+    sizes: [16, 24, 32, 64]
+
+  - src: image-vnd.djvu.svg
+    from: scalable/mimetypes/image-vnd.djvu.svg
+    category: mimetypes
+    names: [image-vnd.djvu]
+    sizes: [16, 24, 32, 64]
+
+  - src: image-x-eps.svg
+    from: scalable/mimetypes/image-x-eps.svg
+    category: mimetypes
+    names: [image-x-eps]
+    sizes: [16, 24, 32, 64]
+
+  - src: image-x-generic.svg
+    from: scalable/mimetypes/image-x-generic.svg
+    category: mimetypes
+    names: [image-x-generic]
+    sizes: [16, 24, 32, 64]
+
+  - src: image-x-krita.svg
+    from: scalable/mimetypes/image-x-krita.svg
+    category: mimetypes
+    names: [image-x-krita]
+    sizes: [16, 24, 32, 64]
+
+  - src: image-x-tga.svg
+    from: scalable/mimetypes/image-x-tga.svg
+    category: mimetypes
+    names: [image-x-tga]
+    sizes: [16, 24, 32, 64]
+
+  - src: image-x-xcf.svg
+    from: scalable/mimetypes/image-x-xcf.svg
+    category: mimetypes
+    names: [image-x-xcf]
+    sizes: [16, 24, 32, 64]
+

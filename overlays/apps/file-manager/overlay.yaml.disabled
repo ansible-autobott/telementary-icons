@@ -1,0 +1,31 @@
+# overlay.yaml — applies this design set into the icon theme via `make overlay`.
+# See icons/designs/apps/smb4k/overlay.yaml for the full field reference.
+#
+# system-file-manager has hand-tuned, DIFFERENT art per size (all 8 SVGs are
+# byte-unique), so each size is its own copy (single-size links, no symlinks).
+# Applied at 16/22/32/48 (22 added so KDE uses our art instead of the inherited
+# Breeze fallback; 24 and 64 intentionally left to fall back). The 24/64/96/128
+# SVGs are kept as source but not applied.
+
+set: file-manager
+
+links:
+  - src: system-file-manager-16.svg
+    category: apps
+    names: [system-file-manager]
+    sizes: [16]
+
+  - src: system-file-manager-22.svg
+    category: apps
+    names: [system-file-manager]
+    sizes: [22]
+
+  - src: system-file-manager-32.svg
+    category: apps
+    names: [system-file-manager]
+    sizes: [32]
+
+  - src: system-file-manager-48.svg
+    category: apps
+    names: [system-file-manager]
+    sizes: [48]
