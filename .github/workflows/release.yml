@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+      - 'v*.*.*-*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Derive version from tag
+        # v1.2.3 -> 1.2.3 (nfpm reads ${VERSION} from nfpm.yaml)
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_ENV"
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: 'stable'
+
+      - name: Install nfpm
+        run: go install github.com/goreleaser/nfpm/v2/cmd/nfpm@v2.41.1
+
+      - name: Build .deb
+        run: make build
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: '*.deb'
+          generate_release_notes: true

@@ -1,0 +1,27 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# GlobalProtect VPN client app icon. GlobalProtect ships only a 48px hicolor PNG
+# (a blue globe + dark shield-with-check) and Tela has no GlobalProtect artwork,
+# so this is an original mark redrawn to Tela's brand-tile conventions (see
+# overlays/TELA-CONVENTIONS.md): the light #f4f2f8 rounded tile from
+# scalable/apps/protonvpn.svg, a flat cyan wireframe globe, and a navy shield
+# with a white check.
+#
+# NOTE: the installed globalprotect.desktop sets Icon= to an absolute PNG path,
+# which bypasses the icon theme. For this overlay to show, that entry must
+# reference the name instead (Icon=globalprotect), e.g. via a user override at
+# ~/.local/share/applications/globalprotect.desktop.
+#
+# apps buckets: 16/22/24/32/48/64 — first size a real copy, rest symlinks.
+
+set: globalprotect
+
+origin:
+  theme: telementary (original, Tela-style)
+
+links:
+  - src: globalprotect.svg
+    category: apps
+    names: [globalprotect]
+    sizes: [16, 22, 24, 32, 48, 64]

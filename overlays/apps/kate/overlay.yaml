@@ -1,0 +1,19 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# Kate editor app icon from the Tela icon theme. Tela points org.kde.kate at a
+# generic text-editor icon, so both names here map to the Kate-branded icon.
+#
+# apps buckets: 16/22/24/32/48/64 — first size a real copy per name, rest symlinks.
+
+set: kate
+
+origin:
+  theme: Tela
+
+links:
+  - src: kate.svg
+    from: scalable/apps/kate.svg
+    category: apps
+    names: [kate, org.kde.kate]
+    sizes: [16, 22, 24, 32, 48, 64]

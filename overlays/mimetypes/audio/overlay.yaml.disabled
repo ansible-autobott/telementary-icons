@@ -1,0 +1,25 @@
+# overlay.yaml — applies this design set into the icon theme via `make overlay`.
+# See icons/designs/apps/smb4k/overlay.yaml for the full field reference.
+#
+# audio-x-generic — mimetypes. Byte-identical sizes were de-duplicated: the
+# theme's mimetypes buckets are 16/24/32/64, and 24 == 32, so 24 is copied and
+# 32 symlinks to it (sizes: [24, 32]). The 48/128 SVGs and the -edit variant
+# (+ audio-ac3.png) are kept as source material but not applied.
+
+set: audio
+
+links:
+  - src: audio-x-generic-16.svg
+    category: mimetypes
+    names: [audio-x-generic]
+    sizes: [16]
+
+  - src: audio-x-generic-24.svg
+    category: mimetypes
+    names: [audio-x-generic]
+    sizes: [24, 32]
+
+  - src: audio-x-generic-64.svg
+    category: mimetypes
+    names: [audio-x-generic]
+    sizes: [64]

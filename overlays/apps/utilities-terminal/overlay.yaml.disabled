@@ -1,0 +1,47 @@
+# overlay.yaml — applies this design set into the icon theme via `make overlay`.
+# See icons/designs/apps/smb4k/overlay.yaml for the full field reference.
+#
+# utilities-terminal — apps. Extracted from the theme (apps/16..64) so it is an
+# owned, editable overlay. Sizes are distinct art (own copy each), except 22,
+# which reuses the 24 art (symlink) so KDE uses our icon at 22 instead of the
+# inherited Breeze fallback.
+
+set: utilities-terminal
+
+# Provenance: every source below was copied verbatim from the elementary icon
+# theme; each link's `from` is the source path within that theme (metadata only
+# — ignored by `make overlay`). No absolute path is stored — it is
+# machine-specific and may change.
+origin:
+  theme: elementary
+
+links:
+  - src: utilities-terminal-16.svg
+    from: apps/16/utilities-terminal.svg
+    category: apps
+    names: [utilities-terminal]
+    sizes: [16]
+
+  - src: utilities-terminal-24.svg
+    from: apps/24/utilities-terminal.svg
+    category: apps
+    names: [utilities-terminal]
+    sizes: [24, 22]  # 24 is the real copy; 22 reuses it (symlink -> ../24)
+
+  - src: utilities-terminal-32.svg
+    from: apps/32/utilities-terminal.svg
+    category: apps
+    names: [utilities-terminal]
+    sizes: [32]
+
+  - src: utilities-terminal-48.svg
+    from: apps/48/utilities-terminal.svg
+    category: apps
+    names: [utilities-terminal]
+    sizes: [48]
+
+  - src: utilities-terminal-64.svg
+    from: apps/64/utilities-terminal.svg
+    category: apps
+    names: [utilities-terminal]
+    sizes: [64]

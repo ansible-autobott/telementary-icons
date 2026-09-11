@@ -1,0 +1,16 @@
+.directory
+
+# JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, PyCharm, CLion, WebStorm, …
+.idea/
+*.iml
+
+**.deb
+
+# output/ is generated from overlays/ + tela-icons/ by `make theme` — never commit it
+/output/
+
+# compiled go binary (module is `icons`), do not track
+/tools/icons
+
+# local documentation / notes — not versioned
+/docs/

@@ -1,0 +1,86 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# Per-format audio mimetype icons imported from the Tela icon theme. Each Tela
+# source is a single scalable SVG, published into the theme's mimetypes buckets
+# (16/24/32/64): first size is a real copy, the rest relative symlinks to it.
+# Replaces the older hand-designed set (now disabled).
+
+set: audio-tela
+
+origin:
+  theme: Tela
+
+links:
+  - src: audio-aac.svg
+    from: scalable/mimetypes/audio-aac.svg
+    category: mimetypes
+    names: [audio-aac]
+    sizes: [16, 24, 32, 64]
+
+  - src: audio-flac.svg
+    from: scalable/mimetypes/audio-flac.svg
+    category: mimetypes
+    names: [audio-flac]
+    sizes: [16, 24, 32, 64]
+
+  - src: audio-midi.svg
+    from: scalable/mimetypes/audio-midi.svg
+    category: mimetypes
+    names: [audio-midi]
+    sizes: [16, 24, 32, 64]
+
+  - src: audio-mp4.svg
+    from: scalable/mimetypes/audio-mp4.svg
+    category: mimetypes
+    names: [audio-mp4]
+    sizes: [16, 24, 32, 64]
+
+  - src: audio-mpeg.svg
+    from: scalable/mimetypes/audio-mpeg.svg
+    category: mimetypes
+    names: [audio-mpeg]
+    sizes: [16, 24, 32, 64]
+
+  - src: audio-x-aiff.svg
+    from: scalable/mimetypes/audio-x-aiff.svg
+    category: mimetypes
+    names: [audio-x-aiff]
+    sizes: [16, 24, 32, 64]
+
+  - src: audio-x-flac.svg
+    from: scalable/mimetypes/audio-x-flac.svg
+    category: mimetypes
+    names: [audio-x-flac]
+    sizes: [16, 24, 32, 64]
+
+  - src: audio-x-generic.svg
+    from: scalable/mimetypes/audio-x-generic.svg
+    category: mimetypes
+    names: [audio-x-generic]
+    sizes: [16, 24, 32, 64]
+
+  - src: audio-x-m4a.svg
+    from: scalable/mimetypes/audio-x-m4a.svg
+    category: mimetypes
+    names: [audio-x-m4a]
+    sizes: [16, 24, 32, 64]
+
+  - src: audio-x-ms-wma.svg
+    from: scalable/mimetypes/audio-x-ms-wma.svg
+    category: mimetypes
+    names: [audio-x-ms-wma]
+    sizes: [16, 24, 32, 64]
+
+  - src: audio-x-vorbis+ogg.svg
+    from: scalable/mimetypes/audio-x-vorbis+ogg.svg
+    category: mimetypes
+    names: [audio-x-vorbis+ogg]
+    sizes: [16, 24, 32, 64]
+
+  - src: audio-x-wav.svg
+    from: scalable/mimetypes/audio-x-wav.svg
+    category: mimetypes
+    names: [audio-x-wav]
+    sizes: [16, 24, 32, 64]
+

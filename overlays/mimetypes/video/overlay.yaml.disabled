@@ -1,0 +1,30 @@
+# overlay.yaml — applies this design set into the icon theme via `make overlay`.
+# See icons/designs/apps/smb4k/overlay.yaml for the full field reference.
+#
+# video-x-generic — mimetypes. Byte-identical sizes were de-duplicated (96 == 128,
+# kept as -128). The theme's mimetypes buckets are 16/24/32/64, each distinct art
+# here, so each is its own copy. The 22/48/128 SVGs are kept as source but not
+# applied.
+
+set: video
+
+links:
+  - src: video-x-generic-16.svg
+    category: mimetypes
+    names: [video-x-generic]
+    sizes: [16]
+
+  - src: video-x-generic-24.svg
+    category: mimetypes
+    names: [video-x-generic]
+    sizes: [24]
+
+  - src: video-x-generic-32.svg
+    category: mimetypes
+    names: [video-x-generic]
+    sizes: [32]
+
+  - src: video-x-generic-64.svg
+    category: mimetypes
+    names: [video-x-generic]
+    sizes: [64]

@@ -1,0 +1,25 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# Dolphin / file-manager app icon imported from the Tela icon theme. Tela draws
+# one file-manager icon (file-manager.svg) and points org.kde.dolphin and
+# system-file-manager at it, so this maps that single source to those names.
+# Replaces the older hand-designed file-manager set (now disabled).
+#
+# apps buckets: 16/22/24/32/48/64 — first size is a real copy per name, the rest
+# relative symlinks to it.
+
+set: file-manager-tela
+
+origin:
+  theme: Tela
+
+links:
+  - src: file-manager.svg
+    from: scalable/apps/file-manager.svg
+    category: apps
+    names:
+      - org.kde.dolphin
+      - system-file-manager
+      - file-manager
+    sizes: [16, 22, 24, 32, 48, 64]

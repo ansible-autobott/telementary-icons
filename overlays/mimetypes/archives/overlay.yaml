@@ -1,0 +1,119 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# Compressed / archive mimetype icons imported from the Tela icon theme
+# (per-format artwork). Each Tela source is a single scalable SVG; here it is
+# published into the theme's mimetypes buckets (16/24/32/64): the first size is
+# a real copy, the rest are relative symlinks to it. Source filename == the
+# freedesktop icon name it maps to.
+#
+# The older ark-zip set (a single generic package-x-generic icon) is disabled
+# in favour of these — package-x-generic below comes from Tela instead.
+
+set: archives
+
+origin:
+  theme: Tela
+
+links:
+  - src: application-zip.svg
+    from: scalable/mimetypes/application-zip.svg
+    category: mimetypes
+    names: [application-zip]
+    sizes: [16, 24, 32, 64]
+
+  - src: application-x-7z-compressed.svg
+    from: scalable/mimetypes/application-x-7z-compressed.svg
+    category: mimetypes
+    names: [application-x-7z-compressed]
+    sizes: [16, 24, 32, 64]
+
+  - src: application-x-tar.svg
+    from: scalable/mimetypes/application-x-tar.svg
+    category: mimetypes
+    names: [application-x-tar]
+    sizes: [16, 24, 32, 64]
+
+  - src: application-x-compressed-tar.svg
+    from: scalable/mimetypes/application-x-compressed-tar.svg
+    category: mimetypes
+    names: [application-x-compressed-tar]
+    sizes: [16, 24, 32, 64]
+
+  - src: application-x-xz.svg
+    from: scalable/mimetypes/application-x-xz.svg
+    category: mimetypes
+    names: [application-x-xz]
+    sizes: [16, 24, 32, 64]
+
+  - src: application-x-xz-compressed-tar.svg
+    from: scalable/mimetypes/application-x-xz-compressed-tar.svg
+    category: mimetypes
+    names: [application-x-xz-compressed-tar]
+    sizes: [16, 24, 32, 64]
+
+  - src: application-x-bzip.svg
+    from: scalable/mimetypes/application-x-bzip.svg
+    category: mimetypes
+    names: [application-x-bzip]
+    sizes: [16, 24, 32, 64]
+
+  - src: application-x-bzip-compressed-tar.svg
+    from: scalable/mimetypes/application-x-bzip-compressed-tar.svg
+    category: mimetypes
+    names: [application-x-bzip-compressed-tar]
+    sizes: [16, 24, 32, 64]
+
+  - src: application-gzip.svg
+    from: scalable/mimetypes/application-gzip.svg
+    category: mimetypes
+    names: [application-gzip]
+    sizes: [16, 24, 32, 64]
+
+  - src: application-x-gzip.svg
+    from: scalable/mimetypes/application-x-gzip.svg
+    category: mimetypes
+    names: [application-x-gzip]
+    sizes: [16, 24, 32, 64]
+
+  - src: application-x-rar.svg
+    from: scalable/mimetypes/application-x-rar.svg
+    category: mimetypes
+    names: [application-x-rar]
+    sizes: [16, 24, 32, 64]
+
+  - src: application-vnd.rar.svg
+    from: scalable/mimetypes/application-vnd.rar.svg
+    category: mimetypes
+    names: [application-vnd.rar]
+    sizes: [16, 24, 32, 64]
+
+  - src: application-x-archive.svg
+    from: scalable/mimetypes/application-x-archive.svg
+    category: mimetypes
+    names: [application-x-archive]
+    sizes: [16, 24, 32, 64]
+
+  - src: application-x-cpio.svg
+    from: scalable/mimetypes/application-x-cpio.svg
+    category: mimetypes
+    names: [application-x-cpio]
+    sizes: [16, 24, 32, 64]
+
+  - src: application-x-deb.svg
+    from: scalable/mimetypes/application-x-deb.svg
+    category: mimetypes
+    names: [application-x-deb]
+    sizes: [16, 24, 32, 64]
+
+  - src: application-x-rpm.svg
+    from: scalable/mimetypes/application-x-rpm.svg
+    category: mimetypes
+    names: [application-x-rpm]
+    sizes: [16, 24, 32, 64]
+
+  - src: package-x-generic.svg
+    from: scalable/mimetypes/package-x-generic.svg
+    category: mimetypes
+    names: [package-x-generic]
+    sizes: [16, 24, 32, 64]

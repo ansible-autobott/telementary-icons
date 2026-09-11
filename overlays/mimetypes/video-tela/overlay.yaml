@@ -1,0 +1,80 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# Per-format video mimetype icons imported from the Tela icon theme. Each Tela
+# source is a single scalable SVG, published into the theme's mimetypes buckets
+# (16/24/32/64): first size is a real copy, the rest relative symlinks to it.
+# Replaces the older hand-designed set (now disabled).
+
+set: video-tela
+
+origin:
+  theme: Tela
+
+links:
+  - src: video-mp2t.svg
+    from: scalable/mimetypes/video-mp2t.svg
+    category: mimetypes
+    names: [video-mp2t]
+    sizes: [16, 24, 32, 64]
+
+  - src: video-mp4.svg
+    from: scalable/mimetypes/video-mp4.svg
+    category: mimetypes
+    names: [video-mp4]
+    sizes: [16, 24, 32, 64]
+
+  - src: video-quicktime.svg
+    from: scalable/mimetypes/video-quicktime.svg
+    category: mimetypes
+    names: [video-quicktime]
+    sizes: [16, 24, 32, 64]
+
+  - src: video-webm.svg
+    from: scalable/mimetypes/video-webm.svg
+    category: mimetypes
+    names: [video-webm]
+    sizes: [16, 24, 32, 64]
+
+  - src: video-x-flv.svg
+    from: scalable/mimetypes/video-x-flv.svg
+    category: mimetypes
+    names: [video-x-flv]
+    sizes: [16, 24, 32, 64]
+
+  - src: video-x-generic.svg
+    from: scalable/mimetypes/video-x-generic.svg
+    category: mimetypes
+    names: [video-x-generic]
+    sizes: [16, 24, 32, 64]
+
+  - src: video-x-matroska.svg
+    from: scalable/mimetypes/video-x-matroska.svg
+    category: mimetypes
+    names: [video-x-matroska]
+    sizes: [16, 24, 32, 64]
+
+  - src: video-x-ms-asf.svg
+    from: scalable/mimetypes/video-x-ms-asf.svg
+    category: mimetypes
+    names: [video-x-ms-asf]
+    sizes: [16, 24, 32, 64]
+
+  - src: video-x-msvideo.svg
+    from: scalable/mimetypes/video-x-msvideo.svg
+    category: mimetypes
+    names: [video-x-msvideo]
+    sizes: [16, 24, 32, 64]
+
+  - src: video-x-ms-wmv.svg
+    from: scalable/mimetypes/video-x-ms-wmv.svg
+    category: mimetypes
+    names: [video-x-ms-wmv]
+    sizes: [16, 24, 32, 64]
+
+  - src: video-x-theora+ogg.svg
+    from: scalable/mimetypes/video-x-theora+ogg.svg
+    category: mimetypes
+    names: [video-x-theora+ogg]
+    sizes: [16, 24, 32, 64]
+

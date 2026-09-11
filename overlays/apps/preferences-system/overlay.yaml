@@ -1,0 +1,22 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# preferences-system — the KDE System Settings app icon, from the Tela icon
+# theme. This is the name systemsettings.desktop / kdesystemsettings.desktop
+# request (Icon=preferences-system), and the root of the preferences-system-*
+# KCM icon family. (The separate `systemsettings` gear icon, used only by the
+# "Open System Settings" Plasma action, is intentionally not overlaid.)
+#
+# apps buckets: 16/22/24/32/48/64 — first size a real copy, rest symlinks.
+
+set: preferences-system
+
+origin:
+  theme: Tela
+
+links:
+  - src: preferences-system.svg
+    from: scalable/apps/preferences-system.svg
+    category: apps
+    names: [preferences-system]
+    sizes: [16, 22, 24, 32, 48, 64]

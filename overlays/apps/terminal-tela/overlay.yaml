@@ -1,0 +1,27 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# Terminal app icon imported from the Tela icon theme. Tela draws one terminal
+# icon (terminal.svg) and points utilities-terminal / org.kde.konsole /
+# gnome-terminal at it, so this maps that single source to the common terminal
+# app names. Replaces the older hand-designed utilities-terminal set (disabled).
+#
+# apps buckets: 16/22/24/32/48/64 — first size is a real copy per name, the rest
+# relative symlinks to it.
+
+set: terminal-tela
+
+origin:
+  theme: Tela
+
+links:
+  - src: terminal.svg
+    from: scalable/apps/terminal.svg
+    category: apps
+    names:
+      - utilities-terminal
+      - org.kde.konsole
+      - terminal
+      - x-terminal-emulator
+      - gnome-terminal
+    sizes: [16, 22, 24, 32, 48, 64]
