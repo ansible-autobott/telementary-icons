@@ -2,6 +2,12 @@ name: "telementary-icons"
 arch: "all"
 platform: "linux"
 version: "${VERSION}"
+# Debian package revision (the part after the dash). Kept separate from
+# ${VERSION} so a "same upstream version, new build" tag like v0.1.0-1 renders
+# as the Debian revision 0.1.0-1 (which sorts ABOVE 0.1.0). Putting the -1 in
+# ${VERSION} instead makes nfpm's semver parser treat it as a pre-release and
+# emit 0.1.0~1 (which sorts BELOW 0.1.0). Empty for a plain vX.Y.Z tag.
+release: "${RELEASE}"
 section: "default"
 priority: "optional"
 
