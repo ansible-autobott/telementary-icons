@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+  <defs>
+    <linearGradient id="a" x1="0" x2="0" y1="4" y2="28" gradientUnits="userSpaceOnUse">
+      <stop offset="0" style="stop-color:#737373;stop-opacity:1"/>
+      <stop offset=".262" style="stop-color:#636363;stop-opacity:1"/>
+      <stop offset=".705" style="stop-color:#4b4b4b;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#3f3f3f;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <path d="M4 4v10h5v9h9v5h10V18H18v4h-8v-8h4V9h4v5h10V4H18v4h-4V4zm1 1h8v8H5zm14 0h8v8h-8z" style="opacity:.35;fill:#fff;stroke:none" transform="matrix(.85 0 0 .85 2.4 3.25)"/>
+  <path d="M4 4v10h5v9h9v5h10V18H18v4h-8v-8h4V9h4v5h10V4H18v4h-4V4zm1 1h8v8H5zm14 0h8v8h-8z" style="fill:url(#a);stroke:none" transform="matrix(.85 0 0 .85 2.4 2.4)"/>
+  <path d="M4.5 4.5V5a.5.5 0 0 1 .5-.5Zm8.5 0a.5.5 0 0 1 .5.5v-.5Zm5.5 0V5a.5.5 0 0 1 .5-.5Zm8.5 0a.5.5 0 0 1 .5.5v-.5ZM13.5 8v1a.5.5 0 0 1 .5-.5.5.5 0 0 1-.5-.5m5 0a.5.5 0 0 1-.5.5.5.5 0 0 1 .5.5Zm-14 5v.5H5a.5.5 0 0 1-.5-.5m9 0a.5.5 0 0 1-.5.5h.5zm5 0v.5h.5a.5.5 0 0 1-.5-.5m9 0a.5.5 0 0 1-.5.5h.5zM9 13.5a.5.5 0 0 1 .5.5.5.5 0 0 1 .5-.5Zm9.5 5V22a.5.5 0 0 1-.5.5.5.5 0 0 1 .5.5v4.5h9v-9zm-9 3.5v.5h.5a.5.5 0 0 1-.5-.5" style="opacity:.1;fill:none;stroke:#000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" transform="matrix(.85 0 0 .85 2.4 2.4)"/>
+  <path d="M19.4 19.4V22a1.4 1.4 0 0 1-.5.5 1.4 1.4 0 0 1 .5.5v3.6h7.2v-7.2z" style="opacity:.03;fill:none;stroke:#000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" transform="matrix(.85 0 0 .85 2.4 2.4)"/>
+</svg>

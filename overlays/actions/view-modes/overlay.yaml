@@ -1,0 +1,109 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# view-modes — actions. Dolphin's three view-switcher toolbar buttons:
+#   view-list-icons   (Icons view)
+#   view-list-details (Details view)
+#   view-list-tree    (Compact view)
+#   view-list-text    (Text view)
+#
+# Art is copied verbatim from the Breeze icon theme (breeze-icons, LGPL-3.0),
+# which already ships these as monochrome icons using the ColorScheme-Text /
+# currentColor stylesheet — so they follow the active KDE color scheme with no
+# recolor fixup. Breeze provides 16/22/32 (base == symbolic); it has no 24, so
+# the 22 art also serves the 24 bucket. The symbolic bucket uses Breeze's
+# 22px -symbolic art.
+
+set: view-modes
+
+origin:
+  theme: breeze
+
+links:
+  # --- view-list-icons (Icons view) ---
+  - src: view-list-icons-16.svg
+    from: icons/actions/16/view-list-icons.svg
+    category: actions
+    names: [view-list-icons]
+    sizes: [16]
+  - src: view-list-icons-22.svg
+    from: icons/actions/22/view-list-icons.svg
+    category: actions
+    names: [view-list-icons]
+    sizes: [22, 24]
+  - src: view-list-icons-32.svg
+    from: icons/actions/32/view-list-icons.svg
+    category: actions
+    names: [view-list-icons]
+    sizes: [32]
+  - src: view-list-icons-symbolic.svg
+    from: icons/actions/22/view-list-icons-symbolic.svg
+    category: actions
+    names: [view-list-icons-symbolic]
+    sizes: [symbolic]
+
+  # --- view-list-details (Details view) ---
+  - src: view-list-details-16.svg
+    from: icons/actions/16/view-list-details.svg
+    category: actions
+    names: [view-list-details]
+    sizes: [16]
+  - src: view-list-details-22.svg
+    from: icons/actions/22/view-list-details.svg
+    category: actions
+    names: [view-list-details]
+    sizes: [22, 24]
+  - src: view-list-details-32.svg
+    from: icons/actions/32/view-list-details.svg
+    category: actions
+    names: [view-list-details]
+    sizes: [32]
+  - src: view-list-details-symbolic.svg
+    from: icons/actions/22/view-list-details-symbolic.svg
+    category: actions
+    names: [view-list-details-symbolic]
+    sizes: [symbolic]
+
+  # --- view-list-tree (Compact view) ---
+  - src: view-list-tree-16.svg
+    from: icons/actions/16/view-list-tree.svg
+    category: actions
+    names: [view-list-tree]
+    sizes: [16]
+  - src: view-list-tree-22.svg
+    from: icons/actions/22/view-list-tree.svg
+    category: actions
+    names: [view-list-tree]
+    sizes: [22, 24]
+  - src: view-list-tree-32.svg
+    from: icons/actions/32/view-list-tree.svg
+    category: actions
+    names: [view-list-tree]
+    sizes: [32]
+  - src: view-list-tree-symbolic.svg
+    from: icons/actions/22/view-list-tree-symbolic.svg
+    category: actions
+    names: [view-list-tree-symbolic]
+    sizes: [symbolic]
+
+  # --- view-list-text (Text view) ---
+  - src: view-list-text-16.svg
+    from: icons/actions/16/view-list-text.svg
+    category: actions
+    names: [view-list-text]
+    sizes: [16]
+  - src: view-list-text-22.svg
+    from: icons/actions/22/view-list-text.svg
+    category: actions
+    names: [view-list-text]
+    sizes: [22, 24]
+  - src: view-list-text-32.svg
+    from: icons/actions/32/view-list-text.svg
+    category: actions
+    names: [view-list-text]
+    sizes: [32]
+  - src: view-list-text-symbolic.svg
+    from: icons/actions/22/view-list-text-symbolic.svg
+    category: actions
+    names: [view-list-text-symbolic]
+    sizes: [symbolic]

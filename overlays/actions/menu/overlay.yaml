@@ -1,0 +1,48 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# menu — actions. The Dolphin control-button ("hamburger") menu. Note that
+# elementary's `open-menu` glyph is a gear/settings cog, not a three-line
+# hamburger — that is elementary's artwork for this name.
+#
+# Numeric buckets (16/24/32/48) are elementary's full-color art copied verbatim;
+# elementary ships no 22, so the 24 art also serves the 22 bucket (Dolphin's
+# default toolbar size). The symbolic bucket is elementary's symbolic glyph
+# recolored from GNOME's `url(#gpa:foreground)` to this repo's ColorScheme-Text /
+# currentColor pattern (see overlays/README.md).
+#
+# NOTE: the numeric art is full-color and does NOT follow the KDE color scheme;
+# only the symbolic bucket recolors. Published under both `open-menu` and the
+# KDE-favored `application-menu` name.
+
+set: menu
+
+origin:
+  theme: elementary
+
+links:
+  - src: open-menu-16.svg
+    from: actions/16/open-menu.svg
+    category: actions
+    names: [open-menu, application-menu]
+    sizes: [16]
+  - src: open-menu-24.svg
+    from: actions/24/open-menu.svg
+    category: actions
+    names: [open-menu, application-menu]
+    sizes: [24, 22]
+  - src: open-menu-32.svg
+    from: actions/32/open-menu.svg
+    category: actions
+    names: [open-menu, application-menu]
+    sizes: [32]
+  - src: open-menu-48.svg
+    from: actions/48/open-menu.svg
+    category: actions
+    names: [open-menu, application-menu]
+    sizes: [48]
+  - src: open-menu-symbolic.svg
+    from: actions/symbolic/open-menu-symbolic.svg
+    category: actions
+    names: [open-menu-symbolic, application-menu-symbolic]
+    sizes: [symbolic]

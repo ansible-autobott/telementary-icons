@@ -1,0 +1,97 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# recent — the "Recent Files" row in Dolphin's sidebar:
+#   Recent Files -> document-open-recent   (elementary actions/, a clock with a
+#                   back-arrow)
+# Artwork is taken verbatim from the elementary icon theme (GPL-3.0, same
+# license as the vendored Tela base); each size is distinct art.
+#
+# NOTE: folder-recent and folder-open-recent are NOT published here — the
+# elementary folder-recent art (recolored orange -> blue) now lives in
+# overlays/places/folder-types/ and serves BOTH names. This set keeps only
+# document-open-recent.
+#
+# document-open-recent is published into BOTH actions and places. freedesktop
+# icon lookup scans every directory in index.theme order regardless of Context,
+# and the theme ships the name in both places (actions/16/document-open-recent
+# is a real Tela file, places/16/document-open-recent is a Tela symlink onto
+# folder-temp). Publishing only one context would leave the other on Tela art
+# and make which icon wins depend on directory order.
+#
+# Missing sizes are filled from the closest available source:
+#   * no 22 in elementary -> the 24 art serves both 22 and 24.
+#   * document-open-recent stops at 48 -> its 48 art covers `scalable` too
+#     (the scalable entry symlinks back to places/48). `actions` has no 48 or
+#     scalable bucket at all, so it ends at 32 there.
+#
+# The *-symbolic.svg files are the only ones that are not verbatim copies:
+# elementary paints them with GNOME's `url(#gpa:foreground)`, which KDE cannot
+# recolor, so the fill was swapped for this repo's ColorScheme-Text /
+# currentColor pattern (see overlays/README.md). Path data is unchanged; a
+# viewBox was added so they scale in the symbolic bucket.
+
+set: recent
+
+origin:
+  theme: elementary
+
+links:
+  # --- Recent Files: document-open-recent, in actions ----------------------
+  # actions has buckets 16/22/24/32/symbolic — no 48, so the 48 art is unused
+  # here (it is used by the places links below).
+  - src: document-open-recent-16.svg
+    from: actions/16/document-open-recent.svg
+    category: actions
+    names: [document-open-recent]
+    sizes: [16]
+
+  - src: document-open-recent-24.svg
+    from: actions/24/document-open-recent.svg
+    category: actions
+    names: [document-open-recent]
+    sizes: [24, 22]
+
+  - src: document-open-recent-32.svg
+    from: actions/32/document-open-recent.svg
+    category: actions
+    names: [document-open-recent]
+    sizes: [32]
+
+  - src: document-open-recent-symbolic.svg
+    from: actions/symbolic/document-open-recent-symbolic.svg
+    category: actions
+    names: [document-open-recent-symbolic]
+    sizes: [symbolic]
+
+  # --- Recent Files: document-open-recent, in places -----------------------
+  - src: document-open-recent-16.svg
+    from: actions/16/document-open-recent.svg
+    category: places
+    names: [document-open-recent]
+    sizes: [16]
+
+  - src: document-open-recent-24.svg
+    from: actions/24/document-open-recent.svg
+    category: places
+    names: [document-open-recent]
+    sizes: [24, 22]
+
+  - src: document-open-recent-32.svg
+    from: actions/32/document-open-recent.svg
+    category: places
+    names: [document-open-recent]
+    sizes: [32]
+
+  # elementary stops at 48 for this one — the 48 art covers scalable too.
+  - src: document-open-recent-48.svg
+    from: actions/48/document-open-recent.svg
+    category: places
+    names: [document-open-recent]
+    sizes: [48, scalable]
+
+  - src: document-open-recent-symbolic.svg
+    from: actions/symbolic/document-open-recent-symbolic.svg
+    category: places
+    names: [document-open-recent-symbolic]
+    sizes: [symbolic]

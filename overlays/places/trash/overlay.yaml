@@ -1,0 +1,120 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# trash — places. The empty and full wastebasket, as Dolphin/KIO and the Places
+# panel draw them. Artwork is taken verbatim from the elementary icon theme
+# (GPL-3.0, same license as the vendored Tela base); each size is distinct art,
+# so each gets its own source file and its own link. Same shape as the
+# sibling `home` set.
+#
+# Only the two canonical names are published. Tela already symlinks the ~20
+# legacy trash names (trash-empty, trash-full, trashcan_empty, trashcan_full,
+# emptytrash, edittrash, gnome-dev-trash-empty/-full, gnome-fs-trash-empty/-full,
+# gnome-fs-trash-empty-accept, gnome-stock-trash*, stock_trash_empty/_full,
+# xfce-trash_empty/_full) onto user-trash.svg / user-trash-full.svg at
+# 16/22/24 and scalable, so they all pick up this art for free.
+#
+# elementary ships no 22, so the 24 art serves both 22 and 24 (both names).
+#
+# Two gaps in the elementary source, handled differently per name:
+#   * user-trash has 128 art -> that becomes the `scalable` entry, as in `home`.
+#   * user-trash-full has NO 128 -> its 64 art covers `scalable` too (the
+#     scalable bucket symlinks back to places/64/user-trash-full.svg), so empty
+#     and full stay the same style at large sizes.
+#   * user-trash-full has NO symbolic -> places/symbolic/user-trash-full-symbolic
+#     stays Tela's. See the note at the bottom of this file.
+#
+# user-trash-symbolic.svg is the one file that is not a verbatim copy: elementary
+# paints it with GNOME's `url(#gpa:foreground)`, which KDE cannot recolor, so the
+# fill was swapped for this repo's ColorScheme-Text / currentColor pattern (see
+# overlays/README.md). The path data is unchanged; a viewBox was added so it
+# scales in the symbolic bucket.
+
+set: trash
+
+origin:
+  theme: elementary
+
+links:
+  # --- user-trash (empty) ---------------------------------------------------
+  - src: user-trash-16.svg
+    from: places/16/user-trash.svg
+    category: places
+    names: [user-trash]
+    sizes: [16]
+
+  # elementary has no 22 — the 24 art covers both (24 is the real copy).
+  - src: user-trash-24.svg
+    from: places/24/user-trash.svg
+    category: places
+    names: [user-trash]
+    sizes: [24, 22]
+
+  - src: user-trash-32.svg
+    from: places/32/user-trash.svg
+    category: places
+    names: [user-trash]
+    sizes: [32]
+
+  - src: user-trash-48.svg
+    from: places/48/user-trash.svg
+    category: places
+    names: [user-trash]
+    sizes: [48]
+
+  - src: user-trash-64.svg
+    from: places/64/user-trash.svg
+    category: places
+    names: [user-trash]
+    sizes: [64]
+
+  # No 128 bucket in the theme; elementary's 128 art is the scalable entry.
+  - src: user-trash-128.svg
+    from: places/128/user-trash.svg
+    category: places
+    names: [user-trash]
+    sizes: [scalable]
+
+  - src: user-trash-symbolic.svg
+    from: places/symbolic/user-trash-symbolic.svg
+    category: places
+    names: [user-trash-symbolic]
+    sizes: [symbolic]
+
+  # --- user-trash-full ------------------------------------------------------
+  - src: user-trash-full-16.svg
+    from: places/16/user-trash-full.svg
+    category: places
+    names: [user-trash-full]
+    sizes: [16]
+
+  - src: user-trash-full-24.svg
+    from: places/24/user-trash-full.svg
+    category: places
+    names: [user-trash-full]
+    sizes: [24, 22]
+
+  - src: user-trash-full-32.svg
+    from: places/32/user-trash-full.svg
+    category: places
+    names: [user-trash-full]
+    sizes: [32]
+
+  - src: user-trash-full-48.svg
+    from: places/48/user-trash-full.svg
+    category: places
+    names: [user-trash-full]
+    sizes: [48]
+
+  # elementary ships no 128 for the full bin — the 64 art covers scalable too.
+  - src: user-trash-full-64.svg
+    from: places/64/user-trash-full.svg
+    category: places
+    names: [user-trash-full]
+    sizes: [64, scalable]
+
+# NOTE — user-trash-full-symbolic is deliberately NOT overlaid: elementary has
+# no symbolic full-bin, so it stays Tela's. That leaves the symbolic pair in two
+# styles (elementary's solid bin for empty, Tela's outlined bin for full). If
+# that matters, drop the user-trash-symbolic link above and let both come from
+# Tela instead.

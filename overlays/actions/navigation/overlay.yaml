@@ -1,0 +1,271 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# navigation — actions. Dolphin's toolbar navigation buttons: Back, Forward,
+# Up, Down, and Home.
+#
+# go-previous / go-next / go-up / go-down: the numeric buckets (16/24/32/48) are
+# elementary's full-color art copied verbatim (GPL-3.0, same license as the
+# vendored Tela base) — each size is distinct art. elementary ships no 22, so
+# the 24 art also serves the 22 bucket (Dolphin's default toolbar size). The
+# symbolic bucket is elementary's symbolic glyph recolored from GNOME's
+# `url(#gpa:foreground)` to this repo's ColorScheme-Text / currentColor pattern
+# (see overlays/README.md) so it follows the active color scheme.
+#
+# NOTE: the numeric arrows are full-color and do NOT follow the KDE color
+# scheme (that is elementary's artwork); only the symbolic bucket recolors.
+#
+# go-home: elementary's actions/go-home is a symlink to places/user-home, so the
+# numeric buckets (16/24/32/48; 22 via the 24 art) are that full-color house art
+# copied verbatim, and the symbolic bucket is recolored to ColorScheme-Text.
+
+set: navigation
+
+origin:
+  theme: elementary
+
+links:
+  # --- go-previous (Back) — verbatim elementary numeric, recolored symbolic ---
+  - src: go-previous-16.svg
+    from: actions/16/go-previous.svg
+    category: actions
+    names: [go-previous]
+    sizes: [16]
+  - src: go-previous-24.svg
+    from: actions/24/go-previous.svg
+    category: actions
+    names: [go-previous]
+    sizes: [24, 22]
+  - src: go-previous-32.svg
+    from: actions/32/go-previous.svg
+    category: actions
+    names: [go-previous]
+    sizes: [32]
+  - src: go-previous-48.svg
+    from: actions/48/go-previous.svg
+    category: actions
+    names: [go-previous]
+    sizes: [48]
+  - src: go-previous-symbolic.svg
+    from: actions/symbolic/go-previous-symbolic.svg
+    category: actions
+    names: [go-previous-symbolic]
+    sizes: [symbolic]
+
+  # --- go-next (Forward) ---
+  - src: go-next-16.svg
+    from: actions/16/go-next.svg
+    category: actions
+    names: [go-next]
+    sizes: [16]
+  - src: go-next-24.svg
+    from: actions/24/go-next.svg
+    category: actions
+    names: [go-next]
+    sizes: [24, 22]
+  - src: go-next-32.svg
+    from: actions/32/go-next.svg
+    category: actions
+    names: [go-next]
+    sizes: [32]
+  - src: go-next-48.svg
+    from: actions/48/go-next.svg
+    category: actions
+    names: [go-next]
+    sizes: [48]
+  - src: go-next-symbolic.svg
+    from: actions/symbolic/go-next-symbolic.svg
+    category: actions
+    names: [go-next-symbolic]
+    sizes: [symbolic]
+
+  # --- go-up (Up) ---
+  - src: go-up-16.svg
+    from: actions/16/go-up.svg
+    category: actions
+    names: [go-up]
+    sizes: [16]
+  - src: go-up-24.svg
+    from: actions/24/go-up.svg
+    category: actions
+    names: [go-up]
+    sizes: [24, 22]
+  - src: go-up-32.svg
+    from: actions/32/go-up.svg
+    category: actions
+    names: [go-up]
+    sizes: [32]
+  - src: go-up-48.svg
+    from: actions/48/go-up.svg
+    category: actions
+    names: [go-up]
+    sizes: [48]
+  - src: go-up-symbolic.svg
+    from: actions/symbolic/go-up-symbolic.svg
+    category: actions
+    names: [go-up-symbolic]
+    sizes: [symbolic]
+
+  # --- go-down (Down) ---
+  - src: go-down-16.svg
+    from: actions/16/go-down.svg
+    category: actions
+    names: [go-down]
+    sizes: [16]
+  - src: go-down-24.svg
+    from: actions/24/go-down.svg
+    category: actions
+    names: [go-down]
+    sizes: [24, 22]
+  - src: go-down-32.svg
+    from: actions/32/go-down.svg
+    category: actions
+    names: [go-down]
+    sizes: [32]
+  - src: go-down-48.svg
+    from: actions/48/go-down.svg
+    category: actions
+    names: [go-down]
+    sizes: [48]
+  - src: go-down-symbolic.svg
+    from: actions/symbolic/go-down-symbolic.svg
+    category: actions
+    names: [go-down-symbolic]
+    sizes: [symbolic]
+
+  # --- go-first (First) ---
+  - src: go-first-16.svg
+    from: actions/16/go-first.svg
+    category: actions
+    names: [go-first]
+    sizes: [16]
+  - src: go-first-24.svg
+    from: actions/24/go-first.svg
+    category: actions
+    names: [go-first]
+    sizes: [24, 22]
+  - src: go-first-32.svg
+    from: actions/32/go-first.svg
+    category: actions
+    names: [go-first]
+    sizes: [32]
+  - src: go-first-48.svg
+    from: actions/48/go-first.svg
+    category: actions
+    names: [go-first]
+    sizes: [48]
+  - src: go-first-symbolic.svg
+    from: actions/symbolic/go-first-symbolic.svg
+    category: actions
+    names: [go-first-symbolic]
+    sizes: [symbolic]
+
+  # --- go-last (Last) ---
+  - src: go-last-16.svg
+    from: actions/16/go-last.svg
+    category: actions
+    names: [go-last]
+    sizes: [16]
+  - src: go-last-24.svg
+    from: actions/24/go-last.svg
+    category: actions
+    names: [go-last]
+    sizes: [24, 22]
+  - src: go-last-32.svg
+    from: actions/32/go-last.svg
+    category: actions
+    names: [go-last]
+    sizes: [32]
+  - src: go-last-48.svg
+    from: actions/48/go-last.svg
+    category: actions
+    names: [go-last]
+    sizes: [48]
+  - src: go-last-symbolic.svg
+    from: actions/symbolic/go-last-symbolic.svg
+    category: actions
+    names: [go-last-symbolic]
+    sizes: [symbolic]
+
+  # --- go-top (Top) ---
+  - src: go-top-16.svg
+    from: actions/16/go-top.svg
+    category: actions
+    names: [go-top]
+    sizes: [16]
+  - src: go-top-24.svg
+    from: actions/24/go-top.svg
+    category: actions
+    names: [go-top]
+    sizes: [24, 22]
+  - src: go-top-32.svg
+    from: actions/32/go-top.svg
+    category: actions
+    names: [go-top]
+    sizes: [32]
+  - src: go-top-48.svg
+    from: actions/48/go-top.svg
+    category: actions
+    names: [go-top]
+    sizes: [48]
+  - src: go-top-symbolic.svg
+    from: actions/symbolic/go-top-symbolic.svg
+    category: actions
+    names: [go-top-symbolic]
+    sizes: [symbolic]
+
+  # --- go-bottom (Bottom) ---
+  - src: go-bottom-16.svg
+    from: actions/16/go-bottom.svg
+    category: actions
+    names: [go-bottom]
+    sizes: [16]
+  - src: go-bottom-24.svg
+    from: actions/24/go-bottom.svg
+    category: actions
+    names: [go-bottom]
+    sizes: [24, 22]
+  - src: go-bottom-32.svg
+    from: actions/32/go-bottom.svg
+    category: actions
+    names: [go-bottom]
+    sizes: [32]
+  - src: go-bottom-48.svg
+    from: actions/48/go-bottom.svg
+    category: actions
+    names: [go-bottom]
+    sizes: [48]
+  - src: go-bottom-symbolic.svg
+    from: actions/symbolic/go-bottom-symbolic.svg
+    category: actions
+    names: [go-bottom-symbolic]
+    sizes: [symbolic]
+
+  # --- go-home (Home) — verbatim elementary user-home art, recolored symbolic ---
+  # elementary's actions/go-home is a symlink to places/user-home (the house);
+  # numeric buckets are that full-color art, symbolic is recolored.
+  - src: go-home-16.svg
+    from: places/16/user-home.svg
+    category: actions
+    names: [go-home]
+    sizes: [16]
+  - src: go-home-24.svg
+    from: places/24/user-home.svg
+    category: actions
+    names: [go-home]
+    sizes: [24, 22]
+  - src: go-home-32.svg
+    from: places/32/user-home.svg
+    category: actions
+    names: [go-home]
+    sizes: [32]
+  - src: go-home-48.svg
+    from: places/48/user-home.svg
+    category: actions
+    names: [go-home]
+    sizes: [48]
+  - src: go-home-symbolic.svg
+    from: actions/symbolic/go-home-symbolic.svg
+    category: actions
+    names: [go-home-symbolic]
+    sizes: [symbolic]
