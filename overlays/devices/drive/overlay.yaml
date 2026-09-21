@@ -1,0 +1,67 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# drive — devices. The internal-disk rows in Dolphin's "Devices" section
+# (drive-harddisk, and drive-harddisk-root for the root filesystem's disk).
+# Artwork is taken verbatim from the elementary icon theme (GPL-3.0, same
+# license as the vendored Tela base); each size is distinct art.
+#
+# devices has buckets 16/22/24/32/scalable/symbolic — no 48 or 64 — so
+# elementary's 48 and 64 art is unused here and its 128 art is the scalable
+# entry.
+#
+# Missing sizes are filled from the closest available source:
+#   * no 22 in elementary -> the 24 art serves both 22 and 24.
+#   * no 128 bucket in the theme -> elementary's 128 art is the scalable entry.
+#
+# drive-harddisk-root gets the SAME art as drive-harddisk: elementary ships no
+# root/system variant in full color (only drive-harddisk-system-symbolic). If
+# the root disk should read differently, elementary's drive-harddisk-solidstate
+# is the obvious alternative — swap the src on the drive-harddisk-root links.
+#
+# drive-harddisk-system-symbolic is published alongside drive-harddisk-symbolic
+# because Tela makes the former the real file and the latter a symlink onto it;
+# overlaying only one would split them onto two different styles.
+#
+# drive-harddisk-symbolic.svg is the one file that is not a verbatim copy:
+# elementary paints it with GNOME's `url(#gpa:foreground)`, which KDE cannot
+# recolor, so the fill was swapped for this repo's ColorScheme-Text /
+# currentColor pattern (see overlays/README.md). Path data is unchanged; a
+# viewBox was added so it scales in the symbolic bucket. Note elementary has two
+# files by this name — this is devices/symbolic/, not devices/48/.
+
+set: drive
+
+origin:
+  theme: elementary
+
+links:
+  - src: drive-harddisk-16.svg
+    from: devices/16/drive-harddisk.svg
+    category: devices
+    names: [drive-harddisk, drive-harddisk-root]
+    sizes: [16]
+
+  - src: drive-harddisk-24.svg
+    from: devices/24/drive-harddisk.svg
+    category: devices
+    names: [drive-harddisk, drive-harddisk-root]
+    sizes: [24, 22]
+
+  - src: drive-harddisk-32.svg
+    from: devices/32/drive-harddisk.svg
+    category: devices
+    names: [drive-harddisk, drive-harddisk-root]
+    sizes: [32]
+
+  - src: drive-harddisk-128.svg
+    from: devices/128/drive-harddisk.svg
+    category: devices
+    names: [drive-harddisk, drive-harddisk-root]
+    sizes: [scalable]
+
+  - src: drive-harddisk-symbolic.svg
+    from: devices/symbolic/drive-harddisk-symbolic.svg
+    category: devices
+    names: [drive-harddisk-symbolic, drive-harddisk-system-symbolic, drive-harddisk-root-symbolic]
+    sizes: [symbolic]

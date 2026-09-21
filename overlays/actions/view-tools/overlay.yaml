@@ -1,0 +1,104 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# view-tools — actions. Dolphin toolbar buttons:
+#   view-preview                                      (Show Preview)
+#   view-split-left-right / view-left-close /
+#   view-right-close                                  (Split-view controls)
+#
+# Dolphin's split-view button swaps its icon with state (verified against
+# dolphinmainwindow.cpp): when NOT split it shows view-split-left-right (also
+# used by the Places panel's "Open in Split View"); when split it shows
+# view-right-close ("Close Right View") or view-left-close ("Close Left View")
+# depending on the active pane. Dolphin does NOT request view-right-new,
+# view-left-new or view-close for split view — view-right-new supplies the
+# view-split-left-right art here (via an extra name); view-left-new and
+# view-close are kept for completeness / other apps but Dolphin ignores them.
+#
+# Art provenance:
+#   - view-preview 16/22: vendored Tela base (tela-icons/, GPL-3.0) — Tela's
+#     framed-picture glyph given the beveled-gray treatment; the 22 SVG
+#     (scalable) also serves the 24/32 buckets. The symbolic bucket is that
+#     same glyph recolored to the ColorScheme-Text / currentColor stylesheet.
+#   - split-view icons: hand-designed over the Breeze names (breeze-icons,
+#     LGPL-3.0); 16/22 art only, the 22 SVG covers the 24/32 buckets. No
+#     symbolic bucket — those fall back to Breeze via Inherits.
+
+set: view-tools
+
+origin:
+  theme: breeze
+
+links:
+  # --- view-preview (Show Preview) — Tela glyph, beveled ---
+  - src: view-preview-16.svg
+    from: tela-icons/src/16/actions/view-preview.svg
+    category: actions
+    names: [view-preview]
+    sizes: [16]
+  - src: view-preview-22.svg
+    from: tela-icons/src/22/actions/view-preview.svg
+    category: actions
+    names: [view-preview]
+    sizes: [22, 24, 32]
+  - src: view-preview-symbolic.svg
+    from: tela-icons/src/16/actions/view-preview.svg
+    category: actions
+    names: [view-preview-symbolic]
+    sizes: [symbolic]
+
+  # --- Dolphin split-view toolbar buttons ---
+  - src: view-close-16.svg
+    from: icons/actions/16/view-close.svg
+    category: actions
+    names: [view-close]
+    sizes: [16]
+  - src: view-close-22.svg
+    from: icons/actions/22/view-close.svg
+    category: actions
+    names: [view-close]
+    sizes: [22, 24, 32]
+
+  - src: view-left-new-16.svg
+    from: icons/actions/16/view-left-new.svg
+    category: actions
+    names: [view-left-new]
+    sizes: [16]
+  - src: view-left-new-22.svg
+    from: icons/actions/22/view-left-new.svg
+    category: actions
+    names: [view-left-new]
+    sizes: [22, 24, 32]
+
+  - src: view-right-new-16.svg
+    from: icons/actions/16/view-right-new.svg
+    category: actions
+    names: [view-right-new, view-split-left-right]
+    sizes: [16]
+  - src: view-right-new-22.svg
+    from: icons/actions/22/view-right-new.svg
+    category: actions
+    names: [view-right-new, view-split-left-right]
+    sizes: [22, 24, 32]
+
+  - src: view-left-close-16.svg
+    from: icons/actions/16/view-left-close.svg
+    category: actions
+    names: [view-left-close]
+    sizes: [16]
+  - src: view-left-close-22.svg
+    from: icons/actions/22/view-left-close.svg
+    category: actions
+    names: [view-left-close]
+    sizes: [22, 24, 32]
+
+  - src: view-right-close-16.svg
+    from: icons/actions/16/view-right-close.svg
+    category: actions
+    names: [view-right-close]
+    sizes: [16]
+  - src: view-right-close-22.svg
+    from: icons/actions/22/view-right-close.svg
+    category: actions
+    names: [view-right-close]
+    sizes: [22, 24, 32]

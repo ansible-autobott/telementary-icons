@@ -1,0 +1,349 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# folder-types — places. The base directory icon (folder) plus the decorated
+# XDG folder icons: Documents, Pictures, Music, Videos, Downloads. Artwork is
+# sourced from the elementary icon theme (GPL-3.0, same license as the vendored
+# Tela base) and recolored from elementary's orange palette to the theme's blue
+# tones (matching folder-open-recent). Each size is distinct art, so each gets
+# its own source file and its own link.
+#
+# These cover TWO rows each in Dolphin's sidebar. The real bookmarks use
+# folder-documents / folder-pictures / folder-music / folder-videos /
+# folder-download, while the "Search For" section uses a different set of names
+# for the same concepts — folder-text, folder-images, folder-sound,
+# folder-videos. Both sets are published from the same art here, so one set
+# covers the bookmark and its search twin. (Source: ~/.local/share/user-places.xbel
+# is what names the icon for each sidebar row.)
+#
+# Names are listed explicitly rather than relying on Tela's chaining. Tela links
+# these into non-obvious chains that differ by size — e.g. folder-text ->
+# folder-txt -> folder-documents at 16, but folder-text -> folder-txt ->
+# default-folder-documents at scalable, so overlaying only the canonical name
+# would leave the search alias on Tela art at some sizes.
+#
+# Missing sizes are filled from the closest available source:
+#   * no 22 in elementary -> the 24 art serves both 22 and 24.
+#   * no 128 bucket in the theme -> elementary's 128 art is the scalable entry.
+#
+# The *-symbolic.svg files are the only ones that are not verbatim copies:
+# elementary paints them with GNOME's `url(#gpa:foreground)`, which KDE cannot
+# recolor, so the fill was swapped for this repo's ColorScheme-Text /
+# currentColor pattern (see overlays/README.md). Path data is unchanged; a
+# viewBox was added so they scale in the symbolic bucket.
+#
+# NOT included: elementary's *-open variants (folder-documents-open etc., at
+# 32/48/64/128). Nothing in the sidebar uses them.
+
+set: folder-types
+
+origin:
+  theme: elementary
+
+links:
+  # --- Base folder (generic directory icon) --------------------------------
+  # The plain directory icon Dolphin/KIO uses for any folder. Same elementary
+  # art + blue recolor as the typed folders below; elementary has no 22px, so
+  # the 24 art serves both 22 and 24.
+  - src: folder-16.svg
+    from: places/16/folder.svg
+    category: places
+    names: [folder]
+    sizes: [16]
+
+  - src: folder-24.svg
+    from: places/24/folder.svg
+    category: places
+    names: [folder]
+    sizes: [24, 22]
+
+  - src: folder-32.svg
+    from: places/32/folder.svg
+    category: places
+    names: [folder]
+    sizes: [32]
+
+  - src: folder-48.svg
+    from: places/48/folder.svg
+    category: places
+    names: [folder]
+    sizes: [48]
+
+  - src: folder-64.svg
+    from: places/64/folder.svg
+    category: places
+    names: [folder]
+    sizes: [64]
+
+  - src: folder-128.svg
+    from: places/128/folder.svg
+    category: places
+    names: [folder]
+    sizes: [scalable]
+
+  # --- Documents (bookmark: folder-documents, search: folder-text) ----------
+  - src: folder-documents-16.svg
+    from: places/16/folder-documents.svg
+    category: places
+    names: [folder-documents, folder-txt, folder-text]
+    sizes: [16]
+
+  - src: folder-documents-24.svg
+    from: places/24/folder-documents.svg
+    category: places
+    names: [folder-documents, folder-txt, folder-text]
+    sizes: [24, 22]
+
+  - src: folder-documents-32.svg
+    from: places/32/folder-documents.svg
+    category: places
+    names: [folder-documents, folder-txt, folder-text]
+    sizes: [32]
+
+  - src: folder-documents-48.svg
+    from: places/48/folder-documents.svg
+    category: places
+    names: [folder-documents, folder-txt, folder-text]
+    sizes: [48]
+
+  - src: folder-documents-64.svg
+    from: places/64/folder-documents.svg
+    category: places
+    names: [folder-documents, folder-txt, folder-text]
+    sizes: [64]
+
+  - src: folder-documents-128.svg
+    from: places/128/folder-documents.svg
+    category: places
+    names: [folder-documents, folder-txt, folder-text]
+    sizes: [scalable]
+
+  - src: folder-documents-symbolic.svg
+    from: places/symbolic/folder-documents-symbolic.svg
+    category: places
+    names: [folder-documents-symbolic]
+    sizes: [symbolic]
+
+  # --- Pictures (bookmark: folder-pictures, search: folder-images) ----------
+  - src: folder-pictures-16.svg
+    from: places/16/folder-pictures.svg
+    category: places
+    names: [folder-pictures, folder-image, folder-images]
+    sizes: [16]
+
+  - src: folder-pictures-24.svg
+    from: places/24/folder-pictures.svg
+    category: places
+    names: [folder-pictures, folder-image, folder-images]
+    sizes: [24, 22]
+
+  - src: folder-pictures-32.svg
+    from: places/32/folder-pictures.svg
+    category: places
+    names: [folder-pictures, folder-image, folder-images]
+    sizes: [32]
+
+  - src: folder-pictures-48.svg
+    from: places/48/folder-pictures.svg
+    category: places
+    names: [folder-pictures, folder-image, folder-images]
+    sizes: [48]
+
+  - src: folder-pictures-64.svg
+    from: places/64/folder-pictures.svg
+    category: places
+    names: [folder-pictures, folder-image, folder-images]
+    sizes: [64]
+
+  - src: folder-pictures-128.svg
+    from: places/128/folder-pictures.svg
+    category: places
+    names: [folder-pictures, folder-image, folder-images]
+    sizes: [scalable]
+
+  - src: folder-pictures-symbolic.svg
+    from: places/symbolic/folder-pictures-symbolic.svg
+    category: places
+    names: [folder-pictures-symbolic]
+    sizes: [symbolic]
+
+  # --- Music (bookmark: folder-music, search: folder-sound) ----------------
+  - src: folder-music-16.svg
+    from: places/16/folder-music.svg
+    category: places
+    names: [folder-music, folder-sound]
+    sizes: [16]
+
+  - src: folder-music-24.svg
+    from: places/24/folder-music.svg
+    category: places
+    names: [folder-music, folder-sound]
+    sizes: [24, 22]
+
+  - src: folder-music-32.svg
+    from: places/32/folder-music.svg
+    category: places
+    names: [folder-music, folder-sound]
+    sizes: [32]
+
+  - src: folder-music-48.svg
+    from: places/48/folder-music.svg
+    category: places
+    names: [folder-music, folder-sound]
+    sizes: [48]
+
+  - src: folder-music-64.svg
+    from: places/64/folder-music.svg
+    category: places
+    names: [folder-music, folder-sound]
+    sizes: [64]
+
+  - src: folder-music-128.svg
+    from: places/128/folder-music.svg
+    category: places
+    names: [folder-music, folder-sound]
+    sizes: [scalable]
+
+  - src: folder-music-symbolic.svg
+    from: places/symbolic/folder-music-symbolic.svg
+    category: places
+    names: [folder-music-symbolic]
+    sizes: [symbolic]
+
+  # --- Videos (bookmark and search both: folder-videos; Tela canonical is
+  #     folder-video, so both names are published) -------------------------
+  - src: folder-videos-16.svg
+    from: places/16/folder-videos.svg
+    category: places
+    names: [folder-video, folder-videos]
+    sizes: [16]
+
+  - src: folder-videos-24.svg
+    from: places/24/folder-videos.svg
+    category: places
+    names: [folder-video, folder-videos]
+    sizes: [24, 22]
+
+  - src: folder-videos-32.svg
+    from: places/32/folder-videos.svg
+    category: places
+    names: [folder-video, folder-videos]
+    sizes: [32]
+
+  - src: folder-videos-48.svg
+    from: places/48/folder-videos.svg
+    category: places
+    names: [folder-video, folder-videos]
+    sizes: [48]
+
+  - src: folder-videos-64.svg
+    from: places/64/folder-videos.svg
+    category: places
+    names: [folder-video, folder-videos]
+    sizes: [64]
+
+  - src: folder-videos-128.svg
+    from: places/128/folder-videos.svg
+    category: places
+    names: [folder-video, folder-videos]
+    sizes: [scalable]
+
+  - src: folder-videos-symbolic.svg
+    from: places/symbolic/folder-videos-symbolic.svg
+    category: places
+    names: [folder-videos-symbolic]
+    sizes: [symbolic]
+
+  # --- Downloads ------------------------------------------------------------
+  - src: folder-download-16.svg
+    from: places/16/folder-download.svg
+    category: places
+    names: [folder-download, folder-downloads]
+    sizes: [16]
+
+  - src: folder-download-24.svg
+    from: places/24/folder-download.svg
+    category: places
+    names: [folder-download, folder-downloads]
+    sizes: [24, 22]
+
+  - src: folder-download-32.svg
+    from: places/32/folder-download.svg
+    category: places
+    names: [folder-download, folder-downloads]
+    sizes: [32]
+
+  - src: folder-download-48.svg
+    from: places/48/folder-download.svg
+    category: places
+    names: [folder-download, folder-downloads]
+    sizes: [48]
+
+  - src: folder-download-64.svg
+    from: places/64/folder-download.svg
+    category: places
+    names: [folder-download, folder-downloads]
+    sizes: [64]
+
+  - src: folder-download-128.svg
+    from: places/128/folder-download.svg
+    category: places
+    names: [folder-download, folder-downloads]
+    sizes: [scalable]
+
+  # folder-downloads-symbolic is already a Tela symlink onto this name.
+  - src: folder-download-symbolic.svg
+    from: places/symbolic/folder-download-symbolic.svg
+    category: places
+    names: [folder-download-symbolic]
+    sizes: [symbolic]
+
+  # --- Recent folder: folder-recent + folder-open-recent -------------------
+  # elementary's folder-recent art (folder + clock-arrow badge), recolored
+  # orange -> blue like the folders above. Published under BOTH folder-recent
+  # (generic) and folder-open-recent (Dolphin's "Recent Locations" row), so one
+  # art serves both names. Moved here from overlays/places/recent/, which keeps
+  # document-open-recent. elementary has no 22px, so the 24 art serves 22+24;
+  # its 128 art is the scalable entry. At 16/24 elementary uses clock-only art
+  # (no folder body), so those two sizes were not recolored.
+  - src: folder-recent-16.svg
+    from: places/16/folder-recent.svg
+    category: places
+    names: [folder-recent, folder-open-recent]
+    sizes: [16]
+
+  - src: folder-recent-24.svg
+    from: places/24/folder-recent.svg
+    category: places
+    names: [folder-recent, folder-open-recent]
+    sizes: [24, 22]
+
+  - src: folder-recent-32.svg
+    from: places/32/folder-recent.svg
+    category: places
+    names: [folder-recent, folder-open-recent]
+    sizes: [32]
+
+  - src: folder-recent-48.svg
+    from: places/48/folder-recent.svg
+    category: places
+    names: [folder-recent, folder-open-recent]
+    sizes: [48]
+
+  - src: folder-recent-64.svg
+    from: places/64/folder-recent.svg
+    category: places
+    names: [folder-recent, folder-open-recent]
+    sizes: [64]
+
+  - src: folder-recent-128.svg
+    from: places/128/folder-recent.svg
+    category: places
+    names: [folder-recent, folder-open-recent]
+    sizes: [scalable]
+
+  - src: folder-recent-symbolic.svg
+    from: places/symbolic/folder-recent-symbolic.svg
+    category: places
+    names: [folder-recent-symbolic, folder-open-recent-symbolic]
+    sizes: [symbolic]

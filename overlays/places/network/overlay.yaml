@@ -1,0 +1,104 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# network — places. The "Network" entry in Dolphin's Places panel and the
+# generic network location icon. Artwork comes from the elementary icon theme
+# (GPL-3.0, same license as the vendored Tela base), RECOLORED from elementary's
+# lilac to blue to sit better with the rest of the theme. Same shape as the
+# sibling `home` and `trash` sets.
+#
+# The recolor is three values, applied identically to every size:
+#   #cd9ef7 -> #b4cee1   globe gradient, light stop
+#   #a56de2 -> #5d9fcd   globe gradient, dark stop
+#   #7239b3 -> #3980b3   outer rim stroke
+# Nothing else is changed — the geometry is elementary's untouched. Re-apply the
+# same three substitutions if these are ever re-vendored from elementary.
+#
+# Source note: in elementary, places/<size>/network-workgroup.svg is a SYMLINK
+# to categories/<size>/preferences-system-network.svg — the categories file is
+# the real art, so that is what is copied here.
+#
+# Three names are published, not one. Unlike user-home and user-trash, Tela does
+# not chain these: at 16/22/24 `network.svg` and `network-workgroup.svg` are
+# SIBLING symlinks (both -> folder-html.svg), so overlaying one would leave the
+# other behind. Only at scalable does network-workgroup -> network. Listing them
+# explicitly makes the result the same at every size regardless of Tela's
+# chaining.
+#
+# `folder-network` is the one that actually matters for the desktop: it is the
+# name Dolphin's sidebar "Network" row uses (see ~/.local/share/user-places.xbel),
+# and Tela ships it as its own real file, chained to nothing — so without it
+# listed here the sidebar keeps Tela's art no matter what else is overlaid.
+#
+# Publishing `network` also picks up the ~18 legacy names Tela links onto it
+# (gnome-fs-{network,smb,ssh,ftp,nfs}, gnome-dev-network, gtk-network, nfs,
+# network_fs, network_local, folder-remote-{ftp,nfs,smb,ssh},
+# gnome-mime-x-directory-smb-{share,workgroup}, …). Note that
+# scalable/folder-remote.svg -> network.svg in Tela, so the remote-folder icon
+# becomes this globe at scalable too.
+#
+# `network-server` is NOT covered: it chains to network-workgroup at 16/22/24
+# but has its own art at scalable, and elementary ships nothing for it.
+#
+# Missing sizes are filled from the closest available source, as requested:
+#   * no 22 in elementary -> the 24 art serves both 22 and 24.
+#   * no 128 bucket in the theme -> elementary's 128 art is the scalable entry.
+#
+# network-symbolic.svg is not recolored — it is monochrome and follows the color
+# scheme. It is the one file whose markup differs from elementary's: elementary
+# paints it with GNOME's `url(#gpa:foreground)`, which KDE cannot recolor, so the
+# fill was swapped for this repo's ColorScheme-Text / currentColor pattern (see
+# overlays/README.md). The path data is unchanged; a viewBox was added so it
+# scales in the symbolic bucket. It is elementary's categories symbolic (a bare
+# globe) rather than its places one (a server box with a globe), to match the
+# full-color art above.
+
+set: network
+
+origin:
+  theme: elementary
+
+links:
+  - src: network-16.svg
+    from: categories/16/preferences-system-network.svg
+    category: places
+    names: [network, network-workgroup, folder-network]
+    sizes: [16]
+
+  # elementary has no 22 — the 24 art covers both (24 is the real copy).
+  - src: network-24.svg
+    from: categories/24/preferences-system-network.svg
+    category: places
+    names: [network, network-workgroup, folder-network]
+    sizes: [24, 22]
+
+  - src: network-32.svg
+    from: categories/32/preferences-system-network.svg
+    category: places
+    names: [network, network-workgroup, folder-network]
+    sizes: [32]
+
+  - src: network-48.svg
+    from: categories/48/preferences-system-network.svg
+    category: places
+    names: [network, network-workgroup, folder-network]
+    sizes: [48]
+
+  - src: network-64.svg
+    from: categories/64/preferences-system-network.svg
+    category: places
+    names: [network, network-workgroup, folder-network]
+    sizes: [64]
+
+  # No 128 bucket in the theme; elementary's 128 art is the scalable entry.
+  - src: network-128.svg
+    from: categories/128/preferences-system-network.svg
+    category: places
+    names: [network, network-workgroup, folder-network]
+    sizes: [scalable]
+
+  - src: network-symbolic.svg
+    from: categories/symbolic/preferences-system-network-symbolic.svg
+    category: places
+    names: [network-workgroup-symbolic]
+    sizes: [symbolic]

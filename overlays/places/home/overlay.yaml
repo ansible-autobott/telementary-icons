@@ -1,0 +1,71 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# home — places. The user's home directory, as Dolphin/KIO and the Places panel
+# draw it. Artwork is taken verbatim from the elementary icon theme (GPL-3.0,
+# same license as the vendored Tela base); each size is distinct art, so each
+# gets its own source file and its own link.
+#
+# Only `user-home` is published. Tela already symlinks the legacy home names
+# (folder-home, folder_home, gnome-home, gnome-fs-home, go-home, stock_home,
+# kfm_home, akonadi-phone-home, …) onto user-home.svg at 16/22/24 and scalable,
+# so they all pick up this art for free — no alias list needed here.
+#
+# The theme has no 128 bucket, so elementary's 128 art publishes as `scalable`.
+# elementary ships no 22, so the 24 art serves both 22 and 24.
+#
+# user-home-symbolic.svg is the one file that is not a verbatim copy: elementary
+# paints it with GNOME's `url(#gpa:foreground)`, which KDE cannot recolor, so the
+# fill was swapped for this repo's ColorScheme-Text / currentColor pattern (see
+# overlays/README.md). The path data is unchanged; a viewBox was added so it
+# scales in the symbolic bucket.
+
+set: home
+
+origin:
+  theme: elementary
+
+links:
+  - src: user-home-16.svg
+    from: places/16/user-home.svg
+    category: places
+    names: [user-home]
+    sizes: [16]
+
+  # elementary has no 22 — the 24 art covers both (24 is the real copy).
+  - src: user-home-24.svg
+    from: places/24/user-home.svg
+    category: places
+    names: [user-home]
+    sizes: [24, 22]
+
+  - src: user-home-32.svg
+    from: places/32/user-home.svg
+    category: places
+    names: [user-home]
+    sizes: [32]
+
+  - src: user-home-48.svg
+    from: places/48/user-home.svg
+    category: places
+    names: [user-home]
+    sizes: [48]
+
+  - src: user-home-64.svg
+    from: places/64/user-home.svg
+    category: places
+    names: [user-home]
+    sizes: [64]
+
+  # No 128 bucket in the theme; elementary's 128 art is the scalable entry.
+  - src: user-home-128.svg
+    from: places/128/user-home.svg
+    category: places
+    names: [user-home]
+    sizes: [scalable]
+
+  - src: user-home-symbolic.svg
+    from: places/symbolic/user-home-symbolic.svg
+    category: places
+    names: [user-home-symbolic]
+    sizes: [symbolic]

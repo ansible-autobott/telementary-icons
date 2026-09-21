@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+  <defs>
+    <linearGradient id="a" x1="0" x2="0" y1="2" y2="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0" style="stop-color:#737373;stop-opacity:1"/>
+      <stop offset=".262" style="stop-color:#636363;stop-opacity:1"/>
+      <stop offset=".705" style="stop-color:#4b4b4b;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#3f3f3f;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <path d="M2 2v5h5V2zm6 0v1h6V2zM3 3h3v3H3zm5 2v1h6V5zM2 9v5h5V9zm6 0v1h4V9zm0 3v1h4v-1z" style="opacity:.35;fill:#fff;stroke:none" transform="translate(0 1)"/>
+  <path d="M2 2v5h5V2zm6 0v1h6V2zM3 3h3v3H3zm5 2v1h6V5zM2 9v5h5V9zm6 0v1h4V9zm0 3v1h4v-1z" style="fill:url(#a);stroke:none"/>
+  <path d="M2.5 2.5V3a.5.5 0 0 1 .5-.5Zm3.5 0a.5.5 0 0 1 .5.5v-.5ZM2.5 6v.5H3a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1-.5.5h.5zm-4 3.5v4h4v-4z" style="opacity:.1;fill:none;stroke:#000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"/>
+  <path d="M3.4 10.4v2.2h2.2v-2.2z" style="opacity:.03;fill:none;stroke:#000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"/>
+</svg>
