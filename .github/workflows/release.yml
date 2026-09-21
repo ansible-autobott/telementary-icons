@@ -23,9 +23,20 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Derive version from tag
-        # v1.2.3 -> 1.2.3 (nfpm reads ${VERSION} from nfpm.yaml)
-        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_ENV"
+      - name: Derive version + release from tag
+        # v0.1.0   -> VERSION=0.1.0  RELEASE=      (plain release)
+        # v0.1.0-1 -> VERSION=0.1.0  RELEASE=1     (Debian revision -> nfpm emits 0.1.0-1)
+        # The dash suffix is the Debian package revision, not a version suffix:
+        # it must stay out of ${VERSION}, or nfpm's semver parser turns it into a
+        # pre-release "~" that sorts BELOW the plain version. nfpm reads both
+        # ${VERSION} and ${RELEASE} from nfpm.yaml.
+        run: |
+          ref="${GITHUB_REF_NAME#v}"
+          echo "VERSION=${ref%%-*}" >> "$GITHUB_ENV"
+          case "$ref" in
+            *-*) echo "RELEASE=${ref#*-}" >> "$GITHUB_ENV" ;;
+            *)   echo "RELEASE=" >> "$GITHUB_ENV" ;;
+          esac
 
       - name: Setup Go
         uses: actions/setup-go@v5
