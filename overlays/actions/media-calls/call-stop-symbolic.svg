@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <style id="current-color-scheme" type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; } .ColorScheme-NegativeText { color:#c6262e; }</style>
+  </defs>
+  <path fill-rule="evenodd" d="M1 10c0 1 1 1 1 1h2s1 0 1-1v-.5C5 8 7 8 7 8h2s2 0 2 1.5v.5c0 1 1 1 1 1h2s1 0 1-1V9c0-3.5-5.5-3-5.5-3h-3S1 5.5 1 9Z" class="ColorScheme-NegativeText" style="fill:currentColor" />
+</svg>

@@ -118,18 +118,21 @@ func realDirs(dir string) ([]string, error) {
 // sortSizes orders size buckets numerically ascending, with non-numeric
 // buckets (e.g. "symbolic", "scalable") after the numeric ones, alphabetical.
 func sortSizes(sizes []string) {
-	sort.Slice(sizes, func(i, j int) bool {
-		ni, ei := strconv.Atoi(sizes[i])
-		nj, ej := strconv.Atoi(sizes[j])
-		switch {
-		case ei == nil && ej == nil:
-			return ni < nj
-		case ei == nil:
-			return true // numeric before non-numeric
-		case ej == nil:
-			return false
-		default:
-			return sizes[i] < sizes[j]
-		}
-	})
+	sort.Slice(sizes, func(i, j int) bool { return sizeLess(sizes[i], sizes[j]) })
+}
+
+// sizeLess is sortSizes' order for two buckets.
+func sizeLess(a, b string) bool {
+	na, ea := strconv.Atoi(a)
+	nb, eb := strconv.Atoi(b)
+	switch {
+	case ea == nil && eb == nil:
+		return na < nb
+	case ea == nil:
+		return true // numeric before non-numeric
+	case eb == nil:
+		return false
+	default:
+		return a < b
+	}
 }

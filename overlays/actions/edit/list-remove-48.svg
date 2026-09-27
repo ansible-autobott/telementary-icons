@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48">
+  <defs>
+    <linearGradient id="c">
+      <stop offset="0" style="stop-color:black;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:black;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient xlink:href="#a" id="e" x1="24.139" x2="24.139" y1="20.069" y2="26.212" gradientTransform="matrix(1.02379 0 0 .97677 1.067 1.397)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient id="a">
+      <stop offset="0" style="stop-color:#fff;stop-opacity:1"/>
+      <stop offset="0" style="stop-color:#fff;stop-opacity:.23529412"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.15686275"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.39215687"/>
+    </linearGradient>
+    <linearGradient id="b">
+      <stop offset="0" style="stop-color:#ed5353;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#c6262e;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient xlink:href="#b" id="d" x1="20.929" x2="13.786" y1="-5.628" y2="-5.628" gradientTransform="matrix(0 -1.4 -1.35294 0 10.386 48.3)" gradientUnits="userSpaceOnUse"/>
+    <radialGradient xlink:href="#c" id="f" cx="24.837" cy="36.421" r="15.645" fx="24.837" fy="36.421" gradientTransform="matrix(1.2128 0 0 -.30586 -6.086 49.142)" gradientUnits="userSpaceOnUse"/>
+  </defs>
+  <path d="M9.387 19.5a.885.885 0 0 0-.887.887v7.226c0 .492.396.887.887.887h29.226a.885.885 0 0 0 .887-.887v-7.226a.885.885 0 0 0-.887-.887Z" style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:url(#d);fill-opacity:1;stroke:#7a0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:.5;stop-color:#000;stop-opacity:1"/>
+  <path d="M9.5 27.475V20.5h29v6.975z" style="display:inline;opacity:.4;fill:none;stroke:url(#e);stroke-width:.999999;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+  <path d="M43.01 38.002a18.974 4.785 0 1 0-37.947 0 18.974 4.785 0 0 0 37.948 0" style="display:inline;overflow:visible;visibility:visible;opacity:.1;fill:url(#f);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.00001;marker:none"/>
+</svg>

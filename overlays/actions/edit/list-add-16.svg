@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16">
+  <defs>
+    <linearGradient id="c">
+      <stop offset="0" style="stop-color:#fff;stop-opacity:1"/>
+      <stop offset="0" style="stop-color:#fff;stop-opacity:.23529412"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.15686275"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.39215687"/>
+    </linearGradient>
+    <linearGradient id="a">
+      <stop offset="0" style="stop-color:#9bdb4d;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#68b723;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient xlink:href="#a" id="d" x1="49.834" x2="29.629" y1="7.636" y2="7.636" gradientTransform="matrix(0 -.59393 -.59393 0 14.535 31.598)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient xlink:href="#b" id="f" x1="24.139" x2="24.139" y1="22.845" y2="23.137" gradientTransform="matrix(.31773 0 0 .13938 .883 4.775)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient id="b">
+      <stop offset="0" style="stop-color:#fff;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.23529412"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.15686275"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.39215687"/>
+    </linearGradient>
+    <linearGradient xlink:href="#c" id="e" x1="24.139" x2="24.139" y1="10.459" y2="35.847" gradientTransform="matrix(.1409 0 0 .3151 4.848 .704)" gradientUnits="userSpaceOnUse"/>
+  </defs>
+  <path d="M6.76 13.5a.26.26 0 0 1-.26-.26V9.5H2.76a.26.26 0 0 1-.26-.26V6.76a.26.26 0 0 1 .26-.26H6.5V2.76a.26.26 0 0 1 .26-.26h2.48a.26.26 0 0 1 .26.26V6.5h3.74a.26.26 0 0 1 .26.26v2.48a.26.26 0 0 1-.26.26H9.5v3.74a.26.26 0 0 1-.26.26Z" style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:url(#d);fill-opacity:1;stroke:#206b00;stroke-width:1.00001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:.5;stop-color:#000;stop-opacity:1"/>
+  <path d="M7.5 7V3.5h1v3.495M8.5 9v3.5h-1V9" style="display:inline;opacity:.5;fill:none;stroke:url(#e);stroke-width:1.00001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+  <path d="m9 7.505 3.5-.004v.995L9 8.5m-2 0-3.5-.004v-.995l3.5.004" style="display:inline;opacity:.5;fill:none;stroke:url(#f);stroke-width:1.00001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+</svg>

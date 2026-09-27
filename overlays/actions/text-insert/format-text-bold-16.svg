@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16">
+  <defs>
+    <radialGradient xlink:href="#b" id="c" cx="389.001" cy="70.909" r="6.5" fx="389.001" fy="70.909" gradientTransform="matrix(3.07689 0 0 2.30767 -807.911 -91.635)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient id="b">
+      <stop offset="0" style="stop-color:#737373;stop-opacity:1"/>
+      <stop offset=".262" style="stop-color:#636363;stop-opacity:1"/>
+      <stop offset=".705" style="stop-color:#4b4b4b;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#3f3f3f;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <path d="M384.5 72.5v3h5.5c.577-.016.5.5.5.5v.5H386c-1.058 0-2.008.425-2.624 1.125A3.55 3.55 0 0 0 382.5 80a3.65 3.65 0 0 0 .906 2.375c.61.688 1.542 1.125 2.594 1.125h8s.35-.003.718-.187a1.47 1.47 0 0 0 .782-1.313v-6c0-1.904-1.55-3.5-3.5-3.5h-7.5m3.5 7h2.5v1H388c-.305 0-.243-.012-.343-.125A.67.67 0 0 1 387.5 80a.7.7 0 0 1 .125-.375c.085-.097.044-.125.375-.125" style="fill:url(#c);fill-opacity:1" transform="translate(-381 -69)"/>
+  <path d="M385 73v1h7c1.679 0 3 1.368 3 3v-1c0-1.632-1.321-3-3-3h-7m1 4c-.924 0-1.736.385-2.25.969A3.03 3.03 0 0 0 383 80c.002.138.043.268.063.406a3 3 0 0 1 .688-1.437c.513-.584 1.325-.969 2.25-.969h5v-.969c.002-.02 0-.02 0-.031h-5m1.126 3.469c-.019.037-.047.083-.063.125-.041.11-.063.239-.062.406a1 1 0 0 0 .28.719c.006.005.005-.005.032.031s.11.134.219.188c.218.106.309.062.469.062h3v-1h-3c-.16 0-.25.044-.47-.062a.7.7 0 0 1-.218-.188c-.027-.036-.026-.026-.031-.031-.067-.076-.11-.163-.156-.25" style="opacity:.2;fill:#fff;fill-opacity:1" transform="translate(-381 -69)"/>
+  <path d="M384.5 72.5v3h5.5c.577-.016.5.5.5.5v.5H386c-1.058 0-2.008.425-2.624 1.125A3.55 3.55 0 0 0 382.5 80a3.65 3.65 0 0 0 .906 2.375c.61.688 1.542 1.125 2.594 1.125h8s.35-.003.718-.187a1.47 1.47 0 0 0 .782-1.313v-6c0-1.904-1.55-3.5-3.5-3.5h-7.5zm3.5 7h2.5v1H388c-.305 0-.243-.012-.343-.125A.67.67 0 0 1 387.5 80a.7.7 0 0 1 .125-.375c.085-.097.044-.125.375-.125z" style="fill:none;fill-opacity:1;stroke:#000;stroke-opacity:1;opacity:.6;stroke-linejoin:round" transform="translate(-381 -69)"/>
+</svg>

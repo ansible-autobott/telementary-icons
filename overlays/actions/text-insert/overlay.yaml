@@ -1,0 +1,120 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# text-insert — actions. The "Text & insert" group of the elementary overlay
+# review (review/decisions.md, `make review`), one block per approved icon.
+#
+# Text formatting: bold, italic, underline, strikethrough, highlight and clear
+# formatting (format-text-none).
+#
+# Artwork is elementary's (GPL-3.0, same license as the vendored Tela base) and
+# replaces the monochrome Tela glyph (or the Breeze fallback) under each name.
+# Numeric sizes are elementary's art after a single svgo pass. elementary ships
+# no 22, so the 24 art also serves 22, and a size it lacks is covered by the
+# nearest one it has (the first size in `sizes` is the real copy). Where
+# elementary's name is a symlink, `from` is the file it resolves to, and names
+# that share art share one source SVG.
+#
+# The *-symbolic.svg files are not verbatim copies: elementary paints them with
+# GNOME's `url(#gpa:foreground)`, which KDE cannot recolor, so after the same
+# svgo pass the fill was swapped for this repo's ColorScheme-Text /
+# currentColor pattern (see overlays/README.md), and a viewBox was added where
+# it was missing so they scale in the symbolic bucket.
+#
+# NOTE: the numeric art is full-color and does NOT follow the KDE color scheme;
+# only the symbolic bucket recolors. Tela ships many legacy names as symlinks
+# onto the files replaced here, so those switch to this art too (see
+# review/decisions.md, each task's "also changes" line).
+
+set: text-insert
+
+origin:
+  theme: elementary
+
+links:
+  # --- format-text-bold ---
+  - src: format-text-bold-16.svg
+    from: actions/16/format-text-bold.svg
+    category: actions
+    names: [format-text-bold]
+    sizes: [16]
+  - src: format-text-bold-24.svg
+    from: actions/24/format-text-bold.svg
+    category: actions
+    names: [format-text-bold]
+    sizes: [24, 22]
+  - src: format-text-bold-symbolic.svg
+    from: actions/symbolic/format-text-bold-symbolic.svg
+    category: actions
+    names: [format-text-bold-symbolic]
+    sizes: [symbolic]
+
+  # --- format-text-strikethrough ---
+  - src: format-text-strikethrough-16.svg
+    from: actions/16/format-text-strikethrough.svg
+    category: actions
+    names: [format-text-strikethrough]
+    sizes: [16]
+  - src: format-text-strikethrough-24.svg
+    from: actions/24/format-text-strikethrough.svg
+    category: actions
+    names: [format-text-strikethrough]
+    sizes: [24, 22]
+  - src: format-text-strikethrough-symbolic.svg
+    from: actions/symbolic/format-text-strikethrough-symbolic.svg
+    category: actions
+    names: [format-text-strikethrough-symbolic]
+    sizes: [symbolic]
+
+  # --- format-text-underline ---
+  - src: format-text-underline-16.svg
+    from: actions/16/format-text-underline.svg
+    category: actions
+    names: [format-text-underline]
+    sizes: [16]
+  - src: format-text-underline-24.svg
+    from: actions/24/format-text-underline.svg
+    category: actions
+    names: [format-text-underline]
+    sizes: [24, 22]
+  - src: format-text-underline-symbolic.svg
+    from: actions/symbolic/format-text-underline-symbolic.svg
+    category: actions
+    names: [format-text-underline-symbolic]
+    sizes: [symbolic]
+
+  # --- format-text-italic ---
+  - src: format-text-italic-16.svg
+    from: actions/16/format-text-italic.svg
+    category: actions
+    names: [format-text-italic]
+    sizes: [16]
+  - src: format-text-italic-24.svg
+    from: actions/24/format-text-italic.svg
+    category: actions
+    names: [format-text-italic]
+    sizes: [24, 22]
+  - src: format-text-italic-symbolic.svg
+    from: actions/symbolic/format-text-italic-symbolic.svg
+    category: actions
+    names: [format-text-italic-symbolic]
+    sizes: [symbolic]
+
+  # --- format-text-highlight ---
+  - src: format-text-highlight-24.svg
+    from: actions/24/format-text-highlight.svg
+    category: actions
+    names: [format-text-highlight]
+    sizes: [24, 16, 22]
+
+  # --- format-text-none ---
+  - src: format-text-none-16.svg
+    from: actions/16/format-text-none.svg
+    category: actions
+    names: [format-text-none]
+    sizes: [16]
+  - src: format-text-none-24.svg
+    from: actions/24/format-text-none.svg
+    category: actions
+    names: [format-text-none]
+    sizes: [24, 22]

@@ -1,0 +1,86 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# view-zoom — actions. The "View & zoom" group of the elementary overlay
+# review (review/decisions.md, `make review`), one block per approved icon.
+#
+# View-menu actions: Reload (view-refresh) and reader mode (view-reader).
+#
+# Artwork is elementary's (GPL-3.0, same license as the vendored Tela base) and
+# replaces the monochrome Tela glyph (or the Breeze fallback) under each name.
+# Numeric sizes are elementary's art after a single svgo pass. elementary ships
+# no 22, so the 24 art also serves 22, and a size it lacks is covered by the
+# nearest one it has (the first size in `sizes` is the real copy). Where
+# elementary's name is a symlink, `from` is the file it resolves to, and names
+# that share art share one source SVG.
+#
+# The *-symbolic.svg files are not verbatim copies: elementary paints them with
+# GNOME's `url(#gpa:foreground)`, which KDE cannot recolor, so after the same
+# svgo pass the fill was swapped for this repo's ColorScheme-Text /
+# currentColor pattern (see overlays/README.md), and a viewBox was added where
+# it was missing so they scale in the symbolic bucket.
+#
+# NOTE: the numeric art is full-color and does NOT follow the KDE color scheme;
+# only the symbolic bucket recolors. Tela ships many legacy names as symlinks
+# onto the files replaced here, so those switch to this art too (see
+# review/decisions.md, each task's "also changes" line).
+
+set: view-zoom
+
+origin:
+  theme: elementary
+
+links:
+  # --- view-refresh ---
+  - src: view-refresh-16.svg
+    from: actions/16/view-refresh.svg
+    category: actions
+    names: [view-refresh]
+    sizes: [16]
+  - src: view-refresh-24.svg
+    from: actions/24/view-refresh.svg
+    category: actions
+    names: [view-refresh]
+    sizes: [24, 22]
+  - src: view-refresh-32.svg
+    from: actions/32/view-refresh.svg
+    category: actions
+    names: [view-refresh]
+    sizes: [32]
+  - src: view-refresh-48.svg
+    from: actions/48/view-refresh.svg
+    category: actions
+    names: [view-refresh]
+    sizes: [48]
+  - src: view-refresh-symbolic.svg
+    from: actions/symbolic/view-refresh-symbolic.svg
+    category: actions
+    names: [view-refresh-symbolic]
+    sizes: [symbolic]
+
+  # --- view-reader ---
+  - src: view-reader-16.svg
+    from: actions/16/view-reader.svg
+    category: actions
+    names: [view-reader]
+    sizes: [16]
+  - src: view-reader-24.svg
+    from: actions/24/view-reader.svg
+    category: actions
+    names: [view-reader]
+    sizes: [24, 22]
+  - src: view-reader-32.svg
+    from: actions/32/view-reader.svg
+    category: actions
+    names: [view-reader]
+    sizes: [32]
+  - src: view-reader-48.svg
+    from: actions/48/view-reader.svg
+    category: actions
+    names: [view-reader]
+    sizes: [48]
+  - src: view-reader-symbolic.svg
+    from: actions/symbolic/view-reader-symbolic.svg
+    category: actions
+    names: [view-reader-symbolic]
+    sizes: [symbolic]

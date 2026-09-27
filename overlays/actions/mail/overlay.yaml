@@ -1,0 +1,397 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# mail — actions. The "Mail" group of the elementary overlay review
+# (review/decisions.md, `make review`), one block per approved icon.
+#
+# Mail actions and states: new message, reply / reply all / forward (with their
+# -rtl mirrors), send / receive, mark junk / not junk / important, inbox and
+# outbox, and the unread / replied / forwarded status icons.
+#
+# Artwork is elementary's (GPL-3.0, same license as the vendored Tela base) and
+# replaces the monochrome Tela glyph (or the Breeze fallback) under each name.
+# Numeric sizes are elementary's art after a single svgo pass. elementary ships
+# no 22, so the 24 art also serves 22, and a size it lacks is covered by the
+# nearest one it has (the first size in `sizes` is the real copy). Where
+# elementary's name is a symlink, `from` is the file it resolves to, and names
+# that share art share one source SVG.
+#
+# The *-symbolic.svg files are not verbatim copies: elementary paints them with
+# GNOME's `url(#gpa:foreground)`, which KDE cannot recolor, so after the same
+# svgo pass the fill was swapped for this repo's ColorScheme-Text /
+# currentColor pattern (see overlays/README.md), and a viewBox was added where
+# it was missing so they scale in the symbolic bucket.
+#
+# NOTE: the numeric art is full-color and does NOT follow the KDE color scheme;
+# only the symbolic bucket recolors. Tela ships many legacy names as symlinks
+# onto the files replaced here, so those switch to this art too (see
+# review/decisions.md, each task's "also changes" line).
+#
+# Shared art: mail-forwarded uses mail-forward and mail-replied uses
+# mail-reply-sender (elementary links them); the -symbolic-rtl glyphs are
+# elementary's own mirrors (mail-forward-symbolic-rtl is
+# mail-reply-sender-symbolic and so on). mail-unread-symbolic is a blue dot in
+# GNOME's accent color, so it maps to ColorScheme-Highlight instead of
+# ColorScheme-Text.
+
+set: mail
+
+origin:
+  theme: elementary
+
+links:
+  # --- mail-message-new ---
+  - src: mail-message-new-16.svg
+    from: actions/16/mail-message-new.svg
+    category: actions
+    names: [mail-message-new]
+    sizes: [16]
+  - src: mail-message-new-24.svg
+    from: actions/24/mail-message-new.svg
+    category: actions
+    names: [mail-message-new]
+    sizes: [24, 22]
+  - src: mail-message-new-symbolic.svg
+    from: actions/symbolic/mail-message-new-symbolic.svg
+    category: actions
+    names: [mail-message-new-symbolic]
+    sizes: [symbolic]
+
+  # --- mail-forward ---
+  - src: mail-forward-16.svg
+    from: actions/16/mail-forward.svg
+    category: actions
+    names: [mail-forward]
+    sizes: [16]
+  - src: mail-forward-24.svg
+    from: actions/24/mail-forward.svg
+    category: actions
+    names: [mail-forward]
+    sizes: [24, 22]
+  - src: mail-forward-32.svg
+    from: actions/32/mail-forward.svg
+    category: actions
+    names: [mail-forward]
+    sizes: [32]
+  - src: mail-forward-48.svg
+    from: actions/48/mail-forward.svg
+    category: actions
+    names: [mail-forward]
+    sizes: [48]
+  - src: mail-forward-symbolic.svg
+    from: actions/symbolic/mail-forward-symbolic.svg
+    category: actions
+    names: [mail-forward-symbolic]
+    sizes: [symbolic]
+  - src: mail-forward-rtl-16.svg
+    from: actions/16/mail-forward-rtl.svg
+    category: actions
+    names: [mail-forward-rtl]
+    sizes: [16]
+  - src: mail-forward-rtl-24.svg
+    from: actions/24/mail-forward-rtl.svg
+    category: actions
+    names: [mail-forward-rtl]
+    sizes: [24, 22]
+  - src: mail-forward-rtl-32.svg
+    from: actions/32/mail-forward-rtl.svg
+    category: actions
+    names: [mail-forward-rtl]
+    sizes: [32]
+  - src: mail-forward-rtl-48.svg
+    from: actions/48/mail-forward-rtl.svg
+    category: actions
+    names: [mail-forward-rtl]
+    sizes: [48]
+  - src: mail-reply-sender-symbolic.svg
+    from: actions/symbolic/mail-reply-sender-symbolic.svg
+    category: actions
+    names: [mail-forward-symbolic-rtl]
+    sizes: [symbolic]
+
+  # --- mail-forwarded — mail-forward / mail-forward-rtl art ---
+  - src: mail-forward-16.svg
+    from: actions/16/mail-forward.svg
+    category: actions
+    names: [mail-forwarded]
+    sizes: [16]
+  - src: mail-forward-24.svg
+    from: actions/24/mail-forward.svg
+    category: actions
+    names: [mail-forwarded]
+    sizes: [24, 22]
+  - src: mail-forwarded-symbolic.svg
+    from: actions/symbolic/go-next-symbolic.svg
+    category: actions
+    names: [mail-forwarded-symbolic]
+    sizes: [symbolic]
+  - src: mail-forward-rtl-16.svg
+    from: actions/16/mail-forward-rtl.svg
+    category: actions
+    names: [mail-forwarded-rtl]
+    sizes: [16]
+  - src: mail-forward-rtl-24.svg
+    from: actions/24/mail-forward-rtl.svg
+    category: actions
+    names: [mail-forwarded-rtl]
+    sizes: [24, 22]
+  - src: mail-forwarded-symbolic-rtl.svg
+    from: actions/symbolic/go-previous-symbolic.svg
+    category: actions
+    names: [mail-forwarded-symbolic-rtl]
+    sizes: [symbolic]
+
+  # --- mail-inbox ---
+  - src: mail-inbox-16.svg
+    from: places/16/mail-inbox.svg
+    category: actions
+    names: [mail-inbox]
+    sizes: [16, 22, 24]
+  - src: mail-inbox-symbolic.svg
+    from: places/symbolic/mail-inbox-symbolic.svg
+    category: actions
+    names: [mail-inbox-symbolic]
+    sizes: [symbolic]
+
+  # --- mail-mark-important ---
+  - src: mail-mark-important-16.svg
+    from: actions/16/mail-mark-important.svg
+    category: actions
+    names: [mail-mark-important]
+    sizes: [16, 22, 24]
+  - src: mail-mark-important-symbolic.svg
+    from: actions/symbolic/mail-mark-important-symbolic.svg
+    category: actions
+    names: [mail-mark-important-symbolic]
+    sizes: [symbolic]
+
+  # --- mail-mark-junk ---
+  - src: mail-mark-junk-16.svg
+    from: actions/16/mail-mark-junk.svg
+    category: actions
+    names: [mail-mark-junk]
+    sizes: [16]
+  - src: mail-mark-junk-24.svg
+    from: actions/24/mail-mark-junk.svg
+    category: actions
+    names: [mail-mark-junk]
+    sizes: [24, 22]
+  - src: mail-mark-junk-32.svg
+    from: actions/32/mail-mark-junk.svg
+    category: actions
+    names: [mail-mark-junk]
+    sizes: [32]
+  - src: mail-mark-junk-48.svg
+    from: actions/48/mail-mark-junk.svg
+    category: actions
+    names: [mail-mark-junk]
+    sizes: [48]
+  - src: mail-mark-junk-symbolic.svg
+    from: actions/symbolic/mail-mark-junk-symbolic.svg
+    category: actions
+    names: [mail-mark-junk-symbolic]
+    sizes: [symbolic]
+
+  # --- mail-mark-notjunk ---
+  - src: mail-mark-notjunk-16.svg
+    from: actions/16/mail-mark-notjunk.svg
+    category: actions
+    names: [mail-mark-notjunk]
+    sizes: [16]
+  - src: mail-mark-notjunk-24.svg
+    from: actions/24/mail-mark-notjunk.svg
+    category: actions
+    names: [mail-mark-notjunk]
+    sizes: [24, 22]
+  - src: mail-mark-notjunk-32.svg
+    from: actions/32/mail-mark-notjunk.svg
+    category: actions
+    names: [mail-mark-notjunk]
+    sizes: [32]
+  - src: mail-mark-notjunk-48.svg
+    from: actions/48/mail-mark-notjunk.svg
+    category: actions
+    names: [mail-mark-notjunk]
+    sizes: [48]
+  - src: mail-mark-notjunk-symbolic.svg
+    from: actions/symbolic/mail-mark-notjunk-symbolic.svg
+    category: actions
+    names: [mail-mark-notjunk-symbolic]
+    sizes: [symbolic]
+
+  # --- mail-outbox ---
+  - src: mail-outbox-16.svg
+    from: places/16/mail-outbox.svg
+    category: actions
+    names: [mail-outbox]
+    sizes: [16, 22, 24]
+  - src: mail-outbox-symbolic.svg
+    from: places/symbolic/mail-outbox-symbolic.svg
+    category: actions
+    names: [mail-outbox-symbolic]
+    sizes: [symbolic]
+
+  # --- mail-replied — mail-reply-sender / mail-reply-sender-rtl art ---
+  - src: mail-reply-sender-16.svg
+    from: actions/16/mail-reply-sender.svg
+    category: actions
+    names: [mail-replied]
+    sizes: [16]
+  - src: mail-reply-sender-24.svg
+    from: actions/24/mail-reply-sender.svg
+    category: actions
+    names: [mail-replied]
+    sizes: [24, 22]
+  - src: mail-reply-sender-symbolic.svg
+    from: actions/symbolic/mail-reply-sender-symbolic.svg
+    category: actions
+    names: [mail-replied-symbolic]
+    sizes: [symbolic]
+  - src: mail-reply-sender-rtl-16.svg
+    from: actions/16/mail-reply-sender-rtl.svg
+    category: actions
+    names: [mail-replied-rtl]
+    sizes: [16]
+  - src: mail-reply-sender-rtl-24.svg
+    from: actions/24/mail-reply-sender-rtl.svg
+    category: actions
+    names: [mail-replied-rtl]
+    sizes: [24, 22]
+  - src: mail-forward-symbolic.svg
+    from: actions/symbolic/mail-forward-symbolic.svg
+    category: actions
+    names: [mail-replied-symbolic-rtl]
+    sizes: [symbolic]
+
+  # --- mail-reply-all ---
+  - src: mail-reply-all-16.svg
+    from: actions/16/mail-reply-all.svg
+    category: actions
+    names: [mail-reply-all]
+    sizes: [16]
+  - src: mail-reply-all-24.svg
+    from: actions/24/mail-reply-all.svg
+    category: actions
+    names: [mail-reply-all]
+    sizes: [24, 22]
+  - src: mail-reply-all-32.svg
+    from: actions/32/mail-reply-all.svg
+    category: actions
+    names: [mail-reply-all]
+    sizes: [32]
+  - src: mail-reply-all-48.svg
+    from: actions/48/mail-reply-all.svg
+    category: actions
+    names: [mail-reply-all]
+    sizes: [48]
+  - src: mail-reply-all-symbolic.svg
+    from: actions/symbolic/mail-reply-all-symbolic.svg
+    category: actions
+    names: [mail-reply-all-symbolic]
+    sizes: [symbolic]
+  - src: mail-reply-all-rtl-16.svg
+    from: actions/16/mail-reply-all-rtl.svg
+    category: actions
+    names: [mail-reply-all-rtl]
+    sizes: [16]
+  - src: mail-reply-all-rtl-24.svg
+    from: actions/24/mail-reply-all-rtl.svg
+    category: actions
+    names: [mail-reply-all-rtl]
+    sizes: [24, 22]
+  - src: mail-reply-all-rtl-32.svg
+    from: actions/32/mail-reply-all-rtl.svg
+    category: actions
+    names: [mail-reply-all-rtl]
+    sizes: [32]
+  - src: mail-reply-all-rtl-48.svg
+    from: actions/48/mail-reply-all-rtl.svg
+    category: actions
+    names: [mail-reply-all-rtl]
+    sizes: [48]
+  - src: mail-reply-all-symbolic-rtl.svg
+    from: actions/symbolic/mail-reply-all-symbolic-rtl.svg
+    category: actions
+    names: [mail-reply-all-symbolic-rtl]
+    sizes: [symbolic]
+
+  # --- mail-reply-sender ---
+  - src: mail-reply-sender-16.svg
+    from: actions/16/mail-reply-sender.svg
+    category: actions
+    names: [mail-reply-sender]
+    sizes: [16]
+  - src: mail-reply-sender-24.svg
+    from: actions/24/mail-reply-sender.svg
+    category: actions
+    names: [mail-reply-sender]
+    sizes: [24, 22]
+  - src: mail-reply-sender-32.svg
+    from: actions/32/mail-reply-sender.svg
+    category: actions
+    names: [mail-reply-sender]
+    sizes: [32]
+  - src: mail-reply-sender-48.svg
+    from: actions/48/mail-reply-sender.svg
+    category: actions
+    names: [mail-reply-sender]
+    sizes: [48]
+  - src: mail-reply-sender-symbolic.svg
+    from: actions/symbolic/mail-reply-sender-symbolic.svg
+    category: actions
+    names: [mail-reply-sender-symbolic]
+    sizes: [symbolic]
+  - src: mail-reply-sender-rtl-16.svg
+    from: actions/16/mail-reply-sender-rtl.svg
+    category: actions
+    names: [mail-reply-sender-rtl]
+    sizes: [16]
+  - src: mail-reply-sender-rtl-24.svg
+    from: actions/24/mail-reply-sender-rtl.svg
+    category: actions
+    names: [mail-reply-sender-rtl]
+    sizes: [24, 22]
+  - src: mail-reply-sender-rtl-32.svg
+    from: actions/32/mail-reply-sender-rtl.svg
+    category: actions
+    names: [mail-reply-sender-rtl]
+    sizes: [32]
+  - src: mail-reply-sender-rtl-48.svg
+    from: actions/48/mail-reply-sender-rtl.svg
+    category: actions
+    names: [mail-reply-sender-rtl]
+    sizes: [48]
+  - src: mail-forward-symbolic.svg
+    from: actions/symbolic/mail-forward-symbolic.svg
+    category: actions
+    names: [mail-reply-sender-symbolic-rtl]
+    sizes: [symbolic]
+
+  # --- mail-send-receive ---
+  - src: mail-send-receive-16.svg
+    from: actions/16/mail-send-receive.svg
+    category: actions
+    names: [mail-send-receive]
+    sizes: [16]
+  - src: mail-send-receive-24.svg
+    from: actions/24/mail-send-receive.svg
+    category: actions
+    names: [mail-send-receive]
+    sizes: [24, 22]
+  - src: mail-send-receive-symbolic.svg
+    from: actions/symbolic/mail-send-receive-symbolic.svg
+    category: actions
+    names: [mail-send-receive-symbolic]
+    sizes: [symbolic]
+
+  # --- mail-unread ---
+  - src: mail-unread-16.svg
+    from: status/16/mail-unread.svg
+    category: actions
+    names: [mail-unread]
+    sizes: [16, 22, 24]
+  - src: mail-unread-symbolic.svg
+    from: status/symbolic/mail-unread-symbolic.svg
+    category: actions
+    names: [mail-unread-symbolic]
+    sizes: [symbolic]

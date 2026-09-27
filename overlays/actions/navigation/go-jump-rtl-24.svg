@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24">
+  <defs>
+    <linearGradient xlink:href="#a" id="d" x1="25.667" x2="25.667" y1="6.692" y2="39.503" gradientTransform="matrix(-.61342 0 0 .60955 26.745 -3.079)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient id="b">
+      <stop offset="0" style="stop-color:#fff;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient xlink:href="#b" id="e" x1="58.749" x2="105.324" y1="2.048" y2="58.048" gradientTransform="matrix(-.61627 0 0 .60955 60.496 -4.937)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient id="c">
+      <stop offset="0" style="stop-color:#000;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#000;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="a">
+      <stop offset="0" style="stop-color:#8cd5ff;stop-opacity:1"/>
+      <stop offset=".3" style="stop-color:#64baff;stop-opacity:1"/>
+      <stop offset=".75" style="stop-color:#3689e6;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#0d52bf;stop-opacity:1"/>
+    </linearGradient>
+    <radialGradient xlink:href="#c" id="f" cx="11.25" cy="19.031" r="8.063" fx="11.25" fy="19.031" gradientTransform="matrix(-1.48837 0 0 .4093 28.744 12.91)" gradientUnits="userSpaceOnUse"/>
+  </defs>
+  <path d="m.675 12.48 7.382 8.518 7.346-8.518h-3.737C10.41 9.136 12.99 7.008 15.98 7.008c2.125 0 5.008 1.16 5.981 4.048.507 1.502 1.399.844 1.365-.461-.134-5.036-3.891-9.064-9.5-9.064-5.61 0-9.777 4.327-9.462 10.95z" style="display:inline;overflow:visible;visibility:visible;fill:url(#d);fill-opacity:1;fill-rule:nonzero;stroke:#0d52bf;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:.49803922;marker:none"/>
+  <path d="m2.893 13.47 5.164 5.927 5.132-5.926h-2.192c-1.922-4.254.898-7.341 4.706-7.402 2.743-.214 5.203 1.782 6.7 3.589-.954-4.277-3.92-7.132-8.61-7.14-4.74-.01-9.393 3.841-8.346 10.953Z" style="display:inline;overflow:visible;visibility:visible;opacity:.35400008;fill:none;stroke:url(#e);stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none"/>
+  <path d="M0 20.7a12 3.3 0 1 0 24 0 12 3.3 0 1 0-24 0" style="display:inline;overflow:visible;visibility:visible;opacity:.16292138;fill:url(#f);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.46732545;marker:none"/>
+</svg>

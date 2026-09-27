@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16">
+  <defs>
+    <linearGradient id="a">
+      <stop offset="0" style="stop-color:#fff;stop-opacity:1"/>
+      <stop offset=".508" style="stop-color:#fff;stop-opacity:.23529412"/>
+      <stop offset=".835" style="stop-color:#fff;stop-opacity:.15686275"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.39215687"/>
+    </linearGradient>
+    <linearGradient id="b">
+      <stop offset="0" style="stop-color:#ed5353;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#c6262e;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient xlink:href="#a" id="d" x1="71.204" x2="71.204" y1="6.238" y2="44.341" gradientTransform="translate(-17.204 -.91)scale(.35135)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient xlink:href="#b" id="c" x1="2035.165" x2="2035.165" y1="3208.074" y2="3241.997" gradientTransform="matrix(.57485 0 0 .42976 -1164.014 -1377.772)" gradientUnits="userSpaceOnUse"/>
+  </defs>
+  <path d="M8 .5A7.505 7.505 0 0 0 .5 8c0 4.138 3.362 7.5 7.5 7.5s7.5-3.362 7.5-7.5S12.138.5 8 .5" style="color:#000;display:inline;overflow:visible;visibility:visible;opacity:.98999999;fill:url(#c);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:.99999982;marker:none"/>
+  <path d="M8 .5A7.505 7.505 0 0 0 .5 8c0 4.138 3.362 7.5 7.5 7.5s7.5-3.362 7.5-7.5S12.138.5 8 .5" style="color:#000;display:inline;overflow:visible;visibility:visible;opacity:.5;fill:none;stroke:#7a0000;stroke-width:.99999988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none"/>
+  <path d="M14.5 8a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0" style="color:#000;display:inline;overflow:visible;visibility:visible;opacity:.4;fill:none;stroke:url(#d);stroke-width:.99999988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none"/>
+  <path d="M7 3a1 1 0 0 0-1 1v4a1 1 0 0 0 .014.164l.5 3a1 1 0 0 0 .17.41C6.28 11.948 6 12.448 6 13c0 1.047.953 2 2 2s2-.953 2-2c0-.552-.28-1.052-.684-1.426a1 1 0 0 0 .17-.41l.5-3A1 1 0 0 0 10 8V4a1 1 0 0 0-1-1Z" style="opacity:.05;vector-effect:none;fill:#7a0000;fill-opacity:1;stroke:none;stroke-width:.84323651;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;font-variant-east_asian:normal"/>
+  <path d="M7 4v4l.5 3h1L9 8V4Zm1 8a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1" style="opacity:.15;fill:#7a0000;fill-opacity:1;stroke:none;stroke-width:.84323651;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;font-variant-east_asian:normal;vector-effect:none;stroke-dashoffset:0;marker:none"/>
+  <path d="M7 3v4l.5 3h1L9 7V3Zm1 8a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1" style="opacity:1;fill:#fff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+</svg>

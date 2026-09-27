@@ -1,0 +1,616 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# dialogs-system — actions. The "Dialogs & system" group of the elementary
+# overlay review (review/decisions.md, `make review`), one block per approved
+# icon.
+#
+# Dialog buttons and message icons (OK / Apply, Cancel, information, warning,
+# error, password), help, and the session / system actions (lock screen, log
+# out, reboot / restart, shut down, suspend, search), plus the starred and
+# on / off state icons, applications-other and x-office-address-book.
+#
+# Artwork is elementary's (GPL-3.0, same license as the vendored Tela base) and
+# replaces the monochrome Tela glyph (or the Breeze fallback) under each name.
+# Numeric sizes are elementary's art after a single svgo pass. elementary ships
+# no 22, so the 24 art also serves 22, and a size it lacks is covered by the
+# nearest one it has (the first size in `sizes` is the real copy). Where
+# elementary's name is a symlink, `from` is the file it resolves to, and names
+# that share art share one source SVG.
+#
+# The *-symbolic.svg files are not verbatim copies: elementary paints them with
+# GNOME's `url(#gpa:foreground)`, which KDE cannot recolor, so after the same
+# svgo pass the fill was swapped for this repo's ColorScheme-Text /
+# currentColor pattern (see overlays/README.md), and a viewBox was added where
+# it was missing so they scale in the symbolic bucket.
+#
+# NOTE: the numeric art is full-color and does NOT follow the KDE color scheme;
+# only the symbolic bucket recolors. Tela ships many legacy names as symlinks
+# onto the files replaced here, so those switch to this art too (see
+# review/decisions.md, each task's "also changes" line).
+#
+# Shared art, where elementary has no art under the KDE name or links it:
+#   dialog-cancel, off, off-outline -> process-stop
+#   dialog-ok-apply, on, on-outline -> process-completed (dialog-ok and
+#                                      dialog-apply are Tela aliases of it)
+#   help-contents -> system-help      gnome-lockscreen -> system-lock-screen
+#   system-search -> edit-find        jockey-proprietary -> locked
+#   system-restart -> view-refresh at 16/22/24, system-reboot at 32/48
+# Tela aliases dialog-cancel onto window-close; the dialog-cancel links here
+# give Cancel buttons their own art without touching window-close.
+#
+# Symbolic colors: dialog-warning, starred and semi-starred are painted with
+# GNOME's `gpa:warning`, dialog-error with `gpa:error`. They map to KDE's
+# ColorScheme-NeutralText / ColorScheme-NegativeText instead of
+# ColorScheme-Text, so they keep their warning / error color and still follow
+# the color scheme.
+
+set: dialogs-system
+
+origin:
+  theme: elementary
+
+links:
+  # --- dialog-cancel — process-stop art ---
+  - src: process-stop-16.svg
+    from: actions/16/process-stop.svg
+    category: actions
+    names: [dialog-cancel]
+    sizes: [16]
+  - src: process-stop-24.svg
+    from: actions/24/process-stop.svg
+    category: actions
+    names: [dialog-cancel]
+    sizes: [24, 22]
+  - src: process-stop-32.svg
+    from: actions/32/process-stop.svg
+    category: actions
+    names: [dialog-cancel]
+    sizes: [32]
+  - src: process-stop-48.svg
+    from: actions/48/process-stop.svg
+    category: actions
+    names: [dialog-cancel]
+    sizes: [48]
+
+  # --- dialog-information ---
+  - src: dialog-information-16.svg
+    from: status/16/dialog-information.svg
+    category: actions
+    names: [dialog-information]
+    sizes: [16]
+  - src: dialog-information-24.svg
+    from: status/24/dialog-information.svg
+    category: actions
+    names: [dialog-information]
+    sizes: [24, 22]
+  - src: dialog-information-32.svg
+    from: status/32/dialog-information.svg
+    category: actions
+    names: [dialog-information]
+    sizes: [32]
+  - src: dialog-information-48.svg
+    from: status/48/dialog-information.svg
+    category: actions
+    names: [dialog-information]
+    sizes: [48]
+  - src: dialog-information-symbolic.svg
+    from: status/symbolic/dialog-information-symbolic.svg
+    category: actions
+    names: [dialog-information-symbolic]
+    sizes: [symbolic]
+
+  # --- dialog-warning ---
+  - src: dialog-warning-16.svg
+    from: status/16/dialog-warning.svg
+    category: actions
+    names: [dialog-warning]
+    sizes: [16]
+  - src: dialog-warning-24.svg
+    from: status/24/dialog-warning.svg
+    category: actions
+    names: [dialog-warning]
+    sizes: [24, 22]
+  - src: dialog-warning-32.svg
+    from: status/32/dialog-warning.svg
+    category: actions
+    names: [dialog-warning]
+    sizes: [32]
+  - src: dialog-warning-48.svg
+    from: status/48/dialog-warning.svg
+    category: actions
+    names: [dialog-warning]
+    sizes: [48]
+  - src: dialog-warning-symbolic.svg
+    from: status/symbolic/dialog-warning-symbolic.svg
+    category: actions
+    names: [dialog-warning-symbolic]
+    sizes: [symbolic]
+
+  # --- dialog-error ---
+  - src: dialog-error-16.svg
+    from: status/16/dialog-error.svg
+    category: actions
+    names: [dialog-error]
+    sizes: [16]
+  - src: dialog-error-24.svg
+    from: status/24/dialog-error.svg
+    category: actions
+    names: [dialog-error]
+    sizes: [24, 22]
+  - src: dialog-error-32.svg
+    from: status/32/dialog-error.svg
+    category: actions
+    names: [dialog-error]
+    sizes: [32]
+  - src: dialog-error-48.svg
+    from: status/48/dialog-error.svg
+    category: actions
+    names: [dialog-error]
+    sizes: [48]
+  - src: dialog-error-symbolic.svg
+    from: status/symbolic/dialog-error-symbolic.svg
+    category: actions
+    names: [dialog-error-symbolic]
+    sizes: [symbolic]
+
+  # --- dialog-ok-apply — process-completed art ---
+  - src: dialog-ok-apply-16.svg
+    from: status/16/process-completed.svg
+    category: actions
+    names: [dialog-ok-apply]
+    sizes: [16]
+  - src: dialog-ok-apply-24.svg
+    from: status/24/process-completed.svg
+    category: actions
+    names: [dialog-ok-apply]
+    sizes: [24, 22]
+  - src: dialog-ok-apply-32.svg
+    from: status/32/process-completed.svg
+    category: actions
+    names: [dialog-ok-apply]
+    sizes: [32]
+  - src: dialog-ok-apply-48.svg
+    from: status/48/process-completed.svg
+    category: actions
+    names: [dialog-ok-apply]
+    sizes: [48]
+
+  # --- process-stop ---
+  - src: process-stop-16.svg
+    from: actions/16/process-stop.svg
+    category: actions
+    names: [process-stop]
+    sizes: [16]
+  - src: process-stop-24.svg
+    from: actions/24/process-stop.svg
+    category: actions
+    names: [process-stop]
+    sizes: [24, 22]
+  - src: process-stop-32.svg
+    from: actions/32/process-stop.svg
+    category: actions
+    names: [process-stop]
+    sizes: [32]
+  - src: process-stop-48.svg
+    from: actions/48/process-stop.svg
+    category: actions
+    names: [process-stop]
+    sizes: [48]
+  - src: process-stop-symbolic.svg
+    from: actions/symbolic/process-stop-symbolic.svg
+    category: actions
+    names: [process-stop-symbolic]
+    sizes: [symbolic]
+
+  # --- help-contents — system-help art ---
+  - src: system-help-16.svg
+    from: categories/16/system-help.svg
+    category: actions
+    names: [help-contents]
+    sizes: [16]
+  - src: system-help-24.svg
+    from: categories/24/system-help.svg
+    category: actions
+    names: [help-contents]
+    sizes: [24, 22]
+  - src: system-help-32.svg
+    from: categories/32/system-help.svg
+    category: actions
+    names: [help-contents]
+    sizes: [32]
+  - src: system-help-48.svg
+    from: categories/48/system-help.svg
+    category: actions
+    names: [help-contents]
+    sizes: [48]
+  - src: system-help-symbolic.svg
+    from: categories/symbolic/system-help-symbolic.svg
+    category: actions
+    names: [help-contents-symbolic]
+    sizes: [symbolic]
+
+  # --- dialog-password ---
+  - src: dialog-password-24.svg
+    from: status/24/dialog-password.svg
+    category: actions
+    names: [dialog-password]
+    sizes: [24, 16, 22]
+  - src: dialog-password-32.svg
+    from: status/32/dialog-password.svg
+    category: actions
+    names: [dialog-password]
+    sizes: [32]
+  - src: dialog-password-48.svg
+    from: status/48/dialog-password.svg
+    category: actions
+    names: [dialog-password]
+    sizes: [48]
+  - src: dialog-password-symbolic.svg
+    from: status/symbolic/dialog-password-symbolic.svg
+    category: actions
+    names: [dialog-password-symbolic]
+    sizes: [symbolic]
+
+  # --- system-lock-screen ---
+  - src: system-lock-screen-32.svg
+    from: actions/32/system-lock-screen.svg
+    category: actions
+    names: [system-lock-screen]
+    sizes: [32, 16, 22, 24]
+  - src: system-lock-screen-48.svg
+    from: actions/48/system-lock-screen.svg
+    category: actions
+    names: [system-lock-screen]
+    sizes: [48]
+  - src: system-lock-screen-symbolic.svg
+    from: actions/symbolic/system-lock-screen-symbolic.svg
+    category: actions
+    names: [system-lock-screen-symbolic]
+    sizes: [symbolic]
+
+  # --- system-log-out ---
+  - src: system-log-out-32.svg
+    from: actions/32/system-log-out.svg
+    category: actions
+    names: [system-log-out]
+    sizes: [32, 16, 22, 24]
+  - src: system-log-out-48.svg
+    from: actions/48/system-log-out.svg
+    category: actions
+    names: [system-log-out]
+    sizes: [48]
+  - src: system-log-out-symbolic.svg
+    from: actions/symbolic/system-log-out-symbolic.svg
+    category: actions
+    names: [system-log-out-symbolic]
+    sizes: [symbolic]
+
+  # --- system-reboot ---
+  - src: system-reboot-32.svg
+    from: actions/32/system-reboot.svg
+    category: actions
+    names: [system-reboot]
+    sizes: [32, 16, 22, 24]
+  - src: system-reboot-48.svg
+    from: actions/48/system-reboot.svg
+    category: actions
+    names: [system-reboot]
+    sizes: [48]
+  - src: system-reboot-symbolic.svg
+    from: status/symbolic/rotation-allowed-symbolic.svg
+    category: actions
+    names: [system-reboot-symbolic]
+    sizes: [symbolic]
+
+  # --- system-search — edit-find art ---
+  - src: system-search-16.svg
+    from: actions/16/edit-find.svg
+    category: actions
+    names: [system-search]
+    sizes: [16]
+  - src: system-search-24.svg
+    from: actions/24/edit-find.svg
+    category: actions
+    names: [system-search]
+    sizes: [24, 22]
+  - src: system-search-48.svg
+    from: actions/48/edit-find.svg
+    category: actions
+    names: [system-search]
+    sizes: [48]
+  - src: system-search-symbolic.svg
+    from: actions/symbolic/edit-find-symbolic.svg
+    category: actions
+    names: [system-search-symbolic]
+    sizes: [symbolic]
+
+  # --- system-shutdown ---
+  - src: system-shutdown-32.svg
+    from: actions/32/system-shutdown.svg
+    category: actions
+    names: [system-shutdown]
+    sizes: [32, 16, 22, 24]
+  - src: system-shutdown-48.svg
+    from: actions/48/system-shutdown.svg
+    category: actions
+    names: [system-shutdown]
+    sizes: [48]
+  - src: system-shutdown-symbolic.svg
+    from: actions/symbolic/system-shutdown-symbolic.svg
+    category: actions
+    names: [system-shutdown-symbolic]
+    sizes: [symbolic]
+
+  # --- system-suspend ---
+  - src: system-suspend-32.svg
+    from: actions/32/system-suspend.svg
+    category: actions
+    names: [system-suspend]
+    sizes: [32, 16, 22, 24]
+
+  # --- system-help ---
+  - src: system-help-16.svg
+    from: categories/16/system-help.svg
+    category: actions
+    names: [system-help]
+    sizes: [16]
+  - src: system-help-24.svg
+    from: categories/24/system-help.svg
+    category: actions
+    names: [system-help]
+    sizes: [24, 22]
+  - src: system-help-32.svg
+    from: categories/32/system-help.svg
+    category: actions
+    names: [system-help]
+    sizes: [32]
+  - src: system-help-48.svg
+    from: categories/48/system-help.svg
+    category: actions
+    names: [system-help]
+    sizes: [48]
+  - src: system-help-symbolic.svg
+    from: categories/symbolic/system-help-symbolic.svg
+    category: actions
+    names: [system-help-symbolic]
+    sizes: [symbolic]
+
+  # --- starred ---
+  - src: starred-16.svg
+    from: status/16/starred.svg
+    category: actions
+    names: [starred]
+    sizes: [16, 22, 24]
+  - src: starred-symbolic.svg
+    from: status/symbolic/starred-symbolic.svg
+    category: actions
+    names: [starred-symbolic]
+    sizes: [symbolic]
+
+  # --- applications-other ---
+  - src: applications-other-16.svg
+    from: categories/16/applications-other.svg
+    category: actions
+    names: [applications-other]
+    sizes: [16]
+  - src: applications-other-24.svg
+    from: categories/24/applications-other.svg
+    category: actions
+    names: [applications-other]
+    sizes: [24, 22]
+  - src: applications-other-32.svg
+    from: categories/32/applications-other.svg
+    category: actions
+    names: [applications-other]
+    sizes: [32]
+  - src: applications-other-48.svg
+    from: categories/48/applications-other.svg
+    category: actions
+    names: [applications-other]
+    sizes: [48]
+  - src: applications-other-symbolic.svg
+    from: categories/symbolic/applications-other-symbolic.svg
+    category: actions
+    names: [applications-other-symbolic]
+    sizes: [symbolic]
+
+  # --- gnome-lockscreen — system-lock-screen art ---
+  - src: system-lock-screen-48.svg
+    from: actions/48/system-lock-screen.svg
+    category: actions
+    names: [gnome-lockscreen]
+    sizes: [48, 16, 22, 24]
+
+  # --- jockey-proprietary — locked art ---
+  - src: jockey-proprietary-24.svg
+    from: status/24/locked.svg
+    category: actions
+    names: [jockey-proprietary]
+    sizes: [24, 16, 22]
+
+  # --- non-starred ---
+  - src: non-starred-16.svg
+    from: status/16/non-starred.svg
+    category: actions
+    names: [non-starred]
+    sizes: [16, 22, 24]
+  - src: non-starred-symbolic.svg
+    from: status/symbolic/non-starred-symbolic.svg
+    category: actions
+    names: [non-starred-symbolic]
+    sizes: [symbolic]
+
+  # --- off — process-stop art ---
+  - src: process-stop-16.svg
+    from: actions/16/process-stop.svg
+    category: actions
+    names: ["off"]
+    sizes: [16]
+  - src: process-stop-24.svg
+    from: actions/24/process-stop.svg
+    category: actions
+    names: ["off"]
+    sizes: [24, 22]
+  - src: process-stop-32.svg
+    from: actions/32/process-stop.svg
+    category: actions
+    names: ["off"]
+    sizes: [32]
+  - src: process-stop-48.svg
+    from: actions/48/process-stop.svg
+    category: actions
+    names: ["off"]
+    sizes: [48]
+  - src: process-stop-symbolic.svg
+    from: actions/symbolic/process-stop-symbolic.svg
+    category: actions
+    names: [off-symbolic]
+    sizes: [symbolic]
+
+  # --- off-outline — process-stop art ---
+  - src: process-stop-16.svg
+    from: actions/16/process-stop.svg
+    category: actions
+    names: [off-outline]
+    sizes: [16]
+  - src: process-stop-24.svg
+    from: actions/24/process-stop.svg
+    category: actions
+    names: [off-outline]
+    sizes: [24, 22]
+  - src: process-stop-32.svg
+    from: actions/32/process-stop.svg
+    category: actions
+    names: [off-outline]
+    sizes: [32]
+  - src: process-stop-48.svg
+    from: actions/48/process-stop.svg
+    category: actions
+    names: [off-outline]
+    sizes: [48]
+  - src: off-outline-symbolic.svg
+    from: status/symbolic/off-outline-symbolic.svg
+    category: actions
+    names: [off-outline-symbolic]
+    sizes: [symbolic]
+
+  # --- on — process-completed art ---
+  - src: dialog-ok-apply-16.svg
+    from: status/16/process-completed.svg
+    category: actions
+    names: ["on"]
+    sizes: [16]
+  - src: dialog-ok-apply-24.svg
+    from: status/24/process-completed.svg
+    category: actions
+    names: ["on"]
+    sizes: [24, 22]
+  - src: dialog-ok-apply-32.svg
+    from: status/32/process-completed.svg
+    category: actions
+    names: ["on"]
+    sizes: [32]
+  - src: dialog-ok-apply-48.svg
+    from: status/48/process-completed.svg
+    category: actions
+    names: ["on"]
+    sizes: [48]
+  - src: on-symbolic.svg
+    from: status/symbolic/on-symbolic.svg
+    category: actions
+    names: [on-symbolic]
+    sizes: [symbolic]
+
+  # --- on-outline — process-completed art ---
+  - src: dialog-ok-apply-16.svg
+    from: status/16/process-completed.svg
+    category: actions
+    names: [on-outline]
+    sizes: [16]
+  - src: dialog-ok-apply-24.svg
+    from: status/24/process-completed.svg
+    category: actions
+    names: [on-outline]
+    sizes: [24, 22]
+  - src: dialog-ok-apply-32.svg
+    from: status/32/process-completed.svg
+    category: actions
+    names: [on-outline]
+    sizes: [32]
+  - src: dialog-ok-apply-48.svg
+    from: status/48/process-completed.svg
+    category: actions
+    names: [on-outline]
+    sizes: [48]
+  - src: on-outline-symbolic.svg
+    from: status/symbolic/on-outline-symbolic.svg
+    category: actions
+    names: [on-outline-symbolic]
+    sizes: [symbolic]
+
+  # --- semi-starred ---
+  - src: semi-starred-16.svg
+    from: status/16/semi-starred.svg
+    category: actions
+    names: [semi-starred]
+    sizes: [16, 22, 24]
+  - src: semi-starred-symbolic.svg
+    from: status/symbolic/semi-starred-symbolic.svg
+    category: actions
+    names: [semi-starred-symbolic]
+    sizes: [symbolic]
+  - src: semi-starred-rtl-16.svg
+    from: status/16/semi-starred-rtl.svg
+    category: actions
+    names: [semi-starred-rtl]
+    sizes: [16, 22, 24]
+  - src: semi-starred-symbolic-rtl.svg
+    from: status/symbolic/semi-starred-symbolic-rtl.svg
+    category: actions
+    names: [semi-starred-symbolic-rtl]
+    sizes: [symbolic]
+
+  # --- system-restart — view-refresh / system-reboot art ---
+  - src: system-restart-24.svg
+    from: actions/24/view-refresh.svg
+    category: actions
+    names: [system-restart]
+    sizes: [24, 16, 22]
+  - src: system-reboot-32.svg
+    from: actions/32/system-reboot.svg
+    category: actions
+    names: [system-restart]
+    sizes: [32]
+  - src: system-reboot-48.svg
+    from: actions/48/system-reboot.svg
+    category: actions
+    names: [system-restart]
+    sizes: [48]
+
+  # --- x-office-address-book ---
+  - src: x-office-address-book-16.svg
+    from: mimes/16/x-office-address-book.svg
+    category: actions
+    names: [x-office-address-book]
+    sizes: [16]
+  - src: x-office-address-book-24.svg
+    from: mimes/24/x-office-address-book.svg
+    category: actions
+    names: [x-office-address-book]
+    sizes: [24, 22]
+  - src: x-office-address-book-32.svg
+    from: mimes/32/x-office-address-book.svg
+    category: actions
+    names: [x-office-address-book]
+    sizes: [32]
+  - src: x-office-address-book-48.svg
+    from: mimes/48/x-office-address-book.svg
+    category: actions
+    names: [x-office-address-book]
+    sizes: [48]
+  - src: x-office-address-book-symbolic.svg
+    from: mimes/symbolic/x-office-address-book-symbolic.svg
+    category: actions
+    names: [x-office-address-book-symbolic]
+    sizes: [symbolic]

@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overlay review — telementary</title>
+<style>
+  :root {
+    --paper:#fcfcfd; --panel:#ffffff;
+    --ink:#16181d; --muted:#6b7280; --faint:#9aa1ac;
+    --line:#e6e8ec; --line-strong:#d5d8de;
+    --accent:#2f86c9; --accent-soft:#e8f1fa;
+    --ok:#23864f; --ok-soft:#e5f4ea;
+    --danger:#d64550; --danger-soft:#fdecee;
+    --warn-soft:#fff6db; --warn-line:#ecd28a;
+    --checker:#eef0f3;
+    /* Breeze window colors, for the in-context previews */
+    --breeze-light:#eff0f1; --breeze-light-ink:#232629;
+    --breeze-dark:#2a2e32; --breeze-dark-ink:#fcfcfc;
+    --sans:-apple-system,"Segoe UI",Roboto,Inter,system-ui,sans-serif;
+    --mono:"SF Mono","JetBrains Mono","Cascadia Code",ui-monospace,Menlo,Consolas,monospace;
+  }
+  * { box-sizing:border-box; }
+  html, body { height:100%; }
+  body {
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:14px; line-height:1.45;
+    -webkit-font-smoothing:antialiased;
+    display:flex; flex-direction:column;
+  }
+  button { font:inherit; }
+  kbd {
+    font-family:var(--mono); font-size:10.5px; line-height:1;
+    padding:2px 4px; border-radius:4px;
+    border:1px solid currentColor; opacity:.7;
+  }
+  code, .mono { font-family:var(--mono); font-size:12px; }
+
+  /* ---------- header ---------- */
+  .top {
+    display:flex; align-items:center; gap:24px; flex-wrap:wrap;
+    padding:14px 24px; border-bottom:1px solid var(--line);
+    background:var(--panel);
+  }
+  .brand .title { font-size:16px; font-weight:600; letter-spacing:-.01em; }
+  .brand .paths { font-family:var(--mono); font-size:11.5px; color:var(--muted); margin-top:2px; }
+  .progress { flex:1; min-width:260px; max-width:520px; }
+  .counts { display:flex; gap:14px; font-size:12.5px; color:var(--muted); margin-bottom:6px; }
+  .counts b { font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums; }
+  .counts .c-ok b { color:var(--ok); }
+  .counts .c-no b { color:var(--danger); }
+  .bar { display:flex; height:6px; border-radius:3px; background:var(--line); overflow:hidden; }
+  .bar span { display:block; height:100%; transition:width .2s ease; }
+  .bar .ok { background:var(--ok); }
+  .bar .no { background:var(--danger); }
+  .back {
+    margin-left:auto; font-size:12.5px; color:var(--accent); text-decoration:none;
+    border:1px solid var(--line-strong); border-radius:6px; padding:5px 10px;
+  }
+  .back:hover { background:var(--accent-soft); }
+  .warnings { background:var(--warn-soft); border-bottom:1px solid var(--warn-line); padding:8px 24px; font-size:12.5px; }
+  .warnings:empty { display:none; }
+
+  /* ---------- layout ---------- */
+  .layout { flex:1; display:grid; grid-template-columns:300px minmax(0,1fr); min-height:0; }
+  .side { display:flex; flex-direction:column; min-height:0; border-right:1px solid var(--line); background:var(--panel); }
+  .main { overflow:auto; min-height:0; }
+
+  /* ---------- sidebar ---------- */
+  .filters { padding:12px 12px 8px; border-bottom:1px solid var(--line); display:grid; gap:8px; }
+  .seg { display:flex; border:1px solid var(--line-strong); border-radius:7px; overflow:hidden; }
+  .seg button {
+    flex:1; appearance:none; border:0; background:none; cursor:pointer;
+    font-size:12px; color:var(--muted); padding:5px 4px;
+    border-right:1px solid var(--line-strong);
+  }
+  .seg button:last-child { border-right:0; }
+  .seg button:hover { color:var(--ink); background:#f3f5f8; }
+  .seg button.on { background:var(--ink); color:#fff; }
+  .seg button .n { font-family:var(--mono); font-size:10.5px; opacity:.75; margin-left:3px; }
+  .search {
+    width:100%; font:inherit; font-size:13px; padding:6px 9px;
+    border:1px solid var(--line-strong); border-radius:7px; background:var(--paper);
+  }
+  .search:focus { outline:2px solid var(--accent); outline-offset:-1px; }
+  .list { overflow:auto; padding:4px 0 24px; flex:1; }
+  .gh {
+    position:sticky; top:0; z-index:1; background:var(--panel);
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:10px 14px 4px; font-size:11px; font-weight:600; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--muted);
+  }
+  .gh .n { font-family:var(--mono); font-weight:400; letter-spacing:0; text-transform:none; }
+  .li {
+    appearance:none; border:0; background:none; cursor:pointer; width:100%;
+    display:flex; align-items:center; gap:8px; text-align:left;
+    padding:4px 14px 4px 16px; color:var(--ink);
+    font-family:var(--mono); font-size:12.5px;
+  }
+  .li:hover { background:#f2f6fb; }
+  .li.cur { background:var(--accent-soft); box-shadow:inset 3px 0 0 var(--accent); }
+  .li .nm { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .li .u { font-size:10.5px; color:var(--faint); }
+  .li .cm { font-size:11px; color:var(--muted); }
+  .dot { width:9px; height:9px; border-radius:50%; border:1.5px solid var(--faint); flex:none; }
+  .li.approved .dot { background:var(--ok); border-color:var(--ok); }
+  .li.rejected .dot { background:var(--danger); border-color:var(--danger); }
+  .li.approved .nm, .li.rejected .nm { color:var(--muted); }
+  .empty { padding:16px; color:var(--muted); font-size:13px; }
+
+  /* ---------- card ---------- */
+  .card { max-width:1020px; margin:0 auto; padding:22px 28px 0; }
+  .crumbs { font-size:12px; color:var(--muted); display:flex; gap:8px; align-items:center; }
+  .head { display:flex; align-items:flex-start; gap:16px; margin-top:4px; }
+  .head h1 { margin:0; font-family:var(--mono); font-size:22px; font-weight:600; letter-spacing:-.01em; word-break:break-all; }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+  .chip {
+    font-size:11.5px; padding:2px 8px; border-radius:999px;
+    border:1px solid var(--line-strong); color:var(--muted); background:var(--panel);
+  }
+  .chip.sub { border-color:#c9b4e6; color:#6a3fa8; background:#f5effc; }
+  .chip.std { border-color:#a9cbe9; color:#1f5f93; background:var(--accent-soft); }
+  .chip.approved { border-color:var(--ok); color:#fff; background:var(--ok); }
+  .chip.rejected { border-color:var(--danger); color:#fff; background:var(--danger); }
+  .chip.pending { border-style:dashed; }
+  .nav { margin-left:auto; display:flex; gap:6px; flex:none; }
+  .btn {
+    appearance:none; cursor:pointer; font-size:13px;
+    border:1px solid var(--line-strong); border-radius:7px; background:var(--panel); color:var(--ink);
+    padding:6px 12px; display:inline-flex; align-items:center; gap:7px;
+    transition:background .12s ease, border-color .12s ease;
+  }
+  .btn:hover { background:#f3f5f8; }
+  .btn:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
+  .btn:disabled { opacity:.45; cursor:default; }
+
+  section.blk { margin-top:22px; }
+  .blk h2 {
+    margin:0 0 8px; font-size:11px; font-weight:600; letter-spacing:.05em;
+    text-transform:uppercase; color:var(--muted);
+    display:flex; align-items:center; gap:10px;
+  }
+  .blk h2 .aside { margin-left:auto; text-transform:none; letter-spacing:0; font-weight:400; }
+
+  /* in-context preview: a KDE toolbar + menu row, Breeze light and dark */
+  .ctx { display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  .band { padding:10px 14px 12px; }
+  .band.light { background:var(--breeze-light); color:var(--breeze-light-ink); }
+  .band.dark { background:var(--breeze-dark); color:var(--breeze-dark-ink); }
+  .band .lbl { font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; opacity:.55; margin-bottom:6px; }
+  .ctxrow { display:grid; grid-template-columns:76px 1fr 1fr; align-items:center; gap:6px; margin-top:4px; }
+  .ctxrow .who { font-size:11px; opacity:.6; }
+  .tb { display:inline-flex; align-items:center; gap:7px; padding:4px 8px; border-radius:5px; font-size:13px; white-space:nowrap; overflow:hidden; }
+  .tb:hover { background:rgba(127,127,127,.15); }
+  .tb img, .tb .ph { width:22px; height:22px; flex:none; }
+  .mi { display:inline-flex; align-items:center; gap:8px; padding:2px 8px; font-size:12.5px; white-space:nowrap; overflow:hidden; }
+  .mi img, .mi .ph { width:16px; height:16px; flex:none; }
+  .ph { display:inline-block; border:1px dashed currentColor; opacity:.35; border-radius:3px; }
+
+  /* size table */
+  .bgseg { display:inline-flex; border:1px solid var(--line-strong); border-radius:6px; overflow:hidden; }
+  .bgseg button { appearance:none; border:0; background:none; cursor:pointer; font-size:11.5px; color:var(--muted); padding:3px 9px; border-right:1px solid var(--line-strong); }
+  .bgseg button:last-child { border-right:0; }
+  .bgseg button.on { background:var(--ink); color:#fff; }
+  table.sizes { width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--panel); }
+  .sizes th { font-size:11px; font-weight:600; color:var(--muted); text-align:left; padding:8px 12px; background:#f7f8fa; border-bottom:1px solid var(--line); }
+  .sizes td { padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+  .sizes tr:last-child td { border-bottom:0; }
+  .sizes td.bk { width:92px; font-family:var(--mono); font-size:13px; font-weight:600; }
+  .sizes td.bk .hint { display:block; font-family:var(--sans); font-size:10.5px; font-weight:400; color:var(--faint); }
+  .sizes tr.nameRow td { background:#fafbfc; font-family:var(--mono); font-size:12px; color:var(--muted); padding:6px 12px; }
+  .icell { display:flex; gap:12px; align-items:center; }
+  .sw {
+    flex:none; display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--line); border-radius:7px;
+  }
+  .sw.one { width:60px; height:60px; }
+  .sw.big { width:84px; height:84px; }
+  .sw.big img { width:64px; height:64px; }
+  .bg-light .sw { background:var(--breeze-light); }
+  .bg-dark .sw { background:var(--breeze-dark); border-color:#1b1e21; }
+  .bg-checker .sw {
+    background-color:var(--panel);
+    background-image:
+      linear-gradient(45deg,var(--checker) 25%,transparent 25%),
+      linear-gradient(-45deg,var(--checker) 25%,transparent 25%),
+      linear-gradient(45deg,transparent 75%,var(--checker) 75%),
+      linear-gradient(-45deg,transparent 75%,var(--checker) 75%);
+    background-size:12px 12px; background-position:0 0,0 6px,6px -6px,-6px 0;
+  }
+  .sw .none { font-size:11px; color:var(--faint); }
+  .cap { min-width:0; font-size:12px; display:grid; gap:3px; }
+  .cap code { color:var(--muted); word-break:break-all; }
+  .cap .note { color:var(--muted); }
+  .tag { justify-self:start; font-size:10.5px; padding:1px 6px; border-radius:4px; background:#f0f2f5; color:var(--muted); }
+  .tag.mono { background:#eceff3; color:#4b5563; }
+  .tag.gray { background:#fff1e0; color:#9a5a00; }
+  .tag.color { background:var(--ok-soft); color:var(--ok); }
+  .tag.base { background:#f3eafc; color:#6a3fa8; }
+
+  .info { display:grid; gap:10px; }
+  .notes { margin:0; padding:0; list-style:none; display:grid; gap:6px; }
+  .notes li { padding:8px 12px; border-radius:8px; background:var(--warn-soft); border:1px solid var(--warn-line); font-size:13px; }
+  .notes li.std { background:var(--accent-soft); border-color:#a9cbe9; }
+  .alsos, .users { display:flex; flex-wrap:wrap; gap:6px; }
+  .alsos .chip { font-family:var(--mono); color:var(--ink); }
+  .alsos button.chip { cursor:pointer; border-color:#a9cbe9; }
+  .alsos button.chip:hover { background:var(--accent-soft); }
+  .alsos .chip small, .users small { color:var(--faint); font-family:var(--sans); }
+  .users .chip { font-family:var(--mono); font-size:11px; }
+  .muted { color:var(--muted); font-size:13px; }
+  details.entry { margin-top:4px; }
+  details.entry summary { cursor:pointer; font-size:12.5px; color:var(--muted); }
+  details.entry pre {
+    margin:8px 0 0; padding:12px 14px; border-radius:8px; background:#1f2430; color:#e6e9ef;
+    font-family:var(--mono); font-size:12px; line-height:1.55; overflow:auto; white-space:pre;
+  }
+
+  /* decision bar */
+  .decide {
+    position:sticky; bottom:0; z-index:5; margin-top:24px;
+    background:linear-gradient(to bottom, rgba(252,252,253,0), var(--paper) 18px);
+    padding:18px 0 16px;
+  }
+  .decide .box { border:1px solid var(--line-strong); border-radius:12px; background:var(--panel); padding:12px; box-shadow:0 6px 24px rgba(20,24,33,.07); }
+  .decide textarea {
+    width:100%; min-height:56px; max-height:220px; resize:vertical;
+    font:inherit; font-size:13px; padding:8px 10px;
+    border:1px solid var(--line-strong); border-radius:8px; background:var(--paper);
+  }
+  .decide textarea:focus { outline:2px solid var(--accent); outline-offset:-1px; }
+  .actions { display:flex; align-items:center; gap:8px; margin-top:10px; flex-wrap:wrap; }
+  .btn.ok { background:var(--ok); border-color:var(--ok); color:#fff; }
+  .btn.ok:hover { background:#1c7043; }
+  .btn.no { background:var(--danger); border-color:var(--danger); color:#fff; }
+  .btn.no:hover { background:#b93843; }
+  .btn.ok.cur, .btn.no.cur { box-shadow:0 0 0 3px rgba(35,134,79,.25); }
+  .btn.no.cur { box-shadow:0 0 0 3px rgba(214,69,80,.25); }
+  .actions .hint { margin-left:auto; font-size:11.5px; color:var(--muted); }
+  .unsaved { color:#9a5a00; font-size:12px; margin-top:6px; }
+  .unsaved:empty { display:none; }
+
+  .toast {
+    position:fixed; right:20px; bottom:20px; z-index:50;
+    background:#1f2430; color:#f5f6f8; font-size:13px;
+    padding:9px 14px; border-radius:8px; box-shadow:0 8px 26px rgba(0,0,0,.25);
+    opacity:0; transform:translateY(6px); transition:opacity .15s ease, transform .15s ease; pointer-events:none;
+  }
+  .toast.on { opacity:1; transform:none; }
+  .toast.err { background:var(--danger); }
+
+  .done { text-align:center; padding:60px 20px; color:var(--muted); }
+
+  @media (max-width:860px) {
+    body { display:block; }
+    .layout { display:block; }
+    .side { border-right:0; border-bottom:1px solid var(--line); max-height:40vh; }
+    .ctx { grid-template-columns:1fr; }
+    .card { padding:16px; }
+  }
+  @media (prefers-reduced-motion:reduce) { * { transition:none !important; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="title">Overlay review · elementary → telementary</div>
+    <div class="paths" id="paths">loading…</div>
+  </div>
+  <div class="progress">
+    <div class="counts">
+      <span class="c-ok"><b id="nOk">0</b> approved</span>
+      <span class="c-no"><b id="nNo">0</b> rejected</span>
+      <span><b id="nPending">0</b> pending</span>
+      <span><b id="nAll">0</b> total</span>
+    </div>
+    <div class="bar"><span class="ok" id="barOk"></span><span class="no" id="barNo"></span></div>
+  </div>
+  <a class="back" href="/">matrix view</a>
+</header>
+<div class="warnings" id="warnings"></div>
+<div class="layout">
+  <aside class="side">
+    <div class="filters">
+      <div class="seg" role="group" aria-label="Filter by decision" id="seg">
+        <button type="button" data-f="all">All<span class="n" id="fAll"></span></button>
+        <button type="button" data-f="pending">Pending<span class="n" id="fPending"></span></button>
+        <button type="button" data-f="approved">Approved<span class="n" id="fApproved"></span></button>
+        <button type="button" data-f="rejected">Rejected<span class="n" id="fRejected"></span></button>
+      </div>
+      <input class="search" id="q" type="search" placeholder="Filter by name…  ( / )" autocomplete="off" spellcheck="false">
+    </div>
+    <nav class="list" id="list" aria-label="Candidates"></nav>
+  </aside>
+  <main class="main" id="main"><div class="card"><p class="muted">Loading candidates…</p></div></main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+'use strict';
+
+const BUCKET_HINT = { '16': 'menus', '22': 'toolbars', '48': 'dialogs', 'symbolic': 'monochrome' };
+const FG = { light: '232629', dark: 'fcfcfc', checker: '232629' };
+const STYLE_LABEL = { mono: 'monochrome', gray: 'grayscale', color: 'color' };
+
+const S = {
+  items: [], byId: {}, decided: {}, meta: {},
+  filter: 'all', q: '', cur: null,
+  bg: ['light', 'dark', 'checker'].includes(store('review.bg')) ? store('review.bg') : 'light',
+  drafts: {},
+  busy: false,
+};
+
+function store(k, v) {
+  try {
+    if (v === undefined) return localStorage.getItem(k);
+    localStorage.setItem(k, v);
+  } catch (e) { /* storage unavailable: per-session only */ }
+  return null;
+}
+
+// el builds a DOM node: el('div', {class: 'x', onclick: fn}, child, 'text', …)
+function el(tag, attrs, ...kids) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (v == null || v === false) continue;
+    if (k.startsWith('on')) n.addEventListener(k.slice(2), v);
+    else if (k === 'class') n.className = v;
+    else if (k === 'style') n.style.cssText = v;
+    else n.setAttribute(k, v === true ? '' : v);
+  }
+  for (const k of kids.flat()) {
+    if (k == null || k === false) continue;
+    n.append(k.nodeType ? k : document.createTextNode(String(k)));
+  }
+  return n;
+}
+
+function verdictOf(id) { const d = S.decided[id]; return d ? d.verdict : 'pending'; }
+
+function imgURL(url, bg) { return url + (url.includes('?') ? '&' : '?') + 'fg=' + FG[bg]; }
+
+function img(ref, bg, px, cls) {
+  if (!ref || !ref.url) return el('span', { class: 'ph ' + (cls || ''), style: 'width:' + px + 'px;height:' + px + 'px' });
+  return el('img', {
+    src: imgURL(ref.url, bg), width: px, height: px, alt: '', class: cls, loading: 'lazy',
+    onerror(e) { e.target.replaceWith(el('span', { class: 'ph', style: 'width:' + px + 'px;height:' + px + 'px', title: 'failed to load' })); },
+  });
+}
+
+// ---------- data ----------
+
+async function fetchState() {
+  const r = await fetch('/review/api/state', { cache: 'no-store' });
+  if (!r.ok) throw new Error((await r.text()) || r.statusText);
+  const st = await r.json();
+  S.items = st.items || [];
+  S.byId = Object.fromEntries(S.items.map((it, i) => [it.id, Object.assign(it, { index: i })]));
+  S.decided = st.decided || {};
+  S.meta = st;
+  document.getElementById('paths').textContent =
+    rel(st.candidates) + '  →  ' + rel(st.decisions) + (st.elementary ? '   ·   elementary: ' + st.elementary : '');
+  document.getElementById('warnings').replaceChildren(...(st.warnings || []).map(w => el('div', null, '⚠ ' + w)));
+}
+
+async function load() {
+  try {
+    await fetchState();
+  } catch (e) {
+    document.getElementById('main').replaceChildren(el('div', { class: 'card' },
+      el('p', { class: 'muted' }, 'Could not load the review state: ' + e.message)));
+    return;
+  }
+  const want = decodeURIComponent(location.hash.slice(1));
+  S.cur = S.byId[want] ? want : (nextPending(null) || (S.items[0] && S.items[0].id));
+  renderAll();
+}
+
+// refresh picks up changes made elsewhere — the decisions file edited in the
+// todo app or an editor, a regenerated theme — when the tab regains focus. The
+// card is only rebuilt when the shown item's decision changed, so the scroll
+// position and a comment being drafted survive.
+async function refresh() {
+  const before = JSON.stringify(S.decided[S.cur] || null);
+  try { await fetchState(); } catch (e) { return; }
+  let rebuild = JSON.stringify(S.decided[S.cur] || null) !== before;
+  if (!S.byId[S.cur]) {
+    S.cur = nextPending(null) || (S.items[0] && S.items[0].id);
+    rebuild = true;
+  }
+  renderList();
+  if (rebuild) renderCard();
+}
+
+function rel(p) { const i = (p || '').lastIndexOf('/review/'); return i >= 0 ? p.slice(i + 1) : p; }
+
+function visible() {
+  const q = S.q.trim().toLowerCase();
+  return S.items.filter(it =>
+    (S.filter === 'all' || verdictOf(it.id) === S.filter) &&
+    (!q || it.id.includes(q) || (it.source || '').includes(q) || it.group.toLowerCase().includes(q)));
+}
+
+// nextPending returns the first undecided item after `from` in list order,
+// wrapping around; null when everything is decided.
+function nextPending(from) {
+  const n = S.items.length;
+  const start = from && S.byId[from] ? S.byId[from].index + 1 : 0;
+  for (let k = 0; k < n; k++) {
+    const it = S.items[(start + k) % n];
+    if (verdictOf(it.id) === 'pending' && it.id !== from) return it.id;
+  }
+  return null;
+}
+
+function select(id) {
+  if (!S.byId[id]) return;
+  S.cur = id;
+  history.replaceState(null, '', '#' + encodeURIComponent(id));
+  renderList();
+  renderCard();
+  document.getElementById('main').scrollTop = 0;
+}
+
+function step(delta) {
+  const vis = visible();
+  if (!vis.length) return;
+  let i = vis.findIndex(it => it.id === S.cur);
+  if (i < 0) {
+    // current item is filtered out: continue from its list position
+    const pos = S.byId[S.cur] ? S.byId[S.cur].index : -1;
+    i = delta > 0 ? vis.findIndex(it => it.index > pos) - 1 : vis.findIndex(it => it.index >= pos);
+    if (i < -1) i = vis.length - 1;
+  }
+  const j = Math.min(vis.length - 1, Math.max(0, i + delta));
+  select(vis[j].id);
+}
+
+async function decide(verdict) {
+  const id = S.cur;
+  if (!id || S.busy) return;
+  const comment = document.getElementById('comment').value;
+  S.busy = true;
+  try {
+    const r = await fetch('/review/api/decide', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, verdict, comment }),
+    });
+    if (!r.ok) throw new Error((await r.text()) || r.statusText);
+    S.decided = (await r.json()).decided || {};
+    delete S.drafts[id];
+    const saved = verdict ? (verdict === 'approved' ? 'Approved ' : 'Rejected ') + id + ' → ' + rel(S.meta.decisions)
+                          : 'Cleared ' + id;
+    const next = verdict ? nextPending(id) : null;
+    toast(verdict && !next ? saved + ' — every candidate now has a decision' : saved);
+    if (next) { select(next); return; }
+    renderAll();
+  } catch (e) {
+    toast('Save failed: ' + e.message, true);
+  } finally {
+    S.busy = false;
+  }
+}
+
+let toastTimer;
+function toast(msg, err) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.toggle('err', !!err);
+  t.classList.add('on');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('on'), err ? 5000 : 2200);
+}
+
+// ---------- rendering ----------
+
+function renderAll() { renderCounts(); renderList(); renderCard(); }
+
+function renderCounts() {
+  const c = { approved: 0, rejected: 0, pending: 0 };
+  for (const it of S.items) c[verdictOf(it.id)]++;
+  const n = S.items.length || 1;
+  document.getElementById('nOk').textContent = c.approved;
+  document.getElementById('nNo').textContent = c.rejected;
+  document.getElementById('nPending').textContent = c.pending;
+  document.getElementById('nAll').textContent = S.items.length;
+  document.getElementById('barOk').style.width = (100 * c.approved / n) + '%';
+  document.getElementById('barNo').style.width = (100 * c.rejected / n) + '%';
+  document.getElementById('fAll').textContent = S.items.length;
+  document.getElementById('fPending').textContent = c.pending;
+  document.getElementById('fApproved').textContent = c.approved;
+  document.getElementById('fRejected').textContent = c.rejected;
+  document.querySelectorAll('#seg button').forEach(b => b.classList.toggle('on', b.dataset.f === S.filter));
+}
+
+function renderList() {
+  renderCounts();
+  const list = document.getElementById('list');
+  const vis = visible();
+  if (!vis.length) {
+    list.replaceChildren(el('div', { class: 'empty' }, S.items.length ? 'Nothing matches this filter.' : 'No candidates.'));
+    return;
+  }
+  const groupTotals = {};
+  for (const it of S.items) {
+    const g = groupTotals[it.group] || (groupTotals[it.group] = { all: 0, done: 0 });
+    g.all++;
+    if (verdictOf(it.id) !== 'pending') g.done++;
+  }
+  const nodes = [];
+  let group = null;
+  for (const it of vis) {
+    if (it.group !== group) {
+      group = it.group;
+      const g = groupTotals[group];
+      nodes.push(el('div', { class: 'gh' }, group, el('span', { class: 'n' }, g.done + '/' + g.all)));
+    }
+    const v = verdictOf(it.id);
+    const d = S.decided[it.id];
+    nodes.push(el('button', {
+      type: 'button', class: 'li ' + v + (it.id === S.cur ? ' cur' : ''), 'data-id': it.id,
+      title: it.id + (it.kind === 'substitute' ? ' (art from ' + it.source + ')' : '') + ' — ' + v,
+      onclick: () => select(it.id),
+    },
+      el('span', { class: 'dot' }),
+      el('span', { class: 'nm' }, it.id),
+      d && d.comment ? el('span', { class: 'cm', title: d.comment }, '✎') : null,
+      it.usage ? el('span', { class: 'u', title: 'referenced by ' + it.usage + ' KDE/Qt components' }, it.usage) : null,
+    ));
+  }
+  list.replaceChildren(...nodes);
+  const cur = list.querySelector('.li.cur');
+  if (cur) cur.scrollIntoView({ block: 'nearest' });
+}
+
+function renderCard() {
+  const main = document.getElementById('main');
+  const it = S.byId[S.cur];
+  if (!it) {
+    main.replaceChildren(el('div', { class: 'card' }, el('div', { class: 'done' }, 'No candidates to review.')));
+    return;
+  }
+  const v = verdictOf(it.id);
+  const std = (it.notes || []).some(n => n.startsWith('KDE standard action'));
+  const byBucket = (name, b) => it.rows.find(r => r.name === name && r.bucket === b);
+  const cur22 = byBucket(it.id, '22') || byBucket(it.id, '24') || it.rows[0];
+  const cur16 = byBucket(it.id, '16') || cur22;
+
+  const card = el('div', { class: 'card' },
+    el('div', { class: 'crumbs' }, el('span', null, it.group), el('span', null, '·'), el('span', null, (it.index + 1) + ' / ' + S.items.length)),
+    el('div', { class: 'head' },
+      el('div', null,
+        el('h1', null, it.id),
+        el('div', { class: 'chips' },
+          el('span', { class: 'chip ' + v }, v),
+          it.kind === 'substitute'
+            ? el('span', { class: 'chip sub', title: 'elementary has no ' + it.id + '; this art is elementary’s ' + it.source }, 'substitute · art from ' + it.source)
+            : el('span', { class: 'chip' }, 'same name in elementary'),
+          std ? el('span', { class: 'chip std' }, 'KDE standard action') : null,
+          el('span', { class: 'chip' }, it.category),
+        ),
+      ),
+      el('div', { class: 'nav' },
+        el('button', { class: 'btn', type: 'button', onclick: () => step(-1), title: 'previous (←)' }, '←'),
+        el('button', { class: 'btn', type: 'button', onclick: () => step(1), title: 'next (→)' }, '→'),
+      ),
+    ),
+
+    el('section', { class: 'blk' },
+      el('h2', null, 'In context', el('span', { class: 'aside muted' }, 'toolbar at 22 px, menu at 16 px — Breeze colors')),
+      el('div', { class: 'ctx' },
+        band('light', 'Breeze light', it, cur22, cur16),
+        band('dark', 'Breeze dark', it, cur22, cur16),
+      ),
+    ),
+
+    el('section', { class: 'blk' },
+      el('h2', null, 'Per size — now vs proposed',
+        el('span', { class: 'aside' }, bgSwitch())),
+      sizeTable(it),
+    ),
+
+    infoBlock(it),
+
+    el('section', { class: 'blk' },
+      el('details', { class: 'entry' },
+        el('summary', null, 'What gets written to ' + rel(S.meta.decisions)),
+        el('pre', { id: 'entryPreview' }))),
+
+    decideBar(it, v),
+  );
+  main.replaceChildren(card);
+  updatePreview();
+}
+
+// band is one color scheme's in-context preview: the icon as a toolbar button
+// (22 px) and a menu entry (16 px), now and with the elementary art.
+function band(bg, label, it, cur22, cur16) {
+  const entry = (ref, px, cls) => el('span', { class: cls }, img(ref, bg, px), el('span', null, it.id));
+  return el('div', { class: 'band ' + bg },
+    el('div', { class: 'lbl' }, label),
+    el('div', { class: 'ctxrow' },
+      el('span', { class: 'who' }, ''), el('span', { class: 'who' }, 'toolbar'), el('span', { class: 'who' }, 'menu')),
+    el('div', { class: 'ctxrow' },
+      el('span', { class: 'who' }, 'now'),
+      entry(cur22 && cur22.current, 22, 'tb'),
+      entry(cur16 && cur16.current, 16, 'mi')),
+    el('div', { class: 'ctxrow' },
+      el('span', { class: 'who' }, 'elementary'),
+      entry(cur22 && cur22.proposed, 22, 'tb'),
+      entry(cur16 && cur16.proposed, 16, 'mi')),
+  );
+}
+
+function bgSwitch() {
+  const opts = [['light', 'Light'], ['dark', 'Dark'], ['checker', 'Checker']];
+  return el('span', { class: 'bgseg', role: 'group', 'aria-label': 'Swatch background (B)' },
+    ...opts.map(([k, lbl]) => el('button', {
+      type: 'button', class: S.bg === k ? 'on' : '', onclick: () => setBg(k),
+    }, lbl)));
+}
+
+function setBg(k) { S.bg = k; store('review.bg', k); renderCard(); }
+
+function sizeTable(it) {
+  const pxOf = b => (/^\d+$/.test(b) ? +b : 16);
+  const rows = [];
+  const names = [...new Set(it.rows.map(r => r.name))];
+  for (const name of names) {
+    if (names.length > 1) rows.push(el('tr', { class: 'nameRow' }, el('td', { colspan: 3 }, name)));
+    for (const r of it.rows.filter(r => r.name === name)) {
+      rows.push(el('tr', null,
+        el('td', { class: 'bk' }, r.bucket, BUCKET_HINT[r.bucket] ? el('span', { class: 'hint' }, BUCKET_HINT[r.bucket]) : null),
+        el('td', null, iconCell(r.current, pxOf(r.bucket), 'now')),
+        el('td', null, iconCell(r.proposed, pxOf(r.bucket), 'new')),
+      ));
+    }
+  }
+  return el('table', { class: 'sizes bg-' + S.bg },
+    el('thead', null, el('tr', null,
+      el('th', null, 'bucket'), el('th', null, 'now — what KDE resolves'), el('th', null, 'proposed — elementary'))),
+    el('tbody', null, rows));
+}
+
+function iconCell(ref, px, kind) {
+  const hasImg = ref && ref.url;
+  return el('div', { class: 'icell' },
+    el('div', { class: 'sw one', title: 'actual size (' + px + ' px)' },
+      hasImg ? img(ref, S.bg, px) : el('span', { class: 'none' }, '—')),
+    el('div', { class: 'sw big', title: 'enlarged' },
+      hasImg ? img(ref, S.bg, 64) : el('span', { class: 'none' }, 'none')),
+    el('div', { class: 'cap' },
+      ref && ref.style ? el('span', { class: 'tag ' + ref.style }, STYLE_LABEL[ref.style] || ref.style) : null,
+      ref && ref.source === 'base' ? el('span', { class: 'tag base' }, 'base-theme fallback') : null,
+      ref && ref.path ? el('code', null, ref.path) : null,
+      ref && ref.note ? el('span', { class: 'note' }, ref.note) : null,
+    ));
+}
+
+function infoBlock(it) {
+  const blocks = [];
+  if (it.notes && it.notes.length) {
+    blocks.push(el('section', { class: 'blk' },
+      el('h2', null, 'Notes'),
+      el('ul', { class: 'notes' }, it.notes.map(n =>
+        el('li', { class: n.startsWith('KDE standard action') ? 'std' : '' }, n)))));
+  }
+  blocks.push(el('section', { class: 'blk' },
+    el('h2', null, 'Also changes', el('span', { class: 'aside muted' }, 'theme aliases that resolve through the replaced files')),
+    it.also && it.also.length
+      ? el('div', { class: 'alsos' }, it.also.map(a => a.ownItem
+          ? el('button', { type: 'button', class: 'chip', title: 'has its own review item — its decision wins', onclick: () => select(a.name) },
+              a.name, ' ', el('small', null, a.buckets.join('·') + ' ↗'))
+          : el('span', { class: 'chip' }, a.name, ' ', el('small', null, a.buckets.join('·')))))
+      : el('div', { class: 'muted' }, 'Nothing else — no alias points at the replaced files.')));
+  blocks.push(el('section', { class: 'blk' },
+    el('h2', null, 'Used by', el('span', { class: 'aside muted' },
+      it.usage ? it.usage + ' installed KDE/Qt components reference the name (string scan — a hint)' : '')),
+    it.usedBy && it.usedBy.length
+      ? el('div', { class: 'users' }, it.usedBy.map(u => el('span', { class: 'chip' }, u)),
+          it.usage > it.usedBy.length ? el('small', null, '+' + (it.usage - it.usedBy.length) + ' more') : null)
+      : el('div', { class: 'muted' }, 'No installed KDE/Qt component references this name.')));
+  return blocks;
+}
+
+function decideBar(it, v) {
+  const saved = (S.decided[it.id] || {}).comment || '';
+  const text = S.drafts[it.id] !== undefined ? S.drafts[it.id] : saved;
+  const ta = el('textarea', {
+    id: 'comment', rows: 2, spellcheck: 'true',
+    placeholder: 'Comment / instructions for the implementer (optional) — e.g. "use the 32px art for 22", "keep Tela\'s", "use elementary edit-clear instead"',
+    oninput(e) { S.drafts[it.id] = e.target.value; updateUnsaved(); updatePreview(); },
+  });
+  ta.value = text;
+  return el('div', { class: 'decide' },
+    el('div', { class: 'box' },
+      ta,
+      el('div', { class: 'unsaved', id: 'unsaved' }),
+      el('div', { class: 'actions' },
+        el('button', { type: 'button', class: 'btn ok' + (v === 'approved' ? ' cur' : ''), onclick: () => decide('approved') },
+          v === 'approved' ? 'Approved ✓' : 'Approve', el('kbd', null, 'A')),
+        el('button', { type: 'button', class: 'btn no' + (v === 'rejected' ? ' cur' : ''), onclick: () => decide('rejected') },
+          v === 'rejected' ? 'Rejected ✗' : 'Reject', el('kbd', null, 'R')),
+        el('button', { type: 'button', class: 'btn', onclick: () => { const n = nextPending(it.id); if (n) select(n); } },
+          'Next pending', el('kbd', null, 'N')),
+        v !== 'pending' ? el('button', { type: 'button', class: 'btn', onclick: () => decide('') }, 'Clear decision', el('kbd', null, 'U')) : null,
+        el('span', { class: 'hint' }, '← → browse · C comment · Esc leave the comment · B background'),
+      ),
+    ));
+}
+
+function updateUnsaved() {
+  const it = S.byId[S.cur];
+  const u = document.getElementById('unsaved');
+  if (!it || !u) return;
+  const d = S.decided[it.id];
+  const text = document.getElementById('comment').value;
+  u.textContent = d && text.trim() !== (d.comment || '').trim()
+    ? 'Unsaved comment — press A or R to save it with the decision.' : '';
+}
+
+function updatePreview() {
+  const it = S.byId[S.cur];
+  const pre = document.getElementById('entryPreview');
+  if (!it || !pre) return;
+  const d = S.decided[it.id];
+  const lines = ['- [' + ((d && d.status) || ' ') + '] ' + it.title, ...(it.preview || []).map(l => '  ' + l)];
+  const c = (document.getElementById('comment') || {}).value || '';
+  const cl = c.trim().split('\n');
+  if (c.trim()) {
+    if (cl.length === 1) lines.push('  Comment: ' + cl[0]);
+    else { lines.push('  Comment:'); for (const l of cl) lines.push(l.trim() ? '  > ' + l.trimEnd() : '  >'); }
+  }
+  pre.textContent = '## ' + (d ? (d.verdict === 'approved' ? 'Approved' : 'Rejected') : 'Approved / Rejected') + '\n\n' + lines.join('\n');
+  updateUnsaved();
+}
+
+// ---------- input ----------
+
+document.getElementById('seg').addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  S.filter = b.dataset.f;
+  renderList();
+});
+document.getElementById('q').addEventListener('input', e => { S.q = e.target.value; renderList(); });
+
+document.addEventListener('keydown', e => {
+  const t = e.target;
+  const typing = t && (t.tagName === 'TEXTAREA' || t.tagName === 'INPUT');
+  if (e.key === 'Escape' && typing) { t.blur(); return; }
+  if (typing || e.ctrlKey || e.metaKey || e.altKey) return;
+  switch (e.key) {
+    case 'a': case 'A': e.preventDefault(); decide('approved'); break;
+    case 'r': case 'R': e.preventDefault(); decide('rejected'); break;
+    case 'u': case 'U': if (verdictOf(S.cur) !== 'pending') { e.preventDefault(); decide(''); } break;
+    case 'n': case 'N': { const n = nextPending(S.cur); if (n) select(n); else toast('Every candidate has a decision.'); break; }
+    case 'ArrowRight': case 'j': e.preventDefault(); step(1); break;
+    case 'ArrowLeft': case 'k': e.preventDefault(); step(-1); break;
+    case 'c': case 'C': { const c = document.getElementById('comment'); if (c) { e.preventDefault(); c.focus(); } break; }
+    case '/': e.preventDefault(); document.getElementById('q').focus(); break;
+    case 'b': case 'B': setBg({ light: 'dark', dark: 'checker', checker: 'light' }[S.bg]); break;
+  }
+});
+window.addEventListener('hashchange', () => {
+  const id = decodeURIComponent(location.hash.slice(1));
+  if (id !== S.cur && S.byId[id]) select(id);
+});
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && S.items.length && !S.busy) refresh();
+});
+
+load();
+</script>
+</body>
+</html>

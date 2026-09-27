@@ -9,6 +9,7 @@ VERSION ?= $(shell git describe --tags --always 2>/dev/null || echo 0.0.0-dev)
 OUTPUT ?= $(CURDIR)/output
 TELA ?= $(CURDIR)/tela-icons
 ICONS_DIR ?= /usr/share/icons
+ELEMENTARY ?= $(HOME)/.datos/edit/design/icons/elementary
 ADDR ?= :3033
 
 default: help
@@ -34,6 +35,9 @@ clean: ## clean build artifacts (.deb and the generated output/ theme)
 #             reference and fallback            (default /usr/share/icons)
 #   REF       extra base theme path for `view` (e.g. an uninstalled source),
 #             offered in the dropdown alongside the discovered ones (optional)
+#   ELEMENTARY elementary icon theme source the review page's proposals
+#             (review/candidates.yaml `from` paths) are relative to
+#             (default $(HOME)/.datos/edit/design/icons/elementary)
 #   ADDR      address for the `make view` dev server           (default :3033)
 #   APPLY     set APPLY=1 to actually copy in `overlay` (default: dry-run)
 
@@ -41,7 +45,9 @@ theme: ## regenerate output/ from vendored Tela + overlays (wipe + tela base + o
 	@cd tools && go run . theme -tela "$(TELA)" -theme "$(OUTPUT)"
 
 view: theme ## serve a browsable view of the theme; pick a base theme from /usr/share/icons in the UI (override OUTPUT=dir, ICONS_DIR=dir, REF=path, ADDR=:port)
-	@cd tools && go run . view -theme "$(OUTPUT)" -icons-dir "$(ICONS_DIR)" $(if $(REF),-ref "$(REF)") -addr $(ADDR)
+	@cd tools && go run . view -theme "$(OUTPUT)" -icons-dir "$(ICONS_DIR)" $(if $(REF),-ref "$(REF)") -elementary "$(ELEMENTARY)" -addr $(ADDR)
+
+review: view ## same server as `view`; open /review to approve/reject review/candidates.yaml overlays into review/decisions.md (override ELEMENTARY=dir)
 
 overlay: ## apply design overlays: copy each overlays/*/overlay.yaml source straight into output/ (usage: make overlay APPLY=1; omit APPLY for a dry-run)
 	@cd tools && go run . overlay -theme "$(OUTPUT)" $(if $(APPLY),-apply)

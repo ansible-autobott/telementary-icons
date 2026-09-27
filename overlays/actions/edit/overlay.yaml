@@ -1,0 +1,363 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# edit — actions. The "Edit" group of the elementary overlay review
+# (review/decisions.md, `make review`), one block per approved icon.
+#
+# The Edit menu and list editing: Undo, Cut, Copy, Paste, Delete, Find, Find &
+# Replace, Check Spelling, list Add / Remove, plus edit, edit-flag, edit-mark
+# and edit-undo-history.
+#
+# Artwork is elementary's (GPL-3.0, same license as the vendored Tela base) and
+# replaces the monochrome Tela glyph (or the Breeze fallback) under each name.
+# Numeric sizes are elementary's art after a single svgo pass. elementary ships
+# no 22, so the 24 art also serves 22, and a size it lacks is covered by the
+# nearest one it has (the first size in `sizes` is the real copy). Where
+# elementary's name is a symlink, `from` is the file it resolves to, and names
+# that share art share one source SVG.
+#
+# The *-symbolic.svg files are not verbatim copies: elementary paints them with
+# GNOME's `url(#gpa:foreground)`, which KDE cannot recolor, so after the same
+# svgo pass the fill was swapped for this repo's ColorScheme-Text /
+# currentColor pattern (see overlays/README.md), and a viewBox was added where
+# it was missing so they scale in the symbolic bucket.
+#
+# NOTE: the numeric art is full-color and does NOT follow the KDE color scheme;
+# only the symbolic bucket recolors. Tela ships many legacy names as symlinks
+# onto the files replaced here, so those switch to this art too (see
+# review/decisions.md, each task's "also changes" line).
+#
+# edit-delete is elementary's user-trash art (its edit-delete links there).
+# edit / edit-symbolic are elementary's document-edit pencil; `edit` is Tela's
+# canonical file for edit-rename, gtk-edit, document-sign and others, which
+# follow it. edit-undo-history is elementary's folder-recent: a clock with an
+# undo arrow (no folder, so no blue recolor).
+
+set: edit
+
+origin:
+  theme: elementary
+
+links:
+  # --- list-add ---
+  - src: list-add-16.svg
+    from: actions/16/list-add.svg
+    category: actions
+    names: [list-add]
+    sizes: [16]
+  - src: list-add-24.svg
+    from: actions/24/list-add.svg
+    category: actions
+    names: [list-add]
+    sizes: [24, 22]
+  - src: list-add-32.svg
+    from: actions/32/list-add.svg
+    category: actions
+    names: [list-add]
+    sizes: [32]
+  - src: list-add-48.svg
+    from: actions/48/list-add.svg
+    category: actions
+    names: [list-add]
+    sizes: [48]
+  - src: list-add-symbolic.svg
+    from: actions/symbolic/list-add-symbolic.svg
+    category: actions
+    names: [list-add-symbolic]
+    sizes: [symbolic]
+
+  # --- edit-delete — user-trash art ---
+  - src: edit-delete-16.svg
+    from: places/16/user-trash.svg
+    category: actions
+    names: [edit-delete]
+    sizes: [16]
+  - src: edit-delete-24.svg
+    from: places/24/user-trash.svg
+    category: actions
+    names: [edit-delete]
+    sizes: [24, 22]
+  - src: edit-delete-32.svg
+    from: places/32/user-trash.svg
+    category: actions
+    names: [edit-delete]
+    sizes: [32]
+  - src: edit-delete-48.svg
+    from: places/48/user-trash.svg
+    category: actions
+    names: [edit-delete]
+    sizes: [48]
+  - src: edit-delete-symbolic.svg
+    from: actions/symbolic/edit-delete-symbolic.svg
+    category: actions
+    names: [edit-delete-symbolic]
+    sizes: [symbolic]
+
+  # --- edit-copy ---
+  - src: edit-copy-16.svg
+    from: actions/16/edit-copy.svg
+    category: actions
+    names: [edit-copy]
+    sizes: [16]
+  - src: edit-copy-24.svg
+    from: actions/24/edit-copy.svg
+    category: actions
+    names: [edit-copy]
+    sizes: [24, 22]
+  - src: edit-copy-32.svg
+    from: actions/32/edit-copy.svg
+    category: actions
+    names: [edit-copy]
+    sizes: [32]
+  - src: edit-copy-48.svg
+    from: actions/48/edit-copy.svg
+    category: actions
+    names: [edit-copy]
+    sizes: [48]
+  - src: edit-copy-symbolic.svg
+    from: actions/symbolic/edit-copy-symbolic.svg
+    category: actions
+    names: [edit-copy-symbolic]
+    sizes: [symbolic]
+
+  # --- list-remove ---
+  - src: list-remove-16.svg
+    from: actions/16/list-remove.svg
+    category: actions
+    names: [list-remove]
+    sizes: [16]
+  - src: list-remove-24.svg
+    from: actions/24/list-remove.svg
+    category: actions
+    names: [list-remove]
+    sizes: [24, 22]
+  - src: list-remove-32.svg
+    from: actions/32/list-remove.svg
+    category: actions
+    names: [list-remove]
+    sizes: [32]
+  - src: list-remove-48.svg
+    from: actions/48/list-remove.svg
+    category: actions
+    names: [list-remove]
+    sizes: [48]
+  - src: list-remove-symbolic.svg
+    from: actions/symbolic/list-remove-symbolic.svg
+    category: actions
+    names: [list-remove-symbolic]
+    sizes: [symbolic]
+
+  # --- edit-undo ---
+  - src: edit-undo-16.svg
+    from: actions/16/edit-undo.svg
+    category: actions
+    names: [edit-undo]
+    sizes: [16]
+  - src: edit-undo-24.svg
+    from: actions/24/edit-undo.svg
+    category: actions
+    names: [edit-undo]
+    sizes: [24, 22]
+  - src: edit-undo-32.svg
+    from: actions/32/edit-undo.svg
+    category: actions
+    names: [edit-undo]
+    sizes: [32]
+  - src: edit-undo-48.svg
+    from: actions/48/edit-undo.svg
+    category: actions
+    names: [edit-undo]
+    sizes: [48]
+  - src: edit-undo-symbolic.svg
+    from: actions/symbolic/edit-undo-symbolic.svg
+    category: actions
+    names: [edit-undo-symbolic]
+    sizes: [symbolic]
+  - src: edit-undo-rtl-16.svg
+    from: actions/16/edit-undo-rtl.svg
+    category: actions
+    names: [edit-undo-rtl]
+    sizes: [16]
+  - src: edit-undo-rtl-24.svg
+    from: actions/24/edit-undo-rtl.svg
+    category: actions
+    names: [edit-undo-rtl]
+    sizes: [24, 22]
+  - src: edit-undo-rtl-32.svg
+    from: actions/32/edit-undo-rtl.svg
+    category: actions
+    names: [edit-undo-rtl]
+    sizes: [32]
+  - src: edit-undo-rtl-48.svg
+    from: actions/48/edit-undo-rtl.svg
+    category: actions
+    names: [edit-undo-rtl]
+    sizes: [48]
+  - src: edit-undo-symbolic-rtl.svg
+    from: actions/symbolic/edit-redo-symbolic.svg
+    category: actions
+    names: [edit-undo-symbolic-rtl]
+    sizes: [symbolic]
+
+  # --- edit-paste ---
+  - src: edit-paste-16.svg
+    from: actions/16/edit-paste.svg
+    category: actions
+    names: [edit-paste]
+    sizes: [16]
+  - src: edit-paste-24.svg
+    from: actions/24/edit-paste.svg
+    category: actions
+    names: [edit-paste]
+    sizes: [24, 22]
+  - src: edit-paste-32.svg
+    from: actions/32/edit-paste.svg
+    category: actions
+    names: [edit-paste]
+    sizes: [32]
+  - src: edit-paste-48.svg
+    from: actions/48/edit-paste.svg
+    category: actions
+    names: [edit-paste]
+    sizes: [48]
+  - src: edit-paste-symbolic.svg
+    from: actions/symbolic/edit-paste-symbolic.svg
+    category: actions
+    names: [edit-paste-symbolic]
+    sizes: [symbolic]
+
+  # --- edit-find ---
+  - src: edit-find-16.svg
+    from: actions/16/edit-find.svg
+    category: actions
+    names: [edit-find]
+    sizes: [16]
+  - src: edit-find-24.svg
+    from: actions/24/edit-find.svg
+    category: actions
+    names: [edit-find]
+    sizes: [24, 22]
+  - src: edit-find-48.svg
+    from: actions/48/edit-find.svg
+    category: actions
+    names: [edit-find]
+    sizes: [48]
+  - src: edit-find-symbolic.svg
+    from: actions/symbolic/edit-find-symbolic.svg
+    category: actions
+    names: [edit-find-symbolic]
+    sizes: [symbolic]
+
+  # --- tools-check-spelling ---
+  - src: tools-check-spelling-16.svg
+    from: actions/16/tools-check-spelling.svg
+    category: actions
+    names: [tools-check-spelling]
+    sizes: [16]
+  - src: tools-check-spelling-24.svg
+    from: actions/24/tools-check-spelling.svg
+    category: actions
+    names: [tools-check-spelling]
+    sizes: [24, 22]
+  - src: tools-check-spelling-symbolic.svg
+    from: actions/symbolic/tools-check-spelling-symbolic.svg
+    category: actions
+    names: [tools-check-spelling-symbolic]
+    sizes: [symbolic]
+
+  # --- edit-cut ---
+  - src: edit-cut-16.svg
+    from: actions/16/edit-cut.svg
+    category: actions
+    names: [edit-cut]
+    sizes: [16]
+  - src: edit-cut-24.svg
+    from: actions/24/edit-cut.svg
+    category: actions
+    names: [edit-cut]
+    sizes: [24, 22]
+  - src: edit-cut-symbolic.svg
+    from: actions/symbolic/edit-cut-symbolic.svg
+    category: actions
+    names: [edit-cut-symbolic]
+    sizes: [symbolic]
+
+  # --- edit-find-replace ---
+  - src: edit-find-replace-16.svg
+    from: actions/16/edit-find-replace.svg
+    category: actions
+    names: [edit-find-replace]
+    sizes: [16]
+  - src: edit-find-replace-24.svg
+    from: actions/24/edit-find-replace.svg
+    category: actions
+    names: [edit-find-replace]
+    sizes: [24, 22]
+  - src: edit-find-replace-48.svg
+    from: actions/48/edit-find-replace.svg
+    category: actions
+    names: [edit-find-replace]
+    sizes: [48]
+  - src: edit-find-replace-symbolic.svg
+    from: actions/symbolic/edit-find-replace-symbolic.svg
+    category: actions
+    names: [edit-find-replace-symbolic]
+    sizes: [symbolic]
+
+  # --- edit — document-edit art ---
+  - src: edit-16.svg
+    from: actions/16/document-edit.svg
+    category: actions
+    names: [edit]
+    sizes: [16]
+  - src: edit-24.svg
+    from: actions/24/document-edit.svg
+    category: actions
+    names: [edit]
+    sizes: [24, 22]
+  - src: edit-48.svg
+    from: actions/48/document-edit.svg
+    category: actions
+    names: [edit]
+    sizes: [48]
+  - src: edit-symbolic.svg
+    from: actions/symbolic/document-edit-symbolic.svg
+    category: actions
+    names: [edit-symbolic]
+    sizes: [symbolic]
+
+  # --- edit-flag ---
+  - src: edit-flag-16.svg
+    from: actions/16/edit-flag.svg
+    category: actions
+    names: [edit-flag]
+    sizes: [16]
+  - src: edit-flag-24.svg
+    from: actions/24/edit-flag.svg
+    category: actions
+    names: [edit-flag]
+    sizes: [24, 22]
+  - src: edit-flag-symbolic.svg
+    from: actions/symbolic/edit-flag-symbolic.svg
+    category: actions
+    names: [edit-flag-symbolic]
+    sizes: [symbolic]
+
+  # --- edit-mark ---
+  - src: edit-mark-24.svg
+    from: actions/24/edit-mark.svg
+    category: actions
+    names: [edit-mark]
+    sizes: [24, 16, 22]
+
+  # --- edit-undo-history — folder-recent art ---
+  - src: edit-undo-history-16.svg
+    from: places/16/folder-recent.svg
+    category: actions
+    names: [edit-undo-history]
+    sizes: [16]
+  - src: edit-undo-history-24.svg
+    from: places/24/folder-recent.svg
+    category: actions
+    names: [edit-undo-history]
+    sizes: [24, 22]

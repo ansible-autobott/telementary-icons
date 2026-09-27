@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="16" height="16">
+  <defs>
+    <linearGradient id="d">
+      <stop offset="0" style="stop-color:#fff;stop-opacity:1"/>
+      <stop offset=".126" style="stop-color:#fff;stop-opacity:.23529412"/>
+      <stop offset=".875" style="stop-color:#fff;stop-opacity:.15686275"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.39215687"/>
+    </linearGradient>
+    <linearGradient xlink:href="#a" id="h" x1="12.296" x2="12.296" y1="7.273" y2="40.591" gradientTransform="matrix(.29751 0 0 .2973 .86 -.14)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient id="a">
+      <stop offset="0" style="stop-color:#fff;stop-opacity:1"/>
+      <stop offset=".057" style="stop-color:#fff;stop-opacity:.23529412"/>
+      <stop offset=".951" style="stop-color:#fff;stop-opacity:.15686275"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.39215687"/>
+    </linearGradient>
+    <linearGradient id="c">
+      <stop offset="0" style="stop-color:#f4f4f4;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#dbdbdb;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="b">
+      <stop offset="0" style="stop-color:#000;stop-opacity:.31999999"/>
+      <stop offset="1" style="stop-color:#000;stop-opacity:.23999999"/>
+    </linearGradient>
+    <linearGradient xlink:href="#b" id="i" x1="56.408" x2="56.408" y1="42.392" y2="26.596" gradientTransform="matrix(.3727 0 0 .89472 -16.017 -23.66)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient xlink:href="#c" id="f" x1="74.839" x2="74.839" y1="4.536" y2="49.779" gradientTransform="matrix(.3579 0 0 .29505 -18.485 -.425)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient xlink:href="#d" id="k" x1="24" x2="24" y1="9.201" y2="38.787" gradientTransform="matrix(.35135 0 0 .13514 -.432 7.757)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient xlink:href="#a" id="g" x1="33.011" x2="33.011" y1="10.567" y2="40.908" gradientTransform="matrix(.29751 0 0 .2973 .86 -.14)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient id="e">
+      <stop offset="0" style="stop-color:#b4cee1;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#5d9fcd;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient xlink:href="#e" id="j" x1="-166.363" x2="-166.363" y1="59.522" y2="79.792" gradientTransform="matrix(.5817 0 0 .34533 106.816 -13.055)" gradientUnits="userSpaceOnUse"/>
+  </defs>
+  <path d="M2.5 1a1.6 1.6 0 0 0-.447.066A1.5 1.5 0 0 0 1 2.5V11h14V3.5c0-.84-.66-1.5-1.5-1.5H7.387c-.418 0-.76-.123-.99-.287s-.346-.307-.516-.428A1.5 1.5 0 0 0 5 1Z" style="color:#000;font-variation-settings:normal;display:inline;overflow:visible;visibility:visible;vector-effect:none;fill:url(#f);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker:none;stop-color:#000"/>
+  <rect width="14" height="6" x="1" y="4.5" rx="1.5" ry="1.5" style="color:#000;font-variation-settings:normal;display:inline;overflow:visible;visibility:visible;opacity:1;fill:#000;fill-opacity:.03;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:.5;marker:none;stop-color:#000;stop-opacity:1"/>
+  <rect width="14" height="6" x="1" y="5.5" rx="1.5" ry="1.5" style="color:#000;font-variation-settings:normal;display:inline;overflow:visible;visibility:visible;opacity:1;fill:#000;fill-opacity:.01;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:.5;marker:none;stop-color:#000;stop-opacity:1"/>
+  <path d="M14.5 8V3.5c0-.57-.43-1-1-1h-6" style="color:#000;font-variation-settings:normal;display:inline;overflow:visible;visibility:visible;fill:none;fill-opacity:1;stroke:url(#g);stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;stop-color:#000"/>
+  <path d="M7.5 2.5c-.494 0-1.102-.169-1.399-.38-.297-.213-.392-.342-.512-.427A1 1 0 0 0 5 1.5H2.5c-.57 0-1 .43-1 1V8" style="color:#000;font-variation-settings:normal;display:inline;overflow:visible;visibility:visible;opacity:1;fill:none;fill-opacity:1;stroke:url(#h);stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;stop-color:#000;stop-opacity:1"/>
+  <path d="M15.5 8.5v-5c0-1.108-.892-2-2-2H7.387c-.684 0-.774-.31-1.217-.623A2.02 2.02 0 0 0 5 .5H2.5c-1.108 0-2 .892-2 2v6" style="color:#000;font-variation-settings:normal;display:inline;overflow:visible;visibility:visible;opacity:1;fill:none;fill-opacity:1;stroke:url(#i);stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;stop-color:#000;stop-opacity:1"/>
+  <rect width="15" height="7" x=".5" y="7.5" rx="1.5" ry="1.5" style="color:#000;font-variation-settings:normal;display:inline;overflow:visible;visibility:visible;opacity:1;vector-effect:none;fill:url(#j);fill-opacity:1;fill-rule:nonzero;stroke:#3c6480;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:.5;-inkscape-stroke:none;marker:none;stop-color:#000;stop-opacity:1"/>
+  <rect width="13" height="5" x="1.5" y="8.5" rx=".5" ry=".5" style="opacity:.5;fill:none;stroke:url(#k);stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/>
+</svg>

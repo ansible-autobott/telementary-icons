@@ -15,6 +15,9 @@ Requires `go` and `nfpm` on PATH.
   `telementary-icons_<version>_all.deb` via `nfpm`. Version comes from
   `git describe`; override with `make build VERSION=1.2.3`.
 - `make view` — serve a browsable name×size matrix of the theme (dev viewer).
+- `make review` — the same server; `/review` walks `review/candidates.yaml`
+  (monochrome icons elementary could replace) and records approve/reject
+  decisions with comments in `review/decisions.md`.
 - `make clean` — remove `*.deb` and the generated `output/`.
 - `make help` — list targets.
 
@@ -32,6 +35,7 @@ installs `nfpm`, runs `make build`, and publishes a GitHub release with the
 | `overlays/`   | hand-designed icon sources + `overlay.yaml` mappings (committed) |
 | `tela-icons/` | vendored Tela base theme, GPL-3.0, pinned upstream (committed) |
 | `output/`     | generated freedesktop theme — **gitignored**, never edit or commit |
+| `review/`     | elementary overlay candidates + review decisions (committed) |
 | `tools/`      | Go generator that builds `output/` from the two sources above |
 | `nfpm.yaml`   | single source of truth for what the `.deb` ships and where |
 
