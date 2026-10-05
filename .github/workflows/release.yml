@@ -12,12 +12,6 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
-    env:
-      # Surfaced as a job env var so the registration step can gate on it in
-      # `if:` (secrets can't be referenced in `if:` directly). Empty when the
-      # secret isn't configured — the release still publishes, only the APT-repo
-      # registration is skipped.
-      DEBIAN_REPO_TOKEN: ${{ secrets.DEBIAN_REPO_TOKEN }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -50,8 +44,8 @@ jobs:
         run: make build
 
       - name: Stage .deb under dist/
-        # nfpm writes the .deb to the repo root; move it under dist/ so the
-        # register action finds it as a flat, release-agnostic ("any") artifact.
+        # nfpm writes the .deb to the repo root; move it under dist/ so the apt
+        # job below gets it as a flat, release-agnostic ("any") artifact.
         run: |
           mkdir -p dist
           mv *.deb dist/
@@ -62,17 +56,34 @@ jobs:
           files: 'dist/*.deb'
           generate_release_notes: true
 
-      - name: Register in the autobott APT repo
-        # Commits a packages/telementary-icons.json reference (version + sha256 +
-        # the release asset URL) to ansible-autobott/debian-repo, which then
-        # rebuilds and re-signs its APT index. The package is Architecture: all
-        # and release-agnostic, so it registers as release "any" / arch "all" —
-        # indexed into every configured suite and architecture.
-        # Requires a DEBIAN_REPO_TOKEN secret (Contents: write on debian-repo);
-        # skipped when it's absent so releases don't fail before it's set up.
-        if: ${{ env.DEBIAN_REPO_TOKEN != '' }}
-        uses: ansible-autobott/debian-repo/.github/actions/register@main
+      - name: Upload the .deb for the autobott APT repo
+        # Hands the .deb to the apt job below. A flat dist/*.deb registers as
+        # release "any": the package is Architecture: all and release-agnostic,
+        # so it is indexed into every configured suite and architecture.
+        uses: actions/upload-artifact@v4
         with:
-          name: telementary-icons          # must match the .deb's Package field
-          dist-dir: dist                   # flat dist/*.deb => release "any"
-          token: ${{ env.DEBIAN_REPO_TOKEN }}
+          name: debs
+          path: dist/*.deb
+          if-no-files-found: error
+
+  # Registers the release in ansible-autobott/debian-repo through the
+  # gh-action-debian-repo engine: it commits a packages/telementary-icons.json
+  # reference (version + sha256 + the release asset URL) there, which then
+  # rebuilds and re-signs its APT index. The default GITHUB_TOKEN cannot push to
+  # another repo, so the engine mints a short-lived token from the
+  # ansible-autobott APT GitHub App (org variable APT_APP_ID + secret
+  # APT_APP_PRIVATE_KEY), scoped to debian-repo. Skipped while APT_APP_ID is not
+  # set, so releases don't fail before the App is set up.
+  apt:
+    needs: release
+    if: ${{ vars.APT_APP_ID != '' }}
+    permissions:
+      contents: read
+    uses: andresbott/gh-action-debian-repo/.github/workflows/publish.yml@v1
+    with:
+      name: telementary-icons          # must match the .deb's Package field
+      artifact: debs
+      collection: ansible-autobott/debian-repo
+      app-id: ${{ vars.APT_APP_ID }}
+    secrets:
+      app-private-key: ${{ secrets.APT_APP_PRIVATE_KEY }}
