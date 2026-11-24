@@ -5,10 +5,11 @@
 # overlay review (review/decisions.md, `make review`), one block per approved
 # icon.
 #
-# File and document actions: New, Open Folder, Save / Save As / Revert, Print /
-# Print Preview / Page Setup, Properties, Export / Import, and the "new" actions
-# (window, tab, bookmark, tag, appointment, address book, contact, database,
-# folder), plus folder copy/move, folder-tag, send-to and Move to Trash.
+# File and document actions: New, Open, Open Folder, Save / Save As / Revert,
+# Print / Print Preview / Page Setup, Properties, Export / Import, and the "new"
+# actions (window, tab, bookmark, tag, appointment, address book, contact,
+# database, folder), plus folder copy/move, folder-tag, send-to and Move to
+# Trash.
 #
 # Artwork is elementary's (GPL-3.0, same license as the vendored Tela base) and
 # replaces the monochrome Tela glyph (or the Breeze fallback) under each name.
@@ -40,6 +41,13 @@
 # document-open-folder uses folder-open (elementary's own document-open links
 # there), tab-new uses window-new, and trash-empty uses user-trash — the same
 # art as the places/trash set.
+#
+# document-open is the exception: rejected in the review (elementary's is the
+# same folder-open art as document-open-folder), then reworked in staged/. It
+# is elementary's document-save flipped by hand, so the green arrow points up,
+# out of the tray: the counterpart of Save. Each size (and the symbolic, still
+# ColorScheme-Text) is the matching document-save flipped, after the same svgo
+# pass.
 
 set: file-documents
 
@@ -121,6 +129,35 @@ links:
     from: actions/symbolic/document-edit-symbolic.svg
     category: actions
     names: [document-edit-symbolic]
+    sizes: [symbolic]
+
+  # --- document-open — document-save art, flipped ---
+  # document-open-data, hb-source, irc-join-channel, scriptopen and
+  # xsi-document-open-symbolic follow it as Tela aliases.
+  - src: document-open-16.svg
+    from: actions/16/document-save.svg
+    category: actions
+    names: [document-open]
+    sizes: [16]
+  - src: document-open-24.svg
+    from: actions/24/document-save.svg
+    category: actions
+    names: [document-open]
+    sizes: [24, 22]
+  - src: document-open-32.svg
+    from: actions/32/document-save.svg
+    category: actions
+    names: [document-open]
+    sizes: [32]
+  - src: document-open-48.svg
+    from: actions/48/document-save.svg
+    category: actions
+    names: [document-open]
+    sizes: [48]
+  - src: document-open-symbolic.svg
+    from: actions/symbolic/document-save-symbolic.svg
+    category: actions
+    names: [document-open-symbolic]
     sizes: [symbolic]
 
   # --- document-open-folder — folder-open art, folder recolored blue ---

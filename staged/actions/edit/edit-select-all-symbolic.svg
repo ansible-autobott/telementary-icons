@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <style id="current-color-scheme" type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+  </defs>
+  <path d="M1 1v1h1V1Zm2 0v1h1V1Zm2 0v1h1V1Zm2 0v1h1V1Zm2 0v1h1V1Zm2 0v1h1V1Zm2 0v1h1V1ZM1 3v1h1V3Zm2 0v4h9V3Zm10 0v1h1V3ZM1 5v1h1V5Zm12 0v1h1V5ZM1 7v1h1V7Zm12 0v1h1V7ZM3 8v4h4V8Zm5 0v4h4V8ZM1 9v1h1V9Zm12 0v1h1V9ZM1 11v1h1v-1Zm12 0v1h1v-1ZM1 13v1h1v-1Zm2 0v1h1v-1Zm2 0v1h1v-1Zm2 0v1h1v-1Zm2 0v1h1v-1Zm2 0v1h1v-1Zm2 0v1h1v-1Z" class="ColorScheme-Text" style="fill:currentColor" overflow="visible" />
+</svg>

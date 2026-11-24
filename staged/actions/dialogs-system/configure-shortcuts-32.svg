@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32">
+  <defs>
+    <linearGradient id="e">
+      <stop offset="0" style="stop-color:#fafafa;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#d4d4d4;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="d">
+      <stop offset="0" style="stop-color:#fff;stop-opacity:1"/>
+      <stop offset=".081" style="stop-color:#fff;stop-opacity:.23529412"/>
+      <stop offset=".908" style="stop-color:#fff;stop-opacity:.15686275"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.39215687"/>
+    </linearGradient>
+    <linearGradient id="a">
+      <stop offset="0" style="stop-color:#181818;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#181818;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="b">
+      <stop offset="0" style="stop-color:#181818;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#181818;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient xlink:href="#c" id="h" x1="25.058" x2="25.058" y1="47.028" y2="39.999" gradientUnits="userSpaceOnUse"/>
+    <linearGradient id="c">
+      <stop offset="0" style="stop-color:#181818;stop-opacity:0"/>
+      <stop offset=".5" style="stop-color:#181818;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#181818;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient xlink:href="#d" id="j" x1="24" x2="24" y1="6.24" y2="41.76" gradientTransform="matrix(.67568 0 0 .62162 -.216 .081)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient xlink:href="#e" id="i" x1="14.33" x2="14.33" y1="28.818" y2="-.07" gradientTransform="matrix(1 0 0 1.00016 0 -32.003)" gradientUnits="userSpaceOnUse"/>
+    <radialGradient xlink:href="#a" id="f" cx="4.993" cy="43.5" r="2.5" fx="4.993" fy="43.5" gradientTransform="matrix(2.00378 0 0 1.4 27.988 -17.4)" gradientUnits="userSpaceOnUse"/>
+    <radialGradient xlink:href="#b" id="g" cx="4.993" cy="43.5" r="2.5" fx="4.993" fy="43.5" gradientTransform="matrix(2.00378 0 0 1.4 -20.012 -104.4)" gradientUnits="userSpaceOnUse"/>
+  </defs>
+  <g style="display:inline">
+    <g style="opacity:.4">
+      <path d="M38 40h5v7h-5z" style="fill:url(#f);fill-opacity:1;stroke:none" transform="matrix(.73684 0 0 .57143 -1.684 4.143)"/>
+      <path d="M-10-47h5v7h-5z" style="fill:url(#g);fill-opacity:1;stroke:none" transform="matrix(-.73684 0 0 -.57143 -1.684 4.143)"/>
+      <path d="M10 40h28v7H10z" style="fill:url(#h);fill-opacity:1;stroke:none" transform="matrix(.73684 0 0 .57143 -1.684 4.143)"/>
+    </g>
+  </g>
+  <rect width="26" height="26" x="3" y="-29" rx="2.5" ry="2.5" style="color:#000;display:inline;overflow:visible;visibility:visible;fill:url(#i);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;font-variation-settings:normal;opacity:1;vector-effect:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000;stop-opacity:1" transform="scale(1 -1)"/>
+  <rect width="27" height="27" x="2.5" y="2.5" rx="3" ry="3" style="color:#000;display:inline;overflow:visible;visibility:visible;opacity:.5;fill:none;stroke:#555761;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;font-variation-settings:normal;vector-effect:none;fill-opacity:1;-inkscape-stroke:none;stop-color:#000;stop-opacity:1"/>
+  <rect width="25" height="23" x="3.5" y="3.5" rx="2" ry="2" style="fill:none;stroke:url(#j);stroke-width:.999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/>
+  <path d="M10.887 6.835c-3.496 0-5.53 2.152-5.534 5.505.004 3.433 2.004 5.408 5.538 5.408 1.082 0 2.233-.273 2.76-.547l-.359-1.07c-.4.151-1.369.43-2.329.43-2.788 0-4.295-1.509-4.295-4.238 0-2.544 1.44-4.317 4.19-4.317 2.244 0 3.916 1.272 3.912 3.665.005 1.74-.265 2.522-.94 2.522-.357 0-.567-.286-.571-.703V9.48h-1.176v.472h-.059c-.135-.37-.944-.712-1.857-.586-1.175.156-2.303 1.12-2.303 2.924 0 1.857 1.01 2.948 2.383 3.01.956.047 1.697-.377 1.895-.879h.05c.102.632.658.977 1.51.93 1.81-.067 2.327-1.684 2.323-3.61.004-2.767-1.857-4.906-5.138-4.906m-.282 3.74c1.049 0 1.436.514 1.44 1.66.013 1.23-.383 1.858-1.448 1.858-1.1 0-1.47-.894-1.474-1.854.004-.96.538-1.664 1.482-1.664" style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:17.3333px;line-height:1.25;font-family:Inter;-inkscape-font-specification:&quot;Inter Semi-Bold&quot;;fill:#fafafa;fill-opacity:1;stroke:none;stroke-width:1"/>
+  <path d="M10.887 5.835c-3.496 0-5.53 2.152-5.534 5.505.004 3.433 2.004 5.408 5.538 5.408 1.082 0 2.233-.273 2.76-.547l-.359-1.07c-.4.151-1.369.43-2.329.43-2.788 0-4.295-1.509-4.295-4.238 0-2.544 1.44-4.317 4.19-4.317 2.244 0 3.916 1.272 3.912 3.665.005 1.74-.265 2.522-.94 2.522-.357 0-.567-.286-.571-.703V8.48h-1.176v.472h-.059c-.135-.37-.944-.712-1.857-.586-1.175.156-2.303 1.12-2.303 2.923 0 1.858 1.01 2.949 2.383 3.012.956.046 1.697-.378 1.895-.88h.05c.102.632.658.977 1.51.93 1.81-.067 2.327-1.685 2.323-3.61.004-2.767-1.857-4.906-5.138-4.906m-.282 3.74c1.049 0 1.436.514 1.44 1.66.013 1.23-.383 1.858-1.448 1.858-1.1 0-1.47-.894-1.474-1.854.004-.96.538-1.664 1.482-1.664" style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:17.3333px;line-height:1.25;font-family:Inter;-inkscape-font-specification:&quot;Inter Semi-Bold&quot;;fill:#7e8087;fill-opacity:1;stroke:none;stroke-width:1"/>
+  <path d="M3-24.5v-2C3-27.885 4.115-29 5.5-29h21c1.385 0 2.5 1.115 2.5 2.5v2c0-1.385-1.115-2.5-2.5-2.5h-21A2.495 2.495 0 0 0 3-24.5" style="color:#000;font-variation-settings:normal;display:inline;overflow:visible;visibility:visible;vector-effect:none;fill:#000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker:none;stop-color:#000;opacity:.1;stop-opacity:1" transform="scale(1 -1)"/>
+</svg>

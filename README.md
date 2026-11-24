@@ -36,6 +36,7 @@ installs `nfpm`, runs `make build`, and publishes a GitHub release with the
 | `tela-icons/` | vendored Tela base theme, GPL-3.0, pinned upstream (committed) |
 | `output/`     | generated freedesktop theme — **gitignored**, never edit or commit |
 | `review/`     | elementary overlay candidates + review decisions (committed) |
+| `staged/`     | rejected review items as overlay sets to rework by hand — not shipped (committed) |
 | `tools/`      | Go generator that builds `output/` from the two sources above |
 | `nfpm.yaml`   | single source of truth for what the `.deb` ships and where |
 

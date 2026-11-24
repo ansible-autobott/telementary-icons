@@ -760,7 +760,7 @@ something else. Mark a task [x] once it is done.
 
 ## Rejected
 
-- [ ] `document-open` — elementary overlay
+- [x] `document-open` — elementary overlay
   names: document-open, document-open-symbolic · category: actions
   16 ← actions/16/document-open.svg (→ places/16/folder-open.svg)
   24, 22 ← actions/24/document-open.svg
@@ -769,7 +769,7 @@ something else. Mark a task [x] once it is done.
   document-open-symbolic: symbolic ← actions/symbolic/document-open-symbolic.svg (recolor to ColorScheme-Text)
   note: KDE standard action: referenced by KDE's standard-actions library (libKF6ConfigWidgets/libKF6ConfigGui), so it likely shows in the File/Edit/View/Settings/Help menus of every KDE app
   also changes: document-open-data (16, 22, 24), hb-source (16, 22, 24), irc-join-channel (16, 22, 24), scriptopen (16, 22, 24), xsi-document-open-symbolic (symbolic)
-- [ ] `edit-clear` — elementary overlay
+- [x] `edit-clear` — elementary overlay
   names: edit-clear, edit-clear-symbolic · category: actions
   24, 16, 22 ← actions/24/edit-clear.svg
   32 ← actions/32/edit-clear.svg
@@ -788,7 +788,7 @@ something else. Mark a task [x] once it is done.
   note: KDE standard action: referenced by KDE's standard-actions library (libKF6ConfigWidgets/libKF6ConfigGui), so it likely shows in the File/Edit/View/Settings/Help menus of every KDE app
   also changes: gtk-select-all (16, 22, 24), itmages-select-all (16, 22, 24), region (16, 22, 24), stock_select-all (16, 22, 24), xsi-edit-select-all-symbolic (symbolic)
   Comment: needs better icon
-- [ ] `edit-clear-list` — elementary overlay from `edit-clear`
+- [x] `edit-clear-list` — elementary overlay from `edit-clear`
   names: edit-clear-list · category: actions
   24, 16, 22 ← actions/24/edit-clear.svg
   32 ← actions/32/edit-clear.svg
@@ -796,7 +796,7 @@ something else. Mark a task [x] once it is done.
   note: Clear list. edit-clear-all is a Tela alias of it.
   also changes: edit-clear-all (16, 22, 24), gtg-tags-none (16, 22, 24), gtk-clear (16, 22, 24), gtk-quit (16, 22, 24), itmages-quit (16, 22, 24), kdenlive-align-none (16, 22, 24)
   Comment: needs better icon
-- [ ] `edit-clear-rtl` — elementary overlay from `edit-clear`
+- [x] `edit-clear-rtl` — elementary overlay from `edit-clear`
   names: edit-clear-rtl · category: actions
   24, 16, 22 ← actions/24/edit-clear.svg
   32 ← actions/32/edit-clear.svg

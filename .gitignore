@@ -14,3 +14,6 @@
 
 # local documentation / notes — not versioned
 /docs/
+
+# local clones of third-party icon sets, used as design references — not versioned
+/external/

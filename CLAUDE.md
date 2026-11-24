@@ -131,6 +131,19 @@ are kept.
 
 **Implementing a decision** = adding the overlay set under `overlays/` that the
 task describes. A comment overrides the proposal. Mark the task `[x]` when done.
+Implemented and rejected items are then dropped from `candidates.yaml`; their
+tasks stay in `decisions.md` verbatim (the page keeps tasks it has no candidate
+for).
+
+### `staged/` — overlay sets being reworked (committed)
+
+Same layout and `overlay.yaml` format as `overlays/`, but **not applied**: the
+generator only reads `overlays/`, so nothing here ships. It holds rejected
+review items (`staged/actions/<group>/`, one set per review group, each block
+carrying the review comment) prepared like the shipped sets, for hand editing.
+To ship one, move its block and SVGs into the matching `overlays/` set and run
+`make theme`. Validate the staged sets with a dry run:
+`cd tools && go run . overlay -overlays ../staged`.
 
 ### `tools/` — the Go generator
 
@@ -151,3 +164,7 @@ the tool works from any cwd: `output/`, `tela-icons/`, `overlays/`.
 Use Inkscape and follow the elementary
 [Icon Design Guidelines](https://elementary.io/docs/human-interface-guidelines#iconography).
 "Vacuum Defs" in Inkscape to keep SVGs lean before committing.
+
+To turn a flat or symbolic shape into the beveled gray `go-first` icon type
+(as done for `go-home-16/24` and the view-modes icons), use the `bevel-icon`
+skill (`.claude/skills/bevel-icon/`, script `bevel.py`).

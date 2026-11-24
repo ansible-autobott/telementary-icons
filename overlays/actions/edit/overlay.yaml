@@ -5,8 +5,8 @@
 # (review/decisions.md, `make review`), one block per approved icon.
 #
 # The Edit menu and list editing: Undo, Cut, Copy, Paste, Delete, Find, Find &
-# Replace, Check Spelling, list Add / Remove, plus edit, edit-flag, edit-mark
-# and edit-undo-history.
+# Replace, Check Spelling, list Add / Remove, Clear, plus edit, edit-flag,
+# edit-mark and edit-undo-history.
 #
 # Artwork is elementary's (GPL-3.0, same license as the vendored Tela base) and
 # replaces the monochrome Tela glyph (or the Breeze fallback) under each name.
@@ -32,6 +32,13 @@
 # canonical file for edit-rename, gtk-edit, document-sign and others, which
 # follow it. edit-undo-history is elementary's folder-recent: a clock with an
 # undo arrow (no folder, so no blue recolor).
+#
+# The clear icons (edit-clear, edit-clear-list, edit-clear-rtl) are the
+# exception: rejected in the review, then reworked in staged/. Their numeric
+# sizes are not elementary's art but edit-clear-symbolic.svg (elementary's,
+# recolored like the other symbolics) beveled into the go-first gray type
+# (bevel-icon skill, --look strong), fixed gray; edit-clear-rtl is the same
+# glyph mirrored first.
 
 set: edit
 
@@ -361,3 +368,45 @@ links:
     category: actions
     names: [edit-undo-history]
     sizes: [24, 22]
+
+  # --- edit-clear, edit-clear-list — beveled from edit-clear-symbolic ---
+  # edit-clear-all follows edit-clear-list as a Tela alias.
+  - src: edit-clear-24.svg
+    from: actions/symbolic/edit-clear-symbolic.svg
+    category: actions
+    names: [edit-clear, edit-clear-list]
+    sizes: [24, 16, 22]
+  - src: edit-clear-32.svg
+    from: actions/symbolic/edit-clear-symbolic.svg
+    category: actions
+    names: [edit-clear, edit-clear-list]
+    sizes: [32]
+  - src: edit-clear-48.svg
+    from: actions/symbolic/edit-clear-symbolic.svg
+    category: actions
+    names: [edit-clear, edit-clear-list]
+    sizes: [48]
+  - src: edit-clear-symbolic.svg
+    from: actions/symbolic/edit-clear-symbolic.svg
+    category: actions
+    names: [edit-clear-symbolic]
+    sizes: [symbolic]
+
+  # --- edit-clear-rtl — the mirrored glyph, beveled ---
+  # Points right, like Tela's edit-clear-rtl. edit-clear-locationbar-ltr (the
+  # location-bar clear button in LTR locales) is a Tela alias of it.
+  - src: edit-clear-rtl-24.svg
+    from: actions/symbolic/edit-clear-symbolic.svg
+    category: actions
+    names: [edit-clear-rtl]
+    sizes: [24, 16, 22]
+  - src: edit-clear-rtl-32.svg
+    from: actions/symbolic/edit-clear-symbolic.svg
+    category: actions
+    names: [edit-clear-rtl]
+    sizes: [32]
+  - src: edit-clear-rtl-48.svg
+    from: actions/symbolic/edit-clear-symbolic.svg
+    category: actions
+    names: [edit-clear-rtl]
+    sizes: [48]
