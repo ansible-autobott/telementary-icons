@@ -1,0 +1,51 @@
+# overlay.yaml — STAGED design set: NOT applied to the theme. `make theme`
+# reads only overlays/, so nothing here ships; move a block (and its SVGs)
+# into the matching overlays/actions/edit/ set once the art is ready.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# edit — actions. The rejected items of the "Edit" group of the
+# elementary overlay review (review/decisions.md, `make review`), staged here
+# to be reworked by hand: edit-select-all. (The clear icons were reworked
+# here and now ship from overlays/actions/edit/; find-location was dropped:
+# only the geolocation portal dialog requests it.)
+#
+# The art is the review's proposal, prepared like the shipped sets: elementary's
+# (GPL-3.0) after a single svgo pass, `from` is the file an elementary symlink
+# resolves to, and the first size in `sizes` is the real copy (elementary ships
+# no 22, so 24 serves it). Every icon has its own SVGs, so they can diverge.
+# The *-symbolic.svg files are recolored from GNOME's `url(#gpa:foreground)` to
+# the ColorScheme-Text / currentColor pattern (see overlays/README.md).
+
+set: edit
+
+origin:
+  theme: elementary
+
+links:
+  # --- edit-select-all ---
+  # review comment: needs better icon
+  - src: edit-select-all-16.svg
+    from: actions/16/edit-select-all.svg
+    category: actions
+    names: [edit-select-all]
+    sizes: [16]
+  - src: edit-select-all-24.svg
+    from: actions/24/edit-select-all.svg
+    category: actions
+    names: [edit-select-all]
+    sizes: [24, 22]
+  - src: edit-select-all-32.svg
+    from: actions/32/edit-select-all.svg
+    category: actions
+    names: [edit-select-all]
+    sizes: [32]
+  - src: edit-select-all-48.svg
+    from: actions/48/edit-select-all.svg
+    category: actions
+    names: [edit-select-all]
+    sizes: [48]
+  - src: edit-select-all-symbolic.svg
+    from: actions/symbolic/edit-select-all-symbolic.svg
+    category: actions
+    names: [edit-select-all-symbolic]
+    sizes: [symbolic]

@@ -1,0 +1,73 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# media-calls — actions. The "Media & calls" group of the elementary overlay
+# review (review/decisions.md, `make review`), one block per approved icon.
+#
+# Call controls: call-start, call-stop and call-end (elementary links call-end
+# to call-stop). elementary only draws them at 16, which also serves 22 and 24.
+#
+# Artwork is elementary's (GPL-3.0, same license as the vendored Tela base) and
+# replaces the monochrome Tela glyph (or the Breeze fallback) under each name.
+# Numeric sizes are elementary's art after a single svgo pass. elementary ships
+# no 22, so the 24 art also serves 22, and a size it lacks is covered by the
+# nearest one it has (the first size in `sizes` is the real copy). Where
+# elementary's name is a symlink, `from` is the file it resolves to, and names
+# that share art share one source SVG.
+#
+# The *-symbolic.svg files are not verbatim copies: elementary paints them with
+# GNOME's `url(#gpa:foreground)`, which KDE cannot recolor, so after the same
+# svgo pass the fill was swapped for this repo's ColorScheme-Text /
+# currentColor pattern (see overlays/README.md), and a viewBox was added where
+# it was missing so they scale in the symbolic bucket.
+#
+# NOTE: the numeric art is full-color and does NOT follow the KDE color scheme;
+# only the symbolic bucket recolors. Tela ships many legacy names as symlinks
+# onto the files replaced here, so those switch to this art too (see
+# review/decisions.md, each task's "also changes" line).
+#
+# call-stop-symbolic is painted with GNOME's `gpa:error`, so it maps to
+# ColorScheme-NegativeText (red, following the color scheme) instead of
+# ColorScheme-Text.
+
+set: media-calls
+
+origin:
+  theme: elementary
+
+links:
+  # --- call-start ---
+  - src: call-start-16.svg
+    from: actions/16/call-start.svg
+    category: actions
+    names: [call-start]
+    sizes: [16, 22, 24]
+  - src: call-start-symbolic.svg
+    from: actions/symbolic/call-start-symbolic.svg
+    category: actions
+    names: [call-start-symbolic]
+    sizes: [symbolic]
+
+  # --- call-end — call-stop art ---
+  - src: call-stop-16.svg
+    from: actions/16/call-stop.svg
+    category: actions
+    names: [call-end]
+    sizes: [16, 22, 24]
+  - src: call-stop-symbolic.svg
+    from: actions/symbolic/call-stop-symbolic.svg
+    category: actions
+    names: [call-end-symbolic]
+    sizes: [symbolic]
+
+  # --- call-stop ---
+  - src: call-stop-16.svg
+    from: actions/16/call-stop.svg
+    category: actions
+    names: [call-stop]
+    sizes: [16, 22, 24]
+  - src: call-stop-symbolic.svg
+    from: actions/symbolic/call-stop-symbolic.svg
+    category: actions
+    names: [call-stop-symbolic]
+    sizes: [symbolic]

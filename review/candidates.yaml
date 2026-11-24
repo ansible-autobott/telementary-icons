@@ -1,0 +1,1798 @@
+# candidates.yaml — elementary overlay candidates for the review page
+# (`make review`, then open /review). Each item proposes replacing a monochrome
+# telementary action icon with elementary's full-color art. Decisions made on
+# the review page land in review/decisions.md.
+#
+# Scope: names the theme serves from actions/ whose 16/22/24 art is a
+# monochrome glyph (Tela) — or that the theme lacks, so KDE falls back to
+# Breeze's monochrome icon — and that elementary ships as non-symbolic art
+# (kind: same-name); plus common KDE action names elementary does not ship,
+# paired with a hand-picked elementary icon (kind: substitute). Names already
+# published by an overlays/**/overlay.yaml are left out, and so are rejected
+# items moved to staged/ for hand editing.
+#
+# Fields per item:
+#   id        the theme icon name under review (unique)
+#   group     display grouping on the review page
+#   kind      same-name | substitute
+#   source    elementary icon name the art comes from
+#   category  target theme context
+#   usage     how many installed KDE/Qt components reference the name (a
+#             strings(1) scan of binaries, plugins and QML — a hint only)
+#   used_by   a sample of those components
+#   links     the proposed overlay, in overlay.yaml terms: `from` is the
+#             elementary source (relative to the elementary theme root, the
+#             path as listed — it may be a symlink), `names` the theme names
+#             it publishes, `sizes` the buckets (the first is the real copy).
+#             22 has no elementary art, so it reuses the nearest size (24).
+#   notes     things to look at before deciding
+#
+# How it was built (2026-09-26, one-off script, not in the repo): the generated
+# output/ (vendored Tela + overlays) was scanned and each icon's 16/22/24 SVG
+# classified by its paints (currentColor or plain grays = monochrome);
+# elementary's numeric art was matched by name across its contexts, symlinked
+# names included. Buckets: 16/24/32/48 from the same elementary size, 22 from
+# 24, and a missing size from the nearest one (larger on a tie); symbolic from
+# elementary's -symbolic glyph, -rtl variants folded into their base item.
+# usage/used_by come from strings(1) over Qt/KDE binaries in /usr/bin, the KF6
+# and KDE libraries, Qt plugins and KDE QML. Edit by hand to add, drop or
+# re-map items — the review page re-reads this file on every request.
+
+origin: elementary
+
+items:
+  - id: document-save-all
+    group: "File & documents"
+    kind: substitute
+    source: document-save
+    category: actions
+    usage: 6
+    used_by: [libkateprivate, libKF6Style, gmenudbusmenuproxy, libplasmanm_editor, "qml:org/kde/breeze", "qml:org/kde/desktop"]
+    links:
+      - {names: [document-save-all], from: actions/16/document-save.svg, sizes: [16]}
+      - {names: [document-save-all], from: actions/24/document-save.svg, sizes: [24, 22]}
+      - {names: [document-save-all], from: actions/32/document-save.svg, sizes: [32]}
+      - {names: [document-save-all], from: actions/48/document-save.svg, sizes: [48]}
+    notes:
+      - "Save All (Kate). Same art as document-save."
+  - id: document-send
+    group: "File & documents"
+    kind: same-name
+    source: document-send
+    category: actions
+    usage: 4
+    used_by: [kdeconnect-sms, neochat, "plugin:org.kde.plasma.notifications", "qml:org/kde/purpose"]
+    links:
+      - {names: [document-send], from: actions/16/document-send.svg, sizes: [16]}
+      - {names: [document-send], from: actions/24/document-send.svg, sizes: [24, 22]}
+      - {names: [document-send], from: actions/32/document-send.svg, sizes: [32]}
+      - {names: [document-send], from: actions/48/document-send.svg, sizes: [48]}
+      - {names: [document-send-symbolic], from: actions/symbolic/document-send-symbolic.svg, sizes: [symbolic]}
+  - id: browser-download
+    group: "File & documents"
+    kind: same-name
+    source: browser-download
+    category: actions
+    usage: 0
+    links:
+      - {names: [browser-download], from: actions/16/browser-download.svg, sizes: [16]}
+      - {names: [browser-download], from: actions/24/browser-download.svg, sizes: [24, 22]}
+      - {names: [browser-download], from: actions/32/browser-download.svg, sizes: [32]}
+      - {names: [browser-download], from: actions/48/browser-download.svg, sizes: [48]}
+      - {names: [browser-download-symbolic], from: actions/symbolic/browser-download-symbolic.svg, sizes: [symbolic]}
+  - id: download
+    group: "File & documents"
+    kind: substitute
+    source: browser-download
+    category: actions
+    usage: 0
+    links:
+      - {names: [download], from: actions/16/browser-download.svg, sizes: [16]}
+      - {names: [download], from: actions/24/browser-download.svg, sizes: [24, 22]}
+      - {names: [download], from: actions/32/browser-download.svg, sizes: [32]}
+      - {names: [download], from: actions/48/browser-download.svg, sizes: [48]}
+    notes:
+      - "Generic download action."
+      - "usage unknown: the name is a plain word, so the binary scan cannot tell icon lookups from other strings"
+  - id: folder-saved-search
+    group: "File & documents"
+    kind: same-name
+    source: folder-saved-search
+    category: actions
+    usage: 0
+    links:
+      - {names: [folder-saved-search], from: places/16/folder-saved-search.svg, sizes: [16]}
+      - {names: [folder-saved-search], from: places/24/folder-saved-search.svg, sizes: [24, 22]}
+      - {names: [folder-saved-search], from: places/32/folder-saved-search.svg, sizes: [32]}
+      - {names: [folder-saved-search], from: places/48/folder-saved-search.svg, sizes: [48]}
+      - {names: [folder-saved-search-symbolic], from: places/symbolic/folder-saved-search-symbolic.svg, sizes: [symbolic]}
+  - id: edit-redo
+    group: "Edit"
+    kind: same-name
+    source: edit-redo
+    category: actions
+    usage: 9
+    used_by: [spectacle, libKF6ConfigWidgets, libKF6ConfigGui, libKF6TextEditor, libKF6XmlGui, gmenudbusmenuproxy, libKDEGames6, libPlasmaSystemMonitorPage, "plugin:org.kde.plasma.notes"]
+    links:
+      - {names: [edit-redo], from: actions/16/edit-redo.svg, sizes: [16]}
+      - {names: [edit-redo], from: actions/24/edit-redo.svg, sizes: [24, 22]}
+      - {names: [edit-redo], from: actions/32/edit-redo.svg, sizes: [32]}
+      - {names: [edit-redo], from: actions/48/edit-redo.svg, sizes: [48]}
+      - {names: [edit-redo-symbolic], from: actions/symbolic/edit-redo-symbolic.svg, sizes: [symbolic]}
+      - {names: [edit-redo-rtl], from: actions/16/edit-redo-rtl.svg, sizes: [16]}
+      - {names: [edit-redo-rtl], from: actions/24/edit-redo-rtl.svg, sizes: [24, 22]}
+      - {names: [edit-redo-rtl], from: actions/32/edit-redo-rtl.svg, sizes: [32]}
+      - {names: [edit-redo-rtl], from: actions/48/edit-redo-rtl.svg, sizes: [48]}
+      - {names: [edit-redo-symbolic-rtl], from: actions/symbolic/edit-redo-symbolic-rtl.svg, sizes: [symbolic]}
+    notes:
+      - "KDE standard action: referenced by KDE's standard-actions library (libKF6ConfigWidgets/libKF6ConfigGui), so it likely shows in the File/Edit/View/Settings/Help menus of every KDE app"
+  - id: edit-copy-path
+    group: "Edit"
+    kind: substitute
+    source: edit-copy
+    category: actions
+    usage: 0
+    links:
+      - {names: [edit-copy-path], from: actions/16/edit-copy.svg, sizes: [16]}
+      - {names: [edit-copy-path], from: actions/24/edit-copy.svg, sizes: [24, 22]}
+      - {names: [edit-copy-path], from: actions/32/edit-copy.svg, sizes: [32]}
+      - {names: [edit-copy-path], from: actions/48/edit-copy.svg, sizes: [48]}
+    notes:
+      - "Dolphin 'Copy Location'. Not in Tela, so it currently falls back to Breeze."
+      - "elementary art at 16, 24, 32, 48px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: zoom-in
+    group: "View & zoom"
+    kind: same-name
+    source: zoom-in
+    category: actions
+    usage: 8
+    used_by: [haruna, libKF6ConfigWidgets, libKF6ConfigGui, libKF6TextEditor, gmenudbusmenuproxy, libkwin, libkwin-x11, "qml:org/kde/kirigamiaddons"]
+    links:
+      - {names: [zoom-in], from: actions/16/zoom-in.svg, sizes: [16]}
+      - {names: [zoom-in], from: actions/24/zoom-in.svg, sizes: [24, 22]}
+      - {names: [zoom-in-symbolic], from: actions/symbolic/zoom-in-symbolic.svg, sizes: [symbolic]}
+    notes:
+      - "KDE standard action: referenced by KDE's standard-actions library (libKF6ConfigWidgets/libKF6ConfigGui), so it likely shows in the File/Edit/View/Settings/Help menus of every KDE app"
+  - id: zoom-out
+    group: "View & zoom"
+    kind: same-name
+    source: zoom-out
+    category: actions
+    usage: 8
+    used_by: [haruna, libKF6ConfigWidgets, libKF6ConfigGui, libKF6TextEditor, gmenudbusmenuproxy, libkwin, libkwin-x11, "qml:org/kde/kirigamiaddons"]
+    links:
+      - {names: [zoom-out], from: actions/16/zoom-out.svg, sizes: [16]}
+      - {names: [zoom-out], from: actions/24/zoom-out.svg, sizes: [24, 22]}
+      - {names: [zoom-out-symbolic], from: actions/symbolic/zoom-out-symbolic.svg, sizes: [symbolic]}
+    notes:
+      - "KDE standard action: referenced by KDE's standard-actions library (libKF6ConfigWidgets/libKF6ConfigGui), so it likely shows in the File/Edit/View/Settings/Help menus of every KDE app"
+  - id: view-hidden
+    group: "View & zoom"
+    kind: substitute
+    source: object-hidden
+    category: actions
+    usage: 7
+    used_by: [dolphin, systemsettings, libdolphinprivate, neochat, "plugin:browserintegrationreminder", "plugin:krunner_webshortcuts", "qml:org/kde/plasma"]
+    links:
+      - {names: [view-hidden], from: status/16/object-hidden.svg, sizes: [16, 22, 24]}
+    notes:
+      - "Dolphin's 'Show Hidden Files'. elementary ships this at 16px only, so 22/24 are upscaled. Tela makes view-visible an alias of this file."
+      - "elementary art at 16px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: view-visible
+    group: "View & zoom"
+    kind: substitute
+    source: object-visible
+    category: actions
+    usage: 6
+    used_by: [libkateprivate, libPlasmaSystemMonitorPage, libdolphinprivate, "plugin:hidefileitemaction", "plugin:kcm_disks", "qml:org/kde/plasma"]
+    links:
+      - {names: [view-visible], from: status/16/object-visible.svg, sizes: [16, 22, 24]}
+    notes:
+      - "elementary ships this at 16px only, so 22/24 are upscaled. Tela currently aliases this to view-hidden (same glyph for both)."
+  - id: zoom-original
+    group: "View & zoom"
+    kind: same-name
+    source: zoom-original
+    category: actions
+    usage: 6
+    used_by: [haruna, libKF6ConfigWidgets, libKF6ConfigGui, libKF6TextEditor, libdolphinprivate, "plugin:org.kde.plasma.comic"]
+    links:
+      - {names: [zoom-original], from: actions/16/zoom-original.svg, sizes: [16]}
+      - {names: [zoom-original], from: actions/24/zoom-original.svg, sizes: [24, 22]}
+      - {names: [zoom-original-symbolic], from: actions/symbolic/zoom-original-symbolic.svg, sizes: [symbolic]}
+    notes:
+      - "KDE standard action: referenced by KDE's standard-actions library (libKF6ConfigWidgets/libKF6ConfigGui), so it likely shows in the File/Edit/View/Settings/Help menus of every KDE app"
+  - id: zoom-fit-width
+    group: "View & zoom"
+    kind: substitute
+    source: zoom-fit-best
+    category: actions
+    usage: 3
+    used_by: ["plugin:okularpart", libKF6ConfigWidgets, libKF6ConfigGui]
+    links:
+      - {names: [zoom-fit-width], from: actions/16/zoom-fit-best.svg, sizes: [16]}
+      - {names: [zoom-fit-width], from: actions/24/zoom-fit-best.svg, sizes: [24, 22]}
+    notes:
+      - "KDE standard action: referenced by KDE's standard-actions library (libKF6ConfigWidgets/libKF6ConfigGui), so it likely shows in the File/Edit/View/Settings/Help menus of every KDE app"
+      - "Okular/Gwenview 'Fit Width'. elementary has a single fit icon."
+  - id: zoom-fit-best
+    group: "View & zoom"
+    kind: same-name
+    source: zoom-fit-best
+    category: actions
+    usage: 2
+    used_by: ["plugin:okularpart", gmenudbusmenuproxy]
+    links:
+      - {names: [zoom-fit-best], from: actions/16/zoom-fit-best.svg, sizes: [16]}
+      - {names: [zoom-fit-best], from: actions/24/zoom-fit-best.svg, sizes: [24, 22]}
+      - {names: [zoom-fit-best-symbolic], from: actions/symbolic/zoom-fit-best-symbolic.svg, sizes: [symbolic]}
+  - id: zoom-fit-height
+    group: "View & zoom"
+    kind: substitute
+    source: zoom-fit-best
+    category: actions
+    usage: 2
+    used_by: [libKF6ConfigWidgets, libKF6ConfigGui]
+    links:
+      - {names: [zoom-fit-height], from: actions/16/zoom-fit-best.svg, sizes: [16]}
+      - {names: [zoom-fit-height], from: actions/24/zoom-fit-best.svg, sizes: [24, 22]}
+    notes:
+      - "KDE standard action: referenced by KDE's standard-actions library (libKF6ConfigWidgets/libKF6ConfigGui), so it likely shows in the File/Edit/View/Settings/Help menus of every KDE app"
+      - "Okular/Gwenview 'Fit Height'. elementary has a single fit icon."
+  - id: zoom-fit-page
+    group: "View & zoom"
+    kind: substitute
+    source: zoom-fit-best
+    category: actions
+    usage: 2
+    used_by: [libKF6ConfigWidgets, libKF6ConfigGui]
+    links:
+      - {names: [zoom-fit-page], from: actions/16/zoom-fit-best.svg, sizes: [16]}
+      - {names: [zoom-fit-page], from: actions/24/zoom-fit-best.svg, sizes: [24, 22]}
+    notes:
+      - "KDE standard action: referenced by KDE's standard-actions library (libKF6ConfigWidgets/libKF6ConfigGui), so it likely shows in the File/Edit/View/Settings/Help menus of every KDE app"
+      - "Okular/Gwenview 'Fit Page'. elementary has a single fit icon."
+  - id: zoom
+    group: "View & zoom"
+    kind: same-name
+    source: zoom
+    category: actions
+    usage: 0
+    links:
+      - {names: [zoom], from: actions/16/zoom.svg, sizes: [16]}
+      - {names: [zoom], from: actions/24/zoom.svg, sizes: [24, 22]}
+    notes:
+      - "usage unknown: the name is a plain word, so the binary scan cannot tell icon lookups from other strings"
+  - id: window-close
+    group: "Dialogs & system"
+    kind: same-name
+    source: window-close
+    category: actions
+    usage: 25
+    used_by: [okular, ark, libKF6JobWidgets, libKF6TextEditor, libKF6WidgetsAddons, gmenudbusmenuproxy, klassy-settings, libKDEGames6, libKirigamiControls, libKirigamiDialogs, libKirigamiTemplates, libkonsoleapp]
+    links:
+      - {names: [window-close], from: actions/16/window-close.svg, sizes: [16]}
+      - {names: [window-close], from: actions/24/window-close.svg, sizes: [24, 22]}
+      - {names: [window-close], from: actions/48/window-close.svg, sizes: [48]}
+      - {names: [window-close-symbolic], from: actions/symbolic/window-close-symbolic.svg, sizes: [symbolic]}
+    notes:
+      - "elementary art at 16, 24, 48px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: application-exit
+    group: "Dialogs & system"
+    kind: substitute
+    source: window-close
+    category: actions
+    usage: 21
+    used_by: [dolphin, "plugin:okularpart", libkonsoleprivate, konqueror, haruna, ksystemlog, libKF6ConfigWidgets, libKF6ConfigGui, libKF6StatusNotifierItem, libKF6WidgetsAddons, gmenudbusmenuproxy, keepassxc]
+    links:
+      - {names: [application-exit], from: actions/16/window-close.svg, sizes: [16]}
+      - {names: [application-exit], from: actions/24/window-close.svg, sizes: [24, 22]}
+      - {names: [application-exit], from: actions/48/window-close.svg, sizes: [48]}
+    notes:
+      - "KDE standard action: referenced by KDE's standard-actions library (libKF6ConfigWidgets/libKF6ConfigGui), so it likely shows in the File/Edit/View/Settings/Help menus of every KDE app"
+      - "KDE Quit (KStandardAction). elementary has no colored application-exit; it maps application-exit-symbolic to window-close-symbolic itself. Alternative: system-log-out (32/48 only)."
+      - "elementary art at 16, 24, 48px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: preferences-desktop
+    group: "Dialogs & system"
+    kind: same-name
+    source: preferences-desktop
+    category: actions
+    usage: 5
+    used_by: ["plugin:okularpart", flameshot, "plugin:org.kde.plasma.comic", "plugin:org.kde.plasma.taskmanager", "plugin:smb4kconfigdialog"]
+    links:
+      - {names: [preferences-desktop], from: categories/24/preferences-desktop.svg, sizes: [24, 16, 22]}
+      - {names: [preferences-desktop], from: categories/32/preferences-desktop.svg, sizes: [32]}
+      - {names: [preferences-desktop], from: categories/48/preferences-desktop.svg, sizes: [48]}
+  - id: system-software-install
+    group: "Dialogs & system"
+    kind: same-name
+    source: system-software-install
+    category: actions
+    usage: 1
+    used_by: ["plugin:kded_notificationhelper"]
+    links:
+      - {names: [system-software-install], from: apps/16/system-software-install.svg, sizes: [16]}
+      - {names: [system-software-install], from: apps/24/system-software-install.svg, sizes: [24, 22]}
+      - {names: [system-software-install], from: apps/32/system-software-install.svg, sizes: [32]}
+      - {names: [system-software-install], from: apps/48/system-software-install.svg, sizes: [48]}
+      - {names: [system-software-install-symbolic], from: apps/symbolic/system-software-install-symbolic.svg, sizes: [symbolic]}
+  - id: system-users
+    group: "Dialogs & system"
+    kind: same-name
+    source: system-users
+    category: actions
+    usage: 1
+    used_by: [smb4k]
+    links:
+      - {names: [system-users], from: apps/16/system-users.svg, sizes: [16]}
+      - {names: [system-users], from: apps/24/system-users.svg, sizes: [24, 22]}
+      - {names: [system-users], from: apps/32/system-users.svg, sizes: [32]}
+      - {names: [system-users], from: apps/48/system-users.svg, sizes: [48]}
+      - {names: [system-users-symbolic], from: apps/symbolic/system-users-symbolic.svg, sizes: [symbolic]}
+    notes:
+      - "elementary art at 16, 24, 32, 48px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: appointment
+    group: "Dialogs & system"
+    kind: same-name
+    source: appointment
+    category: actions
+    usage: 0
+    links:
+      - {names: [appointment], from: status/16/appointment.svg, sizes: [16]}
+      - {names: [appointment], from: status/24/appointment.svg, sizes: [24, 22]}
+      - {names: [appointment], from: status/32/appointment.svg, sizes: [32]}
+      - {names: [appointment], from: status/48/appointment.svg, sizes: [48]}
+      - {names: [appointment-symbolic], from: actions/symbolic/appointment-symbolic.svg, sizes: [symbolic]}
+    notes:
+      - "usage unknown: the name is a plain word, so the binary scan cannot tell icon lookups from other strings"
+  - id: appointment-missed
+    group: "Dialogs & system"
+    kind: same-name
+    source: appointment-missed
+    category: actions
+    usage: 0
+    links:
+      - {names: [appointment-missed], from: status/16/appointment-missed.svg, sizes: [16]}
+      - {names: [appointment-missed], from: status/24/appointment-missed.svg, sizes: [24, 22]}
+      - {names: [appointment-missed], from: status/32/appointment-missed.svg, sizes: [32]}
+      - {names: [appointment-missed], from: status/48/appointment-missed.svg, sizes: [48]}
+      - {names: [appointment-missed-symbolic], from: status/symbolic/appointment-missed-symbolic.svg, sizes: [symbolic]}
+  - id: appointment-soon
+    group: "Dialogs & system"
+    kind: same-name
+    source: appointment-soon
+    category: actions
+    usage: 0
+    links:
+      - {names: [appointment-soon], from: status/16/appointment-soon.svg, sizes: [16]}
+      - {names: [appointment-soon], from: status/24/appointment-soon.svg, sizes: [24, 22]}
+      - {names: [appointment-soon], from: status/32/appointment-soon.svg, sizes: [32]}
+      - {names: [appointment-soon], from: status/48/appointment-soon.svg, sizes: [48]}
+      - {names: [appointment-soon-symbolic], from: status/symbolic/appointment-soon-symbolic.svg, sizes: [symbolic]}
+  - id: multimedia-volume-control
+    group: "Dialogs & system"
+    kind: same-name
+    source: multimedia-volume-control
+    category: actions
+    usage: 0
+    links:
+      - {names: [multimedia-volume-control], from: categories/16/multimedia-volume-control.svg, sizes: [16]}
+      - {names: [multimedia-volume-control], from: categories/24/multimedia-volume-control.svg, sizes: [24, 22]}
+      - {names: [multimedia-volume-control], from: categories/32/multimedia-volume-control.svg, sizes: [32]}
+      - {names: [multimedia-volume-control], from: categories/48/multimedia-volume-control.svg, sizes: [48]}
+    notes:
+      - "elementary art at 16, 24, 32, 48px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: playlist-automatic
+    group: "Dialogs & system"
+    kind: same-name
+    source: playlist-automatic
+    category: actions
+    usage: 0
+    links:
+      - {names: [playlist-automatic], from: places/16/playlist-automatic.svg, sizes: [16, 22, 24]}
+  - id: playlist-queue
+    group: "Dialogs & system"
+    kind: same-name
+    source: playlist-queue
+    category: actions
+    usage: 0
+    links:
+      - {names: [playlist-queue], from: places/16/playlist-queue.svg, sizes: [16]}
+      - {names: [playlist-queue], from: places/24/playlist-queue.svg, sizes: [24, 22]}
+      - {names: [playlist-queue], from: places/48/playlist-queue.svg, sizes: [48]}
+      - {names: [playlist-queue-symbolic], from: places/symbolic/playlist-queue-symbolic.svg, sizes: [symbolic]}
+  - id: playlist-similar
+    group: "Dialogs & system"
+    kind: same-name
+    source: playlist-similar
+    category: actions
+    usage: 0
+    links:
+      - {names: [playlist-similar], from: places/16/playlist-similar.svg, sizes: [16, 22, 24]}
+  - id: media-playback-start
+    group: "Media & calls"
+    kind: same-name
+    source: media-playback-start
+    category: actions
+    usage: 25
+    used_by: [dolphin, "plugin:okularpart", spectacle, haruna, ksystemlog, libKF6NotifyConfig, libKF6Style, gmenudbusmenuproxy, kde-print-queue, kdeconnect-app, kdeconnect-sms, kmix]
+    links:
+      - {names: [media-playback-start], from: actions/16/media-playback-start.svg, sizes: [16]}
+      - {names: [media-playback-start], from: actions/24/media-playback-start.svg, sizes: [24, 22]}
+      - {names: [media-playback-start], from: actions/32/media-playback-start.svg, sizes: [32]}
+      - {names: [media-playback-start], from: actions/48/media-playback-start.svg, sizes: [48]}
+      - {names: [media-playback-start-symbolic], from: actions/symbolic/media-playback-start-symbolic.svg, sizes: [symbolic]}
+      - {names: [media-playback-start-rtl], from: actions/16/media-playback-start-rtl.svg, sizes: [16]}
+      - {names: [media-playback-start-rtl], from: actions/24/media-playback-start-rtl.svg, sizes: [24, 22]}
+      - {names: [media-playback-start-rtl], from: actions/32/media-playback-start-rtl.svg, sizes: [32]}
+      - {names: [media-playback-start-rtl], from: actions/48/media-playback-start-rtl.svg, sizes: [48]}
+      - {names: [media-playback-start-symbolic-rtl], from: actions/symbolic/media-playback-start-symbolic-rtl.svg, sizes: [symbolic]}
+  - id: media-playback-pause
+    group: "Media & calls"
+    kind: same-name
+    source: media-playback-pause
+    category: actions
+    usage: 18
+    used_by: [dolphin, "plugin:okularpart", spectacle, haruna, libKF6Style, kde-print-queue, kdeconnect-app, kdeconnect-sms, kmix, libKDEGames6, neochat, "plasma:shells/org.kde.plasma.desktop"]
+    links:
+      - {names: [media-playback-pause], from: actions/16/media-playback-pause.svg, sizes: [16]}
+      - {names: [media-playback-pause], from: actions/24/media-playback-pause.svg, sizes: [24, 22]}
+      - {names: [media-playback-pause], from: actions/32/media-playback-pause.svg, sizes: [32]}
+      - {names: [media-playback-pause], from: actions/48/media-playback-pause.svg, sizes: [48]}
+      - {names: [media-playback-pause-symbolic], from: actions/symbolic/media-playback-pause-symbolic.svg, sizes: [symbolic]}
+  - id: media-playback-stop
+    group: "Media & calls"
+    kind: same-name
+    source: media-playback-stop
+    category: actions
+    usage: 9
+    used_by: ["plugin:okularpart", ksystemlog, libKF6Style, kdeconnect-sms, neochat, "plugin:kategdbplugin", "plugin:keyboardmacrosplugin", "plugin:org.kde.plasma.mediacontroller", "plugin:org.kde.plasma.taskmanager"]
+    links:
+      - {names: [media-playback-stop], from: actions/16/media-playback-stop.svg, sizes: [16]}
+      - {names: [media-playback-stop], from: actions/24/media-playback-stop.svg, sizes: [24, 22]}
+      - {names: [media-playback-stop], from: actions/32/media-playback-stop.svg, sizes: [32]}
+      - {names: [media-playback-stop], from: actions/48/media-playback-stop.svg, sizes: [48]}
+      - {names: [media-playback-stop-symbolic], from: actions/symbolic/media-playback-stop-symbolic.svg, sizes: [symbolic]}
+  - id: media-skip-backward
+    group: "Media & calls"
+    kind: same-name
+    source: media-skip-backward
+    category: actions
+    usage: 7
+    used_by: [haruna, libKF6Style, kdeconnect-app, kmix, "plasma:shells/org.kde.plasma.desktop", "plugin:org.kde.plasma.mediacontroller", "plugin:org.kde.plasma.taskmanager"]
+    links:
+      - {names: [media-skip-backward], from: actions/16/media-skip-backward.svg, sizes: [16]}
+      - {names: [media-skip-backward], from: actions/24/media-skip-backward.svg, sizes: [24, 22]}
+      - {names: [media-skip-backward], from: actions/32/media-skip-backward.svg, sizes: [32]}
+      - {names: [media-skip-backward], from: actions/48/media-skip-backward.svg, sizes: [48]}
+      - {names: [media-skip-backward-symbolic], from: actions/symbolic/media-skip-backward-symbolic.svg, sizes: [symbolic]}
+      - {names: [media-skip-backward-rtl], from: actions/16/media-skip-backward-rtl.svg, sizes: [16]}
+      - {names: [media-skip-backward-rtl], from: actions/24/media-skip-backward-rtl.svg, sizes: [24, 22]}
+      - {names: [media-skip-backward-rtl], from: actions/32/media-skip-backward-rtl.svg, sizes: [32]}
+      - {names: [media-skip-backward-rtl], from: actions/48/media-skip-backward-rtl.svg, sizes: [48]}
+      - {names: [media-skip-backward-symbolic-rtl], from: actions/symbolic/media-skip-backward-symbolic-rtl.svg, sizes: [symbolic]}
+  - id: media-skip-forward
+    group: "Media & calls"
+    kind: same-name
+    source: media-skip-forward
+    category: actions
+    usage: 7
+    used_by: [haruna, libKF6Style, kdeconnect-app, kmix, "plasma:shells/org.kde.plasma.desktop", "plugin:org.kde.plasma.mediacontroller", "plugin:org.kde.plasma.taskmanager"]
+    links:
+      - {names: [media-skip-forward], from: actions/16/media-skip-forward.svg, sizes: [16]}
+      - {names: [media-skip-forward], from: actions/24/media-skip-forward.svg, sizes: [24, 22]}
+      - {names: [media-skip-forward], from: actions/32/media-skip-forward.svg, sizes: [32]}
+      - {names: [media-skip-forward], from: actions/48/media-skip-forward.svg, sizes: [48]}
+      - {names: [media-skip-forward-symbolic], from: actions/symbolic/media-skip-forward-symbolic.svg, sizes: [symbolic]}
+      - {names: [media-skip-forward-rtl], from: actions/16/media-skip-forward-rtl.svg, sizes: [16]}
+      - {names: [media-skip-forward-rtl], from: actions/24/media-skip-forward-rtl.svg, sizes: [24, 22]}
+      - {names: [media-skip-forward-rtl], from: actions/32/media-skip-forward-rtl.svg, sizes: [32]}
+      - {names: [media-skip-forward-rtl], from: actions/48/media-skip-forward-rtl.svg, sizes: [48]}
+      - {names: [media-skip-forward-symbolic-rtl], from: actions/symbolic/media-skip-forward-symbolic-rtl.svg, sizes: [symbolic]}
+  - id: media-eject
+    group: "Media & calls"
+    kind: same-name
+    source: media-eject
+    category: actions
+    usage: 5
+    used_by: [partitionmanager, libKF6KIOFileWidgets, "plugin:mountisoaction", "plugin:org.kde.plasma.devicenotifier", smb4k]
+    links:
+      - {names: [media-eject], from: actions/16/media-eject.svg, sizes: [16]}
+      - {names: [media-eject], from: actions/24/media-eject.svg, sizes: [24, 22]}
+      - {names: [media-eject], from: actions/48/media-eject.svg, sizes: [48]}
+    notes:
+      - "elementary art at 16, 24px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: media-record
+    group: "Media & calls"
+    kind: same-name
+    source: media-record
+    category: actions
+    usage: 4
+    used_by: [spectacle, kmix, "plugin:kategdbplugin", "plugin:keyboardmacrosplugin"]
+    links:
+      - {names: [media-record], from: actions/16/media-record.svg, sizes: [16]}
+      - {names: [media-record], from: actions/24/media-record.svg, sizes: [24, 22]}
+      - {names: [media-record], from: actions/32/media-record.svg, sizes: [32]}
+      - {names: [media-record], from: actions/48/media-record.svg, sizes: [48]}
+      - {names: [media-record-symbolic], from: actions/symbolic/media-record-symbolic.svg, sizes: [symbolic]}
+  - id: media-seek-backward
+    group: "Media & calls"
+    kind: same-name
+    source: media-seek-backward
+    category: actions
+    usage: 3
+    used_by: [haruna, libKF6Style, kdeconnect-sms]
+    links:
+      - {names: [media-seek-backward], from: actions/16/media-seek-backward.svg, sizes: [16]}
+      - {names: [media-seek-backward], from: actions/24/media-seek-backward.svg, sizes: [24, 22]}
+      - {names: [media-seek-backward], from: actions/32/media-seek-backward.svg, sizes: [32]}
+      - {names: [media-seek-backward], from: actions/48/media-seek-backward.svg, sizes: [48]}
+      - {names: [media-seek-backward-symbolic], from: actions/symbolic/media-seek-backward-symbolic.svg, sizes: [symbolic]}
+      - {names: [media-seek-backward-rtl], from: actions/16/media-seek-backward-rtl.svg, sizes: [16]}
+      - {names: [media-seek-backward-rtl], from: actions/24/media-seek-backward-rtl.svg, sizes: [24, 22]}
+      - {names: [media-seek-backward-rtl], from: actions/32/media-seek-backward-rtl.svg, sizes: [32]}
+      - {names: [media-seek-backward-rtl], from: actions/48/media-seek-backward-rtl.svg, sizes: [48]}
+      - {names: [media-seek-backward-symbolic-rtl], from: actions/symbolic/media-seek-backward-symbolic-rtl.svg, sizes: [symbolic]}
+  - id: media-seek-forward
+    group: "Media & calls"
+    kind: same-name
+    source: media-seek-forward
+    category: actions
+    usage: 3
+    used_by: [haruna, libKF6Style, kdeconnect-sms]
+    links:
+      - {names: [media-seek-forward], from: actions/16/media-seek-forward.svg, sizes: [16]}
+      - {names: [media-seek-forward], from: actions/24/media-seek-forward.svg, sizes: [24, 22]}
+      - {names: [media-seek-forward], from: actions/32/media-seek-forward.svg, sizes: [32]}
+      - {names: [media-seek-forward], from: actions/48/media-seek-forward.svg, sizes: [48]}
+      - {names: [media-seek-forward-symbolic], from: actions/symbolic/media-seek-forward-symbolic.svg, sizes: [symbolic]}
+      - {names: [media-seek-forward-rtl], from: actions/16/media-seek-forward-rtl.svg, sizes: [16]}
+      - {names: [media-seek-forward-rtl], from: actions/24/media-seek-forward-rtl.svg, sizes: [24, 22]}
+      - {names: [media-seek-forward-rtl], from: actions/32/media-seek-forward-rtl.svg, sizes: [32]}
+      - {names: [media-seek-forward-rtl], from: actions/48/media-seek-forward-rtl.svg, sizes: [48]}
+      - {names: [media-seek-forward-symbolic-rtl], from: actions/symbolic/media-seek-forward-symbolic-rtl.svg, sizes: [symbolic]}
+  - id: media-playlist-repeat
+    group: "Media & calls"
+    kind: same-name
+    source: media-playlist-repeat
+    category: actions
+    usage: 2
+    used_by: [haruna, "plugin:org.kde.plasma.mediacontroller"]
+    links:
+      - {names: [media-playlist-repeat], from: status/24/media-playlist-repeat.svg, sizes: [24, 16, 22]}
+      - {names: [media-playlist-repeat], from: status/48/media-playlist-repeat.svg, sizes: [48]}
+      - {names: [media-playlist-repeat-symbolic], from: status/symbolic/media-playlist-repeat-symbolic.svg, sizes: [symbolic]}
+  - id: mail-send
+    group: "Mail"
+    kind: same-name
+    source: mail-send
+    category: actions
+    usage: 3
+    used_by: [libkonsoleprivate, libKF6ConfigWidgets, libKF6ConfigGui]
+    links:
+      - {names: [mail-send], from: actions/16/mail-send.svg, sizes: [16]}
+      - {names: [mail-send], from: actions/24/mail-send.svg, sizes: [24, 22]}
+      - {names: [mail-send], from: actions/48/mail-send.svg, sizes: [48]}
+      - {names: [mail-send-symbolic], from: actions/symbolic/mail-send-symbolic.svg, sizes: [symbolic]}
+    notes:
+      - "KDE standard action: referenced by KDE's standard-actions library (libKF6ConfigWidgets/libKF6ConfigGui), so it likely shows in the File/Edit/View/Settings/Help menus of every KDE app"
+      - "elementary art at 16, 24, 48px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: format-indent-less
+    group: "Text & insert"
+    kind: same-name
+    source: format-indent-less
+    category: actions
+    usage: 4
+    used_by: [libKF6TextEditor, libKF6TextWidgets, gmenudbusmenuproxy, "plugin:formatplugin"]
+    links:
+      - {names: [format-indent-less], from: actions/24/format-indent-less.svg, sizes: [24, 16, 22]}
+      - {names: [format-indent-less-symbolic], from: actions/symbolic/format-indent-less-symbolic.svg, sizes: [symbolic]}
+      - {names: [format-indent-less-rtl], from: actions/24/format-indent-less-rtl.svg, sizes: [24, 16, 22]}
+      - {names: [format-indent-less-symbolic-rtl], from: actions/symbolic/format-indent-less-symbolic-rtl.svg, sizes: [symbolic]}
+  - id: format-indent-more
+    group: "Text & insert"
+    kind: same-name
+    source: format-indent-more
+    category: actions
+    usage: 4
+    used_by: [libKF6TextEditor, libKF6TextWidgets, gmenudbusmenuproxy, "plugin:katesearchplugin"]
+    links:
+      - {names: [format-indent-more], from: actions/24/format-indent-more.svg, sizes: [24, 16, 22]}
+      - {names: [format-indent-more-symbolic], from: actions/symbolic/format-indent-more-symbolic.svg, sizes: [symbolic]}
+      - {names: [format-indent-more-rtl], from: actions/24/format-indent-more-rtl.svg, sizes: [24, 16, 22]}
+      - {names: [format-indent-more-symbolic-rtl], from: actions/symbolic/format-indent-more-symbolic-rtl.svg, sizes: [symbolic]}
+  - id: format-justify-left
+    group: "Text & insert"
+    kind: same-name
+    source: format-justify-left
+    category: actions
+    usage: 4
+    used_by: ["plugin:okularpart", libKF6TextWidgets, gmenudbusmenuproxy, "plugin:katebuildplugin"]
+    links:
+      - {names: [format-justify-left], from: actions/16/format-justify-left.svg, sizes: [16]}
+      - {names: [format-justify-left], from: actions/24/format-justify-left.svg, sizes: [24, 22]}
+      - {names: [format-justify-left-symbolic], from: actions/symbolic/format-justify-left-symbolic.svg, sizes: [symbolic]}
+    notes:
+      - "elementary art at 16, 24px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: format-justify-right
+    group: "Text & insert"
+    kind: same-name
+    source: format-justify-right
+    category: actions
+    usage: 3
+    used_by: ["plugin:okularpart", libKF6TextWidgets, gmenudbusmenuproxy]
+    links:
+      - {names: [format-justify-right], from: actions/16/format-justify-right.svg, sizes: [16]}
+      - {names: [format-justify-right], from: actions/24/format-justify-right.svg, sizes: [24, 22]}
+      - {names: [format-justify-right-symbolic], from: actions/symbolic/format-justify-right-symbolic.svg, sizes: [symbolic]}
+    notes:
+      - "elementary art at 16, 24px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: format-justify-center
+    group: "Text & insert"
+    kind: same-name
+    source: format-justify-center
+    category: actions
+    usage: 2
+    used_by: [libKF6TextWidgets, gmenudbusmenuproxy]
+    links:
+      - {names: [format-justify-center], from: actions/16/format-justify-center.svg, sizes: [16]}
+      - {names: [format-justify-center], from: actions/24/format-justify-center.svg, sizes: [24, 22]}
+      - {names: [format-justify-center-symbolic], from: actions/symbolic/format-justify-center-symbolic.svg, sizes: [symbolic]}
+    notes:
+      - "elementary art at 16, 24px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: format-justify-fill
+    group: "Text & insert"
+    kind: same-name
+    source: format-justify-fill
+    category: actions
+    usage: 2
+    used_by: [libKF6TextWidgets, gmenudbusmenuproxy]
+    links:
+      - {names: [format-justify-fill], from: actions/16/format-justify-fill.svg, sizes: [16]}
+      - {names: [format-justify-fill], from: actions/24/format-justify-fill.svg, sizes: [24, 22]}
+      - {names: [format-justify-fill-symbolic], from: actions/symbolic/format-justify-fill-symbolic.svg, sizes: [symbolic]}
+    notes:
+      - "elementary art at 16, 24px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: insert-image
+    group: "Text & insert"
+    kind: same-name
+    source: insert-image
+    category: actions
+    usage: 1
+    used_by: [neochat]
+    links:
+      - {names: [insert-image], from: actions/16/insert-image.svg, sizes: [16]}
+      - {names: [insert-image], from: actions/24/insert-image.svg, sizes: [24, 22]}
+      - {names: [insert-image], from: actions/32/insert-image.svg, sizes: [32]}
+      - {names: [insert-image], from: actions/48/insert-image.svg, sizes: [48]}
+      - {names: [insert-image-symbolic], from: actions/symbolic/insert-image-symbolic.svg, sizes: [symbolic]}
+  - id: insert-link
+    group: "Text & insert"
+    kind: same-name
+    source: insert-link
+    category: actions
+    usage: 1
+    used_by: [libKF6TextWidgets]
+    links:
+      - {names: [insert-link], from: actions/16/insert-link.svg, sizes: [16]}
+      - {names: [insert-link], from: actions/24/insert-link.svg, sizes: [24, 22]}
+      - {names: [insert-link], from: actions/32/insert-link.svg, sizes: [32]}
+      - {names: [insert-link], from: actions/48/insert-link.svg, sizes: [48]}
+      - {names: [insert-link-symbolic], from: actions/symbolic/insert-link-symbolic.svg, sizes: [symbolic]}
+  - id: insert-object
+    group: "Text & insert"
+    kind: same-name
+    source: insert-object
+    category: actions
+    usage: 0
+    links:
+      - {names: [insert-object], from: actions/16/insert-object.svg, sizes: [16]}
+      - {names: [insert-object], from: actions/24/insert-object.svg, sizes: [24, 22]}
+      - {names: [insert-object], from: actions/32/insert-object.svg, sizes: [32]}
+      - {names: [insert-object], from: actions/48/insert-object.svg, sizes: [48]}
+      - {names: [insert-object-symbolic], from: actions/symbolic/insert-object-symbolic.svg, sizes: [symbolic]}
+  - id: color-picker
+    group: "Image & objects"
+    kind: same-name
+    source: color-picker
+    category: actions
+    usage: 7
+    used_by: ["plugin:okularpart", gmenudbusmenuproxy, kwin_wayland, kwin_x11, "plugin:katecolorpickerplugin", "plugin:org.kde.plasma.colorpicker", "qml:org/kde/kirigamiaddons"]
+    links:
+      - {names: [color-picker], from: actions/16/color-picker.svg, sizes: [16]}
+      - {names: [color-picker], from: actions/24/color-picker.svg, sizes: [24, 22]}
+  - id: object-rotate-left
+    group: "Image & objects"
+    kind: same-name
+    source: object-rotate-left
+    category: actions
+    usage: 5
+    used_by: ["plugin:okularpart", libKF6WidgetsAddons, gmenudbusmenuproxy, neochat, "qml:org/kde/kirigamiaddons"]
+    links:
+      - {names: [object-rotate-left], from: actions/16/object-rotate-left.svg, sizes: [16]}
+      - {names: [object-rotate-left], from: actions/24/object-rotate-left.svg, sizes: [24, 22]}
+      - {names: [object-rotate-left], from: actions/48/object-rotate-left.svg, sizes: [48]}
+      - {names: [object-rotate-left-symbolic], from: actions/symbolic/object-rotate-left-symbolic.svg, sizes: [symbolic]}
+  - id: object-rotate-right
+    group: "Image & objects"
+    kind: same-name
+    source: object-rotate-right
+    category: actions
+    usage: 5
+    used_by: ["plugin:okularpart", libKF6WidgetsAddons, gmenudbusmenuproxy, neochat, "qml:org/kde/kirigamiaddons"]
+    links:
+      - {names: [object-rotate-right], from: actions/16/object-rotate-right.svg, sizes: [16]}
+      - {names: [object-rotate-right], from: actions/24/object-rotate-right.svg, sizes: [24, 22]}
+      - {names: [object-rotate-right], from: actions/48/object-rotate-right.svg, sizes: [48]}
+      - {names: [object-rotate-right-symbolic], from: actions/symbolic/object-rotate-right-symbolic.svg, sizes: [symbolic]}
+  - id: image-missing
+    group: "Image & objects"
+    kind: same-name
+    source: image-missing
+    category: actions
+    usage: 2
+    used_by: [libKF6KIOFileWidgets, "plugin:kcm_fontinst"]
+    links:
+      - {names: [image-missing], from: status/16/image-missing.svg, sizes: [16]}
+      - {names: [image-missing], from: status/24/image-missing.svg, sizes: [24, 22]}
+      - {names: [image-missing], from: status/32/image-missing.svg, sizes: [32]}
+      - {names: [image-missing], from: status/48/image-missing.svg, sizes: [48]}
+    notes:
+      - "elementary art at 16, 24, 32, 48px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: object-flip-horizontal
+    group: "Image & objects"
+    kind: same-name
+    source: object-flip-horizontal
+    category: actions
+    usage: 2
+    used_by: [gmenudbusmenuproxy, neochat]
+    links:
+      - {names: [object-flip-horizontal], from: actions/24/object-flip-horizontal.svg, sizes: [24, 16, 22]}
+      - {names: [object-flip-horizontal-symbolic], from: actions/symbolic/object-flip-horizontal-symbolic.svg, sizes: [symbolic]}
+  - id: object-flip-vertical
+    group: "Image & objects"
+    kind: same-name
+    source: object-flip-vertical
+    category: actions
+    usage: 2
+    used_by: [gmenudbusmenuproxy, neochat]
+    links:
+      - {names: [object-flip-vertical], from: actions/24/object-flip-vertical.svg, sizes: [24, 16, 22]}
+      - {names: [object-flip-vertical-symbolic], from: actions/symbolic/object-flip-vertical-symbolic.svg, sizes: [symbolic]}
+  - id: image-adjust
+    group: "Image & objects"
+    kind: same-name
+    source: image-adjust
+    category: actions
+    usage: 0
+    links:
+      - {names: [image-adjust], from: actions/24/image-adjust.svg, sizes: [24, 16, 22]}
+  - id: image-auto-adjust
+    group: "Image & objects"
+    kind: same-name
+    source: image-auto-adjust
+    category: actions
+    usage: 0
+    links:
+      - {names: [image-auto-adjust], from: actions/24/image-auto-adjust.svg, sizes: [24, 16, 22]}
+    notes:
+      - "elementary art at 24px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: image-crop
+    group: "Image & objects"
+    kind: same-name
+    source: image-crop
+    category: actions
+    usage: 0
+    links:
+      - {names: [image-crop], from: actions/24/image-crop.svg, sizes: [24, 16, 22]}
+      - {names: [image-crop], from: actions/48/image-crop.svg, sizes: [48]}
+      - {names: [image-crop-symbolic], from: actions/symbolic/image-crop-symbolic.svg, sizes: [symbolic]}
+  - id: image-loading
+    group: "Image & objects"
+    kind: same-name
+    source: image-loading
+    category: actions
+    usage: 0
+    links:
+      - {names: [image-loading], from: status/32/image-loading.svg, sizes: [32, 16, 22, 24]}
+      - {names: [image-loading], from: status/48/image-loading.svg, sizes: [48]}
+      - {names: [image-loading-symbolic], from: status/symbolic/image-loading-symbolic.svg, sizes: [symbolic]}
+    notes:
+      - "elementary art at 32, 48px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: image-red-eye
+    group: "Image & objects"
+    kind: same-name
+    source: image-red-eye
+    category: actions
+    usage: 0
+    links:
+      - {names: [image-red-eye], from: actions/24/image-red-eye.svg, sizes: [24, 16, 22]}
+      - {names: [image-red-eye-symbolic], from: actions/symbolic/image-red-eye-symbolic.svg, sizes: [symbolic]}
+  - id: object-hidden
+    group: "Image & objects"
+    kind: same-name
+    source: object-hidden
+    category: actions
+    usage: 0
+    links:
+      - {names: [object-hidden], from: status/16/object-hidden.svg, sizes: [16, 22, 24]}
+    notes:
+      - "elementary art at 16px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: object-straighten
+    group: "Image & objects"
+    kind: same-name
+    source: object-straighten
+    category: actions
+    usage: 0
+    links:
+      - {names: [object-straighten], from: actions/24/object-straighten.svg, sizes: [24, 16, 22]}
+  - id: object-visible
+    group: "Image & objects"
+    kind: same-name
+    source: object-visible
+    category: actions
+    usage: 0
+    links:
+      - {names: [object-visible], from: status/16/object-visible.svg, sizes: [16, 22, 24]}
+  - id: dialog-scripts
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: dialog-scripts
+    category: actions
+    usage: 7
+    used_by: [dolphin, libkateprivate, krunner-plugininstaller, libkworkspace5, "plugin:dolphinpart", "plugin:katekonsoleplugin", "plugin:kcm_autostart"]
+    links:
+      - {names: [dialog-scripts], from: actions/16/dialog-scripts.svg, sizes: [16]}
+      - {names: [dialog-scripts], from: actions/24/dialog-scripts.svg, sizes: [24, 22]}
+    notes:
+      - "elementary art at 16, 24px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: dialog-object-properties
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: dialog-object-properties
+    category: actions
+    usage: 4
+    used_by: [libkateprivate, "plugin:kateprojectplugin", "plugin:kcm_kwinrules", "plugin:kcm_kwinrules_x11"]
+    links:
+      - {names: [dialog-object-properties], from: actions/16/dialog-object-properties.svg, sizes: [16]}
+      - {names: [dialog-object-properties], from: actions/24/dialog-object-properties.svg, sizes: [24, 22]}
+  - id: draw-rectangle
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: draw-rectangle
+    category: actions
+    usage: 4
+    used_by: ["plugin:okularpart", spectacle, oxygen-demo5, oxygen-demo6]
+    links:
+      - {names: [draw-rectangle], from: actions/16/draw-rectangle.svg, sizes: [16]}
+      - {names: [draw-rectangle], from: actions/24/draw-rectangle.svg, sizes: [24, 22]}
+  - id: draw-eraser
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: draw-eraser
+    category: actions
+    usage: 3
+    used_by: ["plugin:okularpart", gmenudbusmenuproxy, libkpmcore]
+    links:
+      - {names: [draw-eraser], from: actions/16/draw-eraser.svg, sizes: [16]}
+      - {names: [draw-eraser], from: actions/24/draw-eraser.svg, sizes: [24, 22]}
+  - id: draw-freehand
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: draw-freehand
+    category: actions
+    usage: 3
+    used_by: ["plugin:okularpart", spectacle, "plugin:org.kde.plasma.kimpanel"]
+    links:
+      - {names: [draw-freehand], from: actions/16/draw-freehand.svg, sizes: [16]}
+      - {names: [draw-freehand], from: actions/24/draw-freehand.svg, sizes: [24, 22]}
+  - id: draw-text
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: draw-text
+    category: actions
+    usage: 3
+    used_by: [spectacle, gmenudbusmenuproxy, "plugin:kcm_fontinst"]
+    links:
+      - {names: [draw-text], from: actions/16/draw-text.svg, sizes: [16]}
+      - {names: [draw-text], from: actions/24/draw-text.svg, sizes: [24, 22]}
+    notes:
+      - "elementary art at 16, 24px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: dialog-messages
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: dialog-messages
+    category: actions
+    usage: 2
+    used_by: [libplasmanm_editor, neochat]
+    links:
+      - {names: [dialog-messages], from: actions/16/dialog-messages.svg, sizes: [16]}
+      - {names: [dialog-messages], from: actions/24/dialog-messages.svg, sizes: [24, 22]}
+  - id: draw-ellipse
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: draw-ellipse
+    category: actions
+    usage: 2
+    used_by: ["plugin:okularpart", spectacle]
+    links:
+      - {names: [draw-ellipse], from: actions/16/draw-ellipse.svg, sizes: [16]}
+      - {names: [draw-ellipse], from: actions/24/draw-ellipse.svg, sizes: [24, 22]}
+  - id: draw-path
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: draw-path
+    category: actions
+    usage: 2
+    used_by: ["plugin:kcm_wacomtablet", "plugin:wacomtablet"]
+    links:
+      - {names: [draw-path], from: actions/16/draw-path.svg, sizes: [16]}
+      - {names: [draw-path], from: actions/24/draw-path.svg, sizes: [24, 22]}
+  - id: align-horizontal-left
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: align-horizontal-left
+    category: actions
+    usage: 1
+    used_by: ["qml:org/kde/private"]
+    links:
+      - {names: [align-horizontal-left], from: actions/16/align-horizontal-left.svg, sizes: [16]}
+      - {names: [align-horizontal-left], from: actions/24/align-horizontal-left.svg, sizes: [24, 22]}
+      - {names: [align-horizontal-left-symbolic], from: actions/symbolic/align-horizontal-left-symbolic.svg, sizes: [symbolic]}
+  - id: color-fill
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: color-fill
+    category: actions
+    usage: 1
+    used_by: [libKF6TextEditor]
+    links:
+      - {names: [color-fill], from: actions/16/color-fill.svg, sizes: [16]}
+      - {names: [color-fill], from: actions/24/color-fill.svg, sizes: [24, 22]}
+  - id: align-horizontal-baseline
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: align-horizontal-baseline
+    category: actions
+    usage: 0
+    links:
+      - {names: [align-horizontal-baseline], from: actions/16/align-horizontal-baseline.svg, sizes: [16]}
+      - {names: [align-horizontal-baseline], from: actions/24/align-horizontal-baseline.svg, sizes: [24, 22]}
+      - {names: [align-horizontal-baseline-symbolic], from: actions/symbolic/align-horizontal-baseline-symbolic.svg, sizes: [symbolic]}
+  - id: align-horizontal-center
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: align-horizontal-center
+    category: actions
+    usage: 0
+    links:
+      - {names: [align-horizontal-center], from: actions/16/align-horizontal-center.svg, sizes: [16]}
+      - {names: [align-horizontal-center], from: actions/24/align-horizontal-center.svg, sizes: [24, 22]}
+      - {names: [align-horizontal-center-symbolic], from: actions/symbolic/align-horizontal-center-symbolic.svg, sizes: [symbolic]}
+  - id: align-horizontal-left-to-anchor
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: align-horizontal-left-to-anchor
+    category: actions
+    usage: 0
+    links:
+      - {names: [align-horizontal-left-to-anchor], from: actions/16/align-horizontal-left-to-anchor.svg, sizes: [16]}
+      - {names: [align-horizontal-left-to-anchor], from: actions/24/align-horizontal-left-to-anchor.svg, sizes: [24, 22]}
+      - {names: [align-horizontal-left-to-anchor-symbolic], from: actions/symbolic/align-horizontal-left-to-anchor-symbolic.svg, sizes: [symbolic]}
+  - id: align-horizontal-right
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: align-horizontal-right
+    category: actions
+    usage: 0
+    links:
+      - {names: [align-horizontal-right], from: actions/16/align-horizontal-right.svg, sizes: [16]}
+      - {names: [align-horizontal-right], from: actions/24/align-horizontal-right.svg, sizes: [24, 22]}
+      - {names: [align-horizontal-right-symbolic], from: actions/symbolic/align-horizontal-right-symbolic.svg, sizes: [symbolic]}
+  - id: align-horizontal-right-to-anchor
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: align-horizontal-right-to-anchor
+    category: actions
+    usage: 0
+    links:
+      - {names: [align-horizontal-right-to-anchor], from: actions/16/align-horizontal-right-to-anchor.svg, sizes: [16]}
+      - {names: [align-horizontal-right-to-anchor], from: actions/24/align-horizontal-right-to-anchor.svg, sizes: [24, 22]}
+      - {names: [align-horizontal-right-to-anchor-symbolic], from: actions/symbolic/align-horizontal-right-to-anchor-symbolic.svg, sizes: [symbolic]}
+  - id: align-vertical-baseline
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: align-vertical-baseline
+    category: actions
+    usage: 0
+    links:
+      - {names: [align-vertical-baseline], from: actions/16/align-vertical-baseline.svg, sizes: [16]}
+      - {names: [align-vertical-baseline], from: actions/24/align-vertical-baseline.svg, sizes: [24, 22]}
+      - {names: [align-vertical-baseline-symbolic], from: actions/symbolic/align-vertical-baseline-symbolic.svg, sizes: [symbolic]}
+  - id: align-vertical-bottom
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: align-vertical-bottom
+    category: actions
+    usage: 0
+    links:
+      - {names: [align-vertical-bottom], from: actions/16/align-vertical-bottom.svg, sizes: [16]}
+      - {names: [align-vertical-bottom], from: actions/24/align-vertical-bottom.svg, sizes: [24, 22]}
+      - {names: [align-vertical-bottom-symbolic], from: actions/symbolic/align-vertical-bottom-symbolic.svg, sizes: [symbolic]}
+  - id: align-vertical-bottom-to-anchor
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: align-vertical-bottom-to-anchor
+    category: actions
+    usage: 0
+    links:
+      - {names: [align-vertical-bottom-to-anchor], from: actions/16/align-vertical-bottom-to-anchor.svg, sizes: [16]}
+      - {names: [align-vertical-bottom-to-anchor], from: actions/24/align-vertical-bottom-to-anchor.svg, sizes: [24, 22]}
+      - {names: [align-vertical-bottom-to-anchor-symbolic], from: actions/symbolic/align-vertical-bottom-to-anchor-symbolic.svg, sizes: [symbolic]}
+  - id: align-vertical-center
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: align-vertical-center
+    category: actions
+    usage: 0
+    links:
+      - {names: [align-vertical-center], from: actions/16/align-vertical-center.svg, sizes: [16]}
+      - {names: [align-vertical-center], from: actions/24/align-vertical-center.svg, sizes: [24, 22]}
+      - {names: [align-vertical-center-symbolic], from: actions/symbolic/align-vertical-center-symbolic.svg, sizes: [symbolic]}
+  - id: align-vertical-top
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: align-vertical-top
+    category: actions
+    usage: 0
+    links:
+      - {names: [align-vertical-top], from: actions/16/align-vertical-top.svg, sizes: [16]}
+      - {names: [align-vertical-top], from: actions/24/align-vertical-top.svg, sizes: [24, 22]}
+      - {names: [align-vertical-top-symbolic], from: actions/symbolic/align-vertical-top-symbolic.svg, sizes: [symbolic]}
+  - id: align-vertical-top-to-anchor
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: align-vertical-top-to-anchor
+    category: actions
+    usage: 0
+    links:
+      - {names: [align-vertical-top-to-anchor], from: actions/16/align-vertical-top-to-anchor.svg, sizes: [16]}
+      - {names: [align-vertical-top-to-anchor], from: actions/24/align-vertical-top-to-anchor.svg, sizes: [24, 22]}
+      - {names: [align-vertical-top-to-anchor-symbolic], from: actions/symbolic/align-vertical-top-to-anchor-symbolic.svg, sizes: [symbolic]}
+  - id: bitmap-trace
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: bitmap-trace
+    category: actions
+    usage: 0
+    links:
+      - {names: [bitmap-trace], from: actions/16/bitmap-trace.svg, sizes: [16]}
+      - {names: [bitmap-trace], from: actions/24/bitmap-trace.svg, sizes: [24, 22]}
+  - id: color-gradient
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: color-gradient
+    category: actions
+    usage: 0
+    links:
+      - {names: [color-gradient], from: actions/16/color-gradient.svg, sizes: [16]}
+      - {names: [color-gradient], from: actions/24/color-gradient.svg, sizes: [24, 22]}
+  - id: color-gradient-mesh
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: color-gradient-mesh
+    category: actions
+    usage: 0
+    links:
+      - {names: [color-gradient-mesh], from: actions/16/color-gradient-mesh.svg, sizes: [16]}
+      - {names: [color-gradient-mesh], from: actions/24/color-gradient-mesh.svg, sizes: [24, 22]}
+  - id: dialog-extensions
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: dialog-extensions
+    category: actions
+    usage: 0
+    links:
+      - {names: [dialog-extensions], from: actions/16/dialog-extensions.svg, sizes: [16]}
+      - {names: [dialog-extensions], from: actions/24/dialog-extensions.svg, sizes: [24, 22]}
+  - id: dialog-fill-and-stroke
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: dialog-fill-and-stroke
+    category: actions
+    usage: 0
+    links:
+      - {names: [dialog-fill-and-stroke], from: actions/16/dialog-fill-and-stroke.svg, sizes: [16]}
+      - {names: [dialog-fill-and-stroke], from: actions/24/dialog-fill-and-stroke.svg, sizes: [24, 22]}
+  - id: dialog-memory
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: dialog-memory
+    category: actions
+    usage: 0
+    links:
+      - {names: [dialog-memory], from: actions/16/dialog-memory.svg, sizes: [16]}
+      - {names: [dialog-memory], from: actions/24/dialog-memory.svg, sizes: [24, 22]}
+  - id: dialog-objects
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: dialog-objects
+    category: actions
+    usage: 0
+    links:
+      - {names: [dialog-objects], from: actions/16/dialog-objects.svg, sizes: [16]}
+      - {names: [dialog-objects], from: actions/24/dialog-objects.svg, sizes: [24, 22]}
+  - id: dialog-paint-server
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: dialog-paint-server
+    category: actions
+    usage: 0
+    links:
+      - {names: [dialog-paint-server], from: actions/16/dialog-paint-server.svg, sizes: [16]}
+      - {names: [dialog-paint-server], from: actions/24/dialog-paint-server.svg, sizes: [24, 22]}
+  - id: dialog-selectors
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: dialog-selectors
+    category: actions
+    usage: 0
+    links:
+      - {names: [dialog-selectors], from: actions/16/dialog-selectors.svg, sizes: [16]}
+      - {names: [dialog-selectors], from: actions/24/dialog-selectors.svg, sizes: [24, 22]}
+    notes:
+      - "elementary art at 16, 24px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: dialog-svg-font
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: dialog-svg-font
+    category: actions
+    usage: 0
+    links:
+      - {names: [dialog-svg-font], from: actions/16/dialog-svg-font.svg, sizes: [16]}
+      - {names: [dialog-svg-font], from: actions/24/dialog-svg-font.svg, sizes: [24, 22]}
+  - id: dialog-xml-editor
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: dialog-xml-editor
+    category: actions
+    usage: 0
+    links:
+      - {names: [dialog-xml-editor], from: actions/16/dialog-xml-editor.svg, sizes: [16]}
+      - {names: [dialog-xml-editor], from: actions/24/dialog-xml-editor.svg, sizes: [24, 22]}
+    notes:
+      - "elementary art at 16, 24px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: distribute-horizontal-center
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: distribute-horizontal-center
+    category: actions
+    usage: 0
+    links:
+      - {names: [distribute-horizontal-center], from: actions/16/distribute-horizontal-center.svg, sizes: [16]}
+      - {names: [distribute-horizontal-center], from: actions/24/distribute-horizontal-center.svg, sizes: [24, 22]}
+      - {names: [distribute-horizontal-center-symbolic], from: actions/symbolic/distribute-horizontal-center-symbolic.svg, sizes: [symbolic]}
+  - id: distribute-horizontal-gaps
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: distribute-horizontal-gaps
+    category: actions
+    usage: 0
+    links:
+      - {names: [distribute-horizontal-gaps], from: actions/16/distribute-horizontal-gaps.svg, sizes: [16]}
+      - {names: [distribute-horizontal-gaps], from: actions/24/distribute-horizontal-gaps.svg, sizes: [24, 22]}
+      - {names: [distribute-horizontal-gaps-symbolic], from: actions/symbolic/distribute-horizontal-gaps-symbolic.svg, sizes: [symbolic]}
+  - id: distribute-horizontal-left
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: distribute-horizontal-left
+    category: actions
+    usage: 0
+    links:
+      - {names: [distribute-horizontal-left], from: actions/16/distribute-horizontal-left.svg, sizes: [16]}
+      - {names: [distribute-horizontal-left], from: actions/24/distribute-horizontal-left.svg, sizes: [24, 22]}
+      - {names: [distribute-horizontal-left-symbolic], from: actions/symbolic/distribute-horizontal-left-symbolic.svg, sizes: [symbolic]}
+  - id: distribute-horizontal-right
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: distribute-horizontal-right
+    category: actions
+    usage: 0
+    links:
+      - {names: [distribute-horizontal-right], from: actions/16/distribute-horizontal-right.svg, sizes: [16]}
+      - {names: [distribute-horizontal-right], from: actions/24/distribute-horizontal-right.svg, sizes: [24, 22]}
+      - {names: [distribute-horizontal-right-symbolic], from: actions/symbolic/distribute-horizontal-right-symbolic.svg, sizes: [symbolic]}
+  - id: distribute-vertical-bottom
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: distribute-vertical-bottom
+    category: actions
+    usage: 0
+    links:
+      - {names: [distribute-vertical-bottom], from: actions/16/distribute-vertical-bottom.svg, sizes: [16]}
+      - {names: [distribute-vertical-bottom], from: actions/24/distribute-vertical-bottom.svg, sizes: [24, 22]}
+      - {names: [distribute-vertical-bottom-symbolic], from: actions/symbolic/distribute-vertical-bottom-symbolic.svg, sizes: [symbolic]}
+  - id: distribute-vertical-center
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: distribute-vertical-center
+    category: actions
+    usage: 0
+    links:
+      - {names: [distribute-vertical-center], from: actions/16/distribute-vertical-center.svg, sizes: [16]}
+      - {names: [distribute-vertical-center], from: actions/24/distribute-vertical-center.svg, sizes: [24, 22]}
+      - {names: [distribute-vertical-center-symbolic], from: actions/symbolic/distribute-vertical-center-symbolic.svg, sizes: [symbolic]}
+  - id: distribute-vertical-gaps
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: distribute-vertical-gaps
+    category: actions
+    usage: 0
+    links:
+      - {names: [distribute-vertical-gaps], from: actions/16/distribute-vertical-gaps.svg, sizes: [16]}
+      - {names: [distribute-vertical-gaps], from: actions/24/distribute-vertical-gaps.svg, sizes: [24, 22]}
+      - {names: [distribute-vertical-gaps-symbolic], from: actions/symbolic/distribute-vertical-gaps-symbolic.svg, sizes: [symbolic]}
+  - id: distribute-vertical-top
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: distribute-vertical-top
+    category: actions
+    usage: 0
+    links:
+      - {names: [distribute-vertical-top], from: actions/16/distribute-vertical-top.svg, sizes: [16]}
+      - {names: [distribute-vertical-top], from: actions/24/distribute-vertical-top.svg, sizes: [24, 22]}
+      - {names: [distribute-vertical-top-symbolic], from: actions/symbolic/distribute-vertical-top-symbolic.svg, sizes: [symbolic]}
+  - id: draw-booleans
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: draw-booleans
+    category: actions
+    usage: 0
+    links:
+      - {names: [draw-booleans], from: actions/16/draw-booleans.svg, sizes: [16]}
+      - {names: [draw-booleans], from: actions/24/draw-booleans.svg, sizes: [24, 22]}
+  - id: draw-calligraphic
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: draw-calligraphic
+    category: actions
+    usage: 0
+    links:
+      - {names: [draw-calligraphic], from: actions/16/draw-calligraphic.svg, sizes: [16]}
+      - {names: [draw-calligraphic], from: actions/24/draw-calligraphic.svg, sizes: [24, 22]}
+  - id: draw-connector
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: draw-connector
+    category: actions
+    usage: 0
+    links:
+      - {names: [draw-connector], from: actions/16/draw-connector.svg, sizes: [16]}
+      - {names: [draw-connector], from: actions/24/draw-connector.svg, sizes: [24, 22]}
+  - id: draw-cuboid
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: draw-cuboid
+    category: actions
+    usage: 0
+    links:
+      - {names: [draw-cuboid], from: actions/16/draw-cuboid.svg, sizes: [16]}
+      - {names: [draw-cuboid], from: actions/24/draw-cuboid.svg, sizes: [24, 22]}
+  - id: draw-geometry
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: draw-geometry
+    category: actions
+    usage: 0
+    links:
+      - {names: [draw-geometry], from: actions/16/draw-geometry.svg, sizes: [16]}
+      - {names: [draw-geometry], from: actions/24/draw-geometry.svg, sizes: [24, 22]}
+  - id: draw-polygon-star
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: draw-polygon-star
+    category: actions
+    usage: 0
+    links:
+      - {names: [draw-polygon-star], from: actions/16/draw-polygon-star.svg, sizes: [16]}
+      - {names: [draw-polygon-star], from: actions/24/draw-polygon-star.svg, sizes: [24, 22]}
+  - id: draw-spiral
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: draw-spiral
+    category: actions
+    usage: 0
+    links:
+      - {names: [draw-spiral], from: actions/16/draw-spiral.svg, sizes: [16]}
+      - {names: [draw-spiral], from: actions/24/draw-spiral.svg, sizes: [24, 22]}
+  - id: font_collections
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: font_collections
+    category: actions
+    usage: 0
+    links:
+      - {names: [font_collections], from: actions/16/font_collections.svg, sizes: [16]}
+      - {names: [font_collections], from: actions/24/font_collections.svg, sizes: [24, 22]}
+  - id: mesh-gradient
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: mesh-gradient
+    category: actions
+    usage: 0
+    links:
+      - {names: [mesh-gradient], from: actions/16/mesh-gradient.svg, sizes: [16]}
+      - {names: [mesh-gradient], from: actions/24/mesh-gradient.svg, sizes: [24, 22]}
+  - id: node-add
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: node-add
+    category: actions
+    usage: 0
+    links:
+      - {names: [node-add], from: actions/16/node-add.svg, sizes: [16, 22, 24]}
+  - id: node-align-horizontal
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: node-align-horizontal
+    category: actions
+    usage: 0
+    links:
+      - {names: [node-align-horizontal], from: actions/16/node-align-horizontal.svg, sizes: [16, 22, 24]}
+  - id: node-align-vertical
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: node-align-vertical
+    category: actions
+    usage: 0
+    links:
+      - {names: [node-align-vertical], from: actions/16/node-align-vertical.svg, sizes: [16, 22, 24]}
+  - id: node-break
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: node-break
+    category: actions
+    usage: 0
+    links:
+      - {names: [node-break], from: actions/16/node-break.svg, sizes: [16, 22, 24]}
+  - id: node-cusp
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: node-cusp
+    category: actions
+    usage: 0
+    links:
+      - {names: [node-cusp], from: actions/16/node-cusp.svg, sizes: [16, 22, 24]}
+    notes:
+      - "elementary art at 16px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: node-delete
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: node-delete
+    category: actions
+    usage: 0
+    links:
+      - {names: [node-delete], from: actions/16/node-delete.svg, sizes: [16, 22, 24]}
+  - id: node-delete-segment
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: node-delete-segment
+    category: actions
+    usage: 0
+    links:
+      - {names: [node-delete-segment], from: actions/16/node-delete-segment.svg, sizes: [16, 22, 24]}
+  - id: node-distribute-horizontal
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: node-distribute-horizontal
+    category: actions
+    usage: 0
+    links:
+      - {names: [node-distribute-horizontal], from: actions/16/node-distribute-horizontal.svg, sizes: [16, 22, 24]}
+  - id: node-distribute-vertical
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: node-distribute-vertical
+    category: actions
+    usage: 0
+    links:
+      - {names: [node-distribute-vertical], from: actions/16/node-distribute-vertical.svg, sizes: [16, 22, 24]}
+  - id: node-insert
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: node-insert
+    category: actions
+    usage: 0
+    links:
+      - {names: [node-insert], from: actions/16/node-insert.svg, sizes: [16, 22, 24]}
+  - id: node-join
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: node-join
+    category: actions
+    usage: 0
+    links:
+      - {names: [node-join], from: actions/16/node-join.svg, sizes: [16, 22, 24]}
+    notes:
+      - "elementary art at 16px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: node-join-segment
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: node-join-segment
+    category: actions
+    usage: 0
+    links:
+      - {names: [node-join-segment], from: actions/16/node-join-segment.svg, sizes: [16, 22, 24]}
+    notes:
+      - "elementary art at 16px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: node-smooth
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: node-smooth
+    category: actions
+    usage: 0
+    links:
+      - {names: [node-smooth], from: actions/16/node-smooth.svg, sizes: [16, 22, 24]}
+    notes:
+      - "elementary art at 16px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: node-symmetric
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: node-symmetric
+    category: actions
+    usage: 0
+    links:
+      - {names: [node-symmetric], from: actions/16/node-symmetric.svg, sizes: [16, 22, 24]}
+  - id: object-group
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: object-group
+    category: actions
+    usage: 0
+    links:
+      - {names: [object-group], from: actions/16/object-group.svg, sizes: [16]}
+      - {names: [object-group], from: actions/24/object-group.svg, sizes: [24, 22]}
+      - {names: [object-group-symbolic], from: actions/symbolic/object-group-symbolic.svg, sizes: [symbolic]}
+  - id: object-inverse
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: object-inverse
+    category: actions
+    usage: 0
+    links:
+      - {names: [object-inverse], from: actions/16/object-inverse.svg, sizes: [16]}
+      - {names: [object-inverse], from: actions/24/object-inverse.svg, sizes: [24, 22]}
+      - {names: [object-inverse], from: actions/32/object-inverse.svg, sizes: [32]}
+      - {names: [object-inverse], from: actions/48/object-inverse.svg, sizes: [48]}
+      - {names: [object-inverse-symbolic], from: actions/symbolic/object-inverse-symbolic.svg, sizes: [symbolic]}
+    notes:
+      - "elementary art at 16, 24, 32, 48px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: object-merge
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: object-merge
+    category: actions
+    usage: 0
+    links:
+      - {names: [object-merge], from: actions/16/object-merge.svg, sizes: [16]}
+      - {names: [object-merge], from: actions/24/object-merge.svg, sizes: [24, 22]}
+    notes:
+      - "elementary art at 16, 24px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: object-to-path
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: object-to-path
+    category: actions
+    usage: 0
+    links:
+      - {names: [object-to-path], from: actions/16/object-to-path.svg, sizes: [16, 22, 24]}
+  - id: object-ungroup
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: object-ungroup
+    category: actions
+    usage: 0
+    links:
+      - {names: [object-ungroup], from: actions/16/object-ungroup.svg, sizes: [16]}
+      - {names: [object-ungroup], from: actions/24/object-ungroup.svg, sizes: [24, 22]}
+      - {names: [object-ungroup-symbolic], from: actions/symbolic/object-ungroup-symbolic.svg, sizes: [symbolic]}
+  - id: path-break-apart
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: path-break-apart
+    category: actions
+    usage: 0
+    links:
+      - {names: [path-break-apart], from: actions/16/path-break-apart.svg, sizes: [16]}
+      - {names: [path-break-apart], from: actions/24/path-break-apart.svg, sizes: [24, 22]}
+      - {names: [path-break-apart-symbolic], from: actions/symbolic/path-break-apart-symbolic.svg, sizes: [symbolic]}
+    notes:
+      - "elementary art at 16, 24px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: path-combine
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: path-combine
+    category: actions
+    usage: 0
+    links:
+      - {names: [path-combine], from: actions/16/path-combine.svg, sizes: [16]}
+      - {names: [path-combine], from: actions/24/path-combine.svg, sizes: [24, 22]}
+      - {names: [path-combine-symbolic], from: actions/symbolic/path-combine-symbolic.svg, sizes: [symbolic]}
+  - id: path-cut
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: path-cut
+    category: actions
+    usage: 0
+    links:
+      - {names: [path-cut], from: actions/16/path-cut.svg, sizes: [16]}
+      - {names: [path-cut], from: actions/24/path-cut.svg, sizes: [24, 22]}
+      - {names: [path-cut-symbolic], from: actions/symbolic/path-cut-symbolic.svg, sizes: [symbolic]}
+  - id: path-difference
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: path-difference
+    category: actions
+    usage: 0
+    links:
+      - {names: [path-difference], from: actions/16/path-difference.svg, sizes: [16]}
+      - {names: [path-difference], from: actions/24/path-difference.svg, sizes: [24, 22]}
+      - {names: [path-difference-symbolic], from: actions/symbolic/path-difference-symbolic.svg, sizes: [symbolic]}
+  - id: path-division
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: path-division
+    category: actions
+    usage: 0
+    links:
+      - {names: [path-division], from: actions/16/path-division.svg, sizes: [16]}
+      - {names: [path-division], from: actions/24/path-division.svg, sizes: [24, 22]}
+      - {names: [path-division-symbolic], from: actions/symbolic/path-division-symbolic.svg, sizes: [symbolic]}
+  - id: path-exclusion
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: path-exclusion
+    category: actions
+    usage: 0
+    links:
+      - {names: [path-exclusion], from: actions/16/path-exclusion.svg, sizes: [16]}
+      - {names: [path-exclusion], from: actions/24/path-exclusion.svg, sizes: [24, 22]}
+      - {names: [path-exclusion-symbolic], from: actions/symbolic/path-exclusion-symbolic.svg, sizes: [symbolic]}
+  - id: path-flatten
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: path-flatten
+    category: actions
+    usage: 0
+    links:
+      - {names: [path-flatten], from: actions/16/path-flatten.svg, sizes: [16]}
+      - {names: [path-flatten], from: actions/24/path-flatten.svg, sizes: [24, 22]}
+      - {names: [path-flatten-symbolic], from: actions/symbolic/path-flatten-symbolic.svg, sizes: [symbolic]}
+  - id: path-fracture
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: path-fracture
+    category: actions
+    usage: 0
+    links:
+      - {names: [path-fracture], from: actions/16/path-fracture.svg, sizes: [16]}
+      - {names: [path-fracture], from: actions/24/path-fracture.svg, sizes: [24, 22]}
+      - {names: [path-fracture-symbolic], from: actions/symbolic/path-fracture-symbolic.svg, sizes: [symbolic]}
+  - id: path-intersection
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: path-intersection
+    category: actions
+    usage: 0
+    links:
+      - {names: [path-intersection], from: actions/16/path-intersection.svg, sizes: [16]}
+      - {names: [path-intersection], from: actions/24/path-intersection.svg, sizes: [24, 22]}
+      - {names: [path-intersection-symbolic], from: actions/symbolic/path-intersection-symbolic.svg, sizes: [symbolic]}
+  - id: path-split
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: path-split
+    category: actions
+    usage: 0
+    links:
+      - {names: [path-split], from: actions/16/path-split.svg, sizes: [16]}
+      - {names: [path-split], from: actions/24/path-split.svg, sizes: [24, 22]}
+      - {names: [path-split-symbolic], from: actions/symbolic/path-split-symbolic.svg, sizes: [symbolic]}
+  - id: path-union
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: path-union
+    category: actions
+    usage: 0
+    links:
+      - {names: [path-union], from: actions/16/path-union.svg, sizes: [16]}
+      - {names: [path-union], from: actions/24/path-union.svg, sizes: [24, 22]}
+      - {names: [path-union-symbolic], from: actions/symbolic/path-union-symbolic.svg, sizes: [symbolic]}
+  - id: segment-curve
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: segment-curve
+    category: actions
+    usage: 0
+    links:
+      - {names: [segment-curve], from: actions/16/segment-curve.svg, sizes: [16, 22, 24]}
+  - id: segment-line
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: segment-line
+    category: actions
+    usage: 0
+    links:
+      - {names: [segment-line], from: actions/16/segment-line.svg, sizes: [16, 22, 24]}
+  - id: selection-add
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: selection-add
+    category: actions
+    usage: 0
+    links:
+      - {names: [selection-add], from: actions/16/selection-add.svg, sizes: [16]}
+      - {names: [selection-add], from: actions/24/selection-add.svg, sizes: [24, 22]}
+    notes:
+      - "elementary art at 16, 24px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: selection-bottom
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: selection-bottom
+    category: actions
+    usage: 0
+    links:
+      - {names: [selection-bottom], from: actions/16/selection-bottom.svg, sizes: [16]}
+      - {names: [selection-bottom], from: actions/24/selection-bottom.svg, sizes: [24, 22]}
+      - {names: [selection-bottom-symbolic], from: actions/symbolic/selection-bottom-symbolic.svg, sizes: [symbolic]}
+  - id: selection-break
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: selection-break
+    category: actions
+    usage: 0
+    links:
+      - {names: [selection-break], from: actions/16/selection-break.svg, sizes: [16, 22, 24]}
+    notes:
+      - "elementary art at 16px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: selection-checked
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: selection-checked
+    category: actions
+    usage: 0
+    links:
+      - {names: [selection-checked], from: actions/16/selection-checked.svg, sizes: [16]}
+      - {names: [selection-checked], from: actions/24/selection-checked.svg, sizes: [24, 22]}
+  - id: selection-combine
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: selection-combine
+    category: actions
+    usage: 0
+    links:
+      - {names: [selection-combine], from: actions/16/selection-combine.svg, sizes: [16, 22, 24]}
+  - id: selection-exclude
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: selection-exclude
+    category: actions
+    usage: 0
+    links:
+      - {names: [selection-exclude], from: actions/16/selection-exclude.svg, sizes: [16, 22, 24]}
+  - id: selection-lower
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: selection-lower
+    category: actions
+    usage: 0
+    links:
+      - {names: [selection-lower], from: actions/16/selection-lower.svg, sizes: [16]}
+      - {names: [selection-lower], from: actions/24/selection-lower.svg, sizes: [24, 22]}
+      - {names: [selection-lower-symbolic], from: actions/symbolic/selection-lower-symbolic.svg, sizes: [symbolic]}
+  - id: selection-raise
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: selection-raise
+    category: actions
+    usage: 0
+    links:
+      - {names: [selection-raise], from: actions/16/selection-raise.svg, sizes: [16]}
+      - {names: [selection-raise], from: actions/24/selection-raise.svg, sizes: [24, 22]}
+      - {names: [selection-raise-symbolic], from: actions/symbolic/selection-raise-symbolic.svg, sizes: [symbolic]}
+  - id: selection-remove
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: selection-remove
+    category: actions
+    usage: 0
+    links:
+      - {names: [selection-remove], from: actions/16/selection-remove.svg, sizes: [16]}
+      - {names: [selection-remove], from: actions/24/selection-remove.svg, sizes: [24, 22]}
+  - id: selection-top
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: selection-top
+    category: actions
+    usage: 0
+    links:
+      - {names: [selection-top], from: actions/16/selection-top.svg, sizes: [16]}
+      - {names: [selection-top], from: actions/24/selection-top.svg, sizes: [24, 22]}
+      - {names: [selection-top-symbolic], from: actions/symbolic/selection-top-symbolic.svg, sizes: [symbolic]}
+  - id: stroke-to-path
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: stroke-to-path
+    category: actions
+    usage: 0
+    links:
+      - {names: [stroke-to-path], from: actions/16/stroke-to-path.svg, sizes: [16, 22, 24]}
+  - id: symbols
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: symbols
+    category: actions
+    usage: 0
+    links:
+      - {names: [symbols], from: actions/16/symbols.svg, sizes: [16]}
+      - {names: [symbols], from: actions/24/symbols.svg, sizes: [24, 22]}
+    notes:
+      - "usage unknown: the name is a plain word, so the binary scan cannot tell icon lookups from other strings"
+  - id: tool-measure
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: tool-measure
+    category: actions
+    usage: 0
+    links:
+      - {names: [tool-measure], from: actions/16/tool-measure.svg, sizes: [16]}
+      - {names: [tool-measure], from: actions/24/tool-measure.svg, sizes: [24, 22]}
+  - id: tool-node-editor
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: tool-node-editor
+    category: actions
+    usage: 0
+    links:
+      - {names: [tool-node-editor], from: actions/16/tool-node-editor.svg, sizes: [16]}
+      - {names: [tool-node-editor], from: actions/24/tool-node-editor.svg, sizes: [24, 22]}
+  - id: tool-pages
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: tool-pages
+    category: actions
+    usage: 0
+    links:
+      - {names: [tool-pages], from: actions/16/tool-pages.svg, sizes: [16]}
+      - {names: [tool-pages], from: actions/24/tool-pages.svg, sizes: [24, 22]}
+  - id: tool-pointer
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: tool-pointer
+    category: actions
+    usage: 0
+    links:
+      - {names: [tool-pointer], from: actions/16/tool-pointer.svg, sizes: [16]}
+      - {names: [tool-pointer], from: actions/24/tool-pointer.svg, sizes: [24, 22]}
+      - {names: [tool-pointer], from: actions/32/tool-pointer.svg, sizes: [32]}
+      - {names: [tool-pointer], from: actions/48/tool-pointer.svg, sizes: [48]}
+    notes:
+      - "elementary art at 16, 48px is grayscale — it will not follow the KDE color scheme, check it on the dark preview"
+  - id: tool-spray
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: tool-spray
+    category: actions
+    usage: 0
+    links:
+      - {names: [tool-spray], from: actions/16/tool-spray.svg, sizes: [16]}
+      - {names: [tool-spray], from: actions/24/tool-spray.svg, sizes: [24, 22]}
+  - id: tool-tweak
+    group: "Drawing tools (Inkscape)"
+    kind: same-name
+    source: tool-tweak
+    category: actions
+    usage: 0
+    links:
+      - {names: [tool-tweak], from: actions/16/tool-tweak.svg, sizes: [16]}
+      - {names: [tool-tweak], from: actions/24/tool-tweak.svg, sizes: [24, 22]}

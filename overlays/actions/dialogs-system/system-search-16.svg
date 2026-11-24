@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16">
+  <defs>
+    <linearGradient id="a">
+      <stop offset="0" style="stop-color:#000;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#000;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="b">
+      <stop offset="0" style="stop-color:#fff;stop-opacity:1"/>
+      <stop offset=".508" style="stop-color:#fff;stop-opacity:.23529412"/>
+      <stop offset=".835" style="stop-color:#fff;stop-opacity:.15686275"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.39215687"/>
+    </linearGradient>
+    <linearGradient xlink:href="#b" id="d" x1="71.204" x2="71.204" y1="6.238" y2="44.341" gradientTransform="matrix(.21638 0 0 .21638 -10.03 .005)" gradientUnits="userSpaceOnUse"/>
+    <radialGradient xlink:href="#a" id="c" cx="6.703" cy="73.616" r="7.228" fx="11.969" fy="75.929" gradientTransform="matrix(1.10674 0 0 .2421 .582 -3.573)" gradientUnits="userSpaceOnUse"/>
+  </defs>
+  <path d="M16 14.25c0 .966-3.582 1.75-8 1.75s-8-.784-8-1.75c0-.967 3.582-1.75 8-1.75s8 .783 8 1.75" style="display:inline;overflow:visible;visibility:visible;opacity:.15;fill:url(#c);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:.800002;marker:none"/>
+  <path d="M1.956 1.956c-1.944 1.945-1.944 5.127 0 7.071 1.703 1.703 4.354 1.914 6.293.636l2.016 2.016c.098.098.334.02.53-.177l.707-.707c.196-.196.275-.432.177-.53L9.663 8.249c1.278-1.939 1.067-4.59-.636-6.293-1.944-1.944-5.126-1.944-7.07 0m1.415 1.415a2.985 2.985 0 0 1 4.242 0 2.985 2.985 0 0 1 0 4.242 2.985 2.985 0 0 1-4.242 0 2.985 2.985 0 0 1 0-4.242" style="font-variation-settings:normal;vector-effect:none;fill:#8cd5ff;fill-opacity:1;stroke:none;stroke-width:.999996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker:none;paint-order:fill markers stroke;stop-color:#000"/>
+  <circle cy="7.767" r="3" style="fill:none;stroke:#002e99;stroke-width:1;stroke-linejoin:round;stroke-opacity:.501961;-inkscape-stroke:none;paint-order:fill markers stroke;stop-color:#000" transform="rotate(-45)"/>
+  <path d="M9.495 5.492a4.003 4.003 0 1 1-8.007 0 4.003 4.003 0 0 1 8.007 0" style="color:#000;display:inline;overflow:visible;visibility:visible;opacity:.5;fill:none;stroke:url(#d);stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none"/>
+  <path d="M1.956 1.956c-1.944 1.945-1.944 5.127 0 7.071 1.703 1.703 4.354 1.914 6.293.636l2.016 2.016c.098.098.334.02.53-.177l.707-.707c.196-.196.275-.432.177-.53L9.663 8.249c1.278-1.939 1.067-4.59-.636-6.293-1.944-1.944-5.126-1.944-7.07 0Z" style="font-variation-settings:normal;vector-effect:none;fill:none;fill-opacity:1;stroke:#002e99;stroke-width:.999996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:.501961;-inkscape-stroke:none;marker:none;paint-order:fill markers stroke;stop-color:#000"/>
+  <rect width="3" height="6.75" x="-1.5" y="14.017" rx="1" ry="1" style="font-variation-settings:normal;vector-effect:none;fill:#f9c440;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker:none;paint-order:fill markers stroke;stop-color:#000" transform="rotate(-45)"/>
+  <rect width="3" height="6.75" x="-1.5" y="14.017" rx="1" ry="1" style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#3d211b;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:.42;-inkscape-stroke:none;paint-order:fill markers stroke;stop-color:#000;stop-opacity:1" transform="rotate(-45)"/>
+  <path d="m10.618 9.911 4.066 4.066" style="opacity:1;fill:none;fill-opacity:1;stroke:#fff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.5"/>
+  <circle cx="5.5" cy="5.5" r="2" style="opacity:.15;fill:#fff;fill-opacity:1;stroke:none;stroke-width:.992;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:.498039;paint-order:stroke fill markers"/>
+</svg>

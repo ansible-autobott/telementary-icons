@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16">
+  <defs>
+    <linearGradient id="b">
+      <stop offset="0" style="stop-color:#fff;stop-opacity:1"/>
+      <stop offset=".226" style="stop-color:#fff;stop-opacity:.23529412"/>
+      <stop offset=".82" style="stop-color:#fff;stop-opacity:.15686275"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.39215687"/>
+    </linearGradient>
+    <linearGradient id="a">
+      <stop offset="0" style="stop-color:#cdf87e;stop-opacity:1"/>
+      <stop offset=".33" style="stop-color:#a2e34f;stop-opacity:1"/>
+      <stop offset=".852" style="stop-color:#68b723;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#1d7e0d;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient xlink:href="#a" id="c" x1="12.245" x2="12.245" y1="1.359" y2="14.424" gradientUnits="userSpaceOnUse"/>
+    <linearGradient xlink:href="#b" id="d" x1="40.487" x2="13.358" y1="59.54" y2="59.54" gradientTransform="matrix(0 -.39448 .42345 0 -15.716 18.242)" gradientUnits="userSpaceOnUse"/>
+    <filter id="e" width="3.117" height="3.739" x="-1.058" y="-1.37" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation=".437"/>
+    </filter>
+    <filter id="f" width="3.117" height="3.739" x="-1.058" y="-1.37" style="color-interpolation-filters:sRGB">
+      <feGaussianBlur stdDeviation=".437"/>
+    </filter>
+  </defs>
+  <path d="M4.595 8.567s-2.493.18-3.108 3.288c0 0 1.803 1.654 3.153 1.757 1.35.104 4.268-1.626 5.857-3.243 1.588-1.617 3.184-4.691 3.018-5.947-.166-1.255-1.982-2.883-1.982-2.883-2.703.811-2.974 3.334-2.974 3.334l1.127 1.712C9.28 8.612 8.334 9.423 6.442 9.603Z" style="fill:url(#c);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"/>
+  <path d="M4.383 9.678s-1.066-.012-1.725 1.576l2.207 1.457s3.372-1.535 4.859-3.03c1.486-1.494 2.922-3.987 2.755-5.056s-1.32-1.87-1.32-1.87c-1.308.66-1.556 1.972-1.556 1.972l1.163 1.626c-.345 1.535-.519 3.861-4.606 4.268Z" style="opacity:.8;fill:none;stroke:url(#d);stroke-width:.96392483;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;color:#000;clip-rule:nonzero;display:block;overflow:visible;visibility:visible;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000;solid-opacity:1;fill-opacity:1;fill-rule:nonzero;stroke-miterlimit:7;stroke-dasharray:none;stroke-dashoffset:0;marker:none;filter-blend-mode:normal;filter-gaussianBlur-deviation:0;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"/>
+  <path d="M10.587 4.805a.496.383 0 1 1-.991 0 .496.383 0 1 1 .99 0z" style="opacity:.5;fill:none;stroke:#699536;stroke-width:.7928077;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#e)" transform="matrix(1.32085 0 0 1.2045 -2.832 .121)"/>
+  <path d="M4.595 8.567s-2.493.18-3.108 3.288c0 0 1.803 1.654 3.153 1.757 1.35.104 4.268-1.626 5.857-3.243 1.588-1.617 3.184-4.691 3.018-5.947-.166-1.255-1.982-2.883-1.982-2.883-2.703.811-2.974 3.334-2.974 3.334l1.127 1.712C9.28 8.612 8.334 9.423 6.442 9.603Z" style="fill:none;fill-opacity:1;stroke:#0f5a00;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;color:#000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:.5;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000;solid-opacity:1;fill-rule:nonzero;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker:none;filter-blend-mode:normal;filter-gaussianBlur-deviation:0;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"/>
+  <path d="M10.587 4.805a.496.383 0 1 1-.991 0 .496.383 0 1 1 .99 0z" style="opacity:.719;fill:none;stroke:#c4f888;stroke-width:.7928077;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#f)" transform="matrix(1.32085 0 0 1.2045 -8.527 3.918)"/>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16">
+  <defs>
+    <linearGradient xlink:href="#a" id="d" x1="43.973" x2="21.158" y1="15.342" y2="15.342" gradientTransform="matrix(0 -.39448 -.42345 0 16.496 18.346)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient id="a">
+      <stop offset="0" style="stop-color:#fff;stop-opacity:1"/>
+      <stop offset=".512" style="stop-color:#fff;stop-opacity:.23529412"/>
+      <stop offset=".585" style="stop-color:#fff;stop-opacity:.15686275"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.39215687"/>
+    </linearGradient>
+    <linearGradient xlink:href="#b" id="c" x1="22.53" x2="22.53" y1="8.51" y2="44.16" gradientTransform="matrix(-.36133 0 0 .3366 17.14 .135)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient id="b">
+      <stop offset="0" style="stop-color:#8cd5ff;stop-opacity:1"/>
+      <stop offset=".262" style="stop-color:#64baff;stop-opacity:1"/>
+      <stop offset=".705" style="stop-color:#64baff;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#0d52bf;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <path d="M2.75 4.423C6.018.67 11.351 1.865 11.494 7.532h2.763l-4.604 6.14-4.603-6.14h2.74C7.92 4.234 4.912 2.526 2.75 4.883Z" style="display:block;overflow:visible;visibility:visible;fill:url(#c);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:.96392483;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:7;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none"/>
+  <path d="M4.353 3.542c1.895-1.619 6.574-.41 6.207 4.962l1.702.056-2.608 3.569L7.017 8.56h1.686c.496-5.14-3.584-5.502-4.35-5.018Z" style="display:block;overflow:visible;visibility:visible;opacity:.8;fill:none;stroke:url(#d);stroke-width:.96392483;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:7;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none"/>
+  <path d="M2.75 4.423C6.018.67 11.351 1.865 11.494 7.532h2.763l-4.604 6.14-4.603-6.14h2.74C7.92 4.234 4.912 2.526 2.75 4.883Z" style="color:#000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#0d52bf;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:.49803922;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto"/>
+</svg>

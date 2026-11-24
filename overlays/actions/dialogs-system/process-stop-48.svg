@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48">
+  <defs>
+    <linearGradient id="a">
+      <stop offset="0" style="stop-color:#fff;stop-opacity:1"/>
+      <stop offset=".508" style="stop-color:#fff;stop-opacity:.23529412"/>
+      <stop offset=".835" style="stop-color:#fff;stop-opacity:.15686275"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.39215687"/>
+    </linearGradient>
+    <linearGradient xlink:href="#a" id="g" x1="71.204" x2="71.204" y1="6.238" y2="44.341" gradientTransform="translate(-51.611 -2.728)scale(1.05405)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient xlink:href="#b" id="f" x1="2035.165" x2="2035.165" y1="3208.074" y2="3241.997" gradientTransform="matrix(1.57126 0 0 1.17466 -3179.506 -3763.776)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient id="b">
+      <stop offset="0" style="stop-color:#ed5353;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#c6262e;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="c">
+      <stop offset="0" style="stop-color:#000;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#000;stop-opacity:0"/>
+    </linearGradient>
+    <radialGradient xlink:href="#c" id="d" cx="99.189" cy="185.297" r="62.769" fx="99.189" fy="185.297" gradientTransform="matrix(.38235 0 0 .11152 -5.925 36.336)" gradientUnits="userSpaceOnUse"/>
+    <radialGradient xlink:href="#c" id="e" cx="99.189" cy="185.297" r="62.769" fx="99.189" fy="185.297" gradientTransform="matrix(.2549 0 0 .07966 6.716 44.24)" gradientUnits="userSpaceOnUse"/>
+  </defs>
+  <g style="stroke-width:1.40587306">
+    <path d="M56 57.002a24 6.999 0 1 1-48 0 24 6.999 0 1 1 48 0" style="opacity:.2;fill:url(#d);fill-opacity:1;stroke:none;stroke-width:1.40587306" transform="matrix(.70833 0 0 .71428 1.333 .785)"/>
+    <path d="M48 59.002a16 4.999 0 1 1-32 0 16 4.999 0 1 1 32 0" style="opacity:.4;fill:url(#e);fill-opacity:1;stroke:none;stroke-width:1.40587306" transform="matrix(.70833 0 0 .71428 1.333 .785)"/>
+  </g>
+  <path d="M24 3.5C12.689 3.5 3.5 12.689 3.5 24S12.689 44.5 24 44.5 44.5 35.311 44.5 24 35.311 3.5 24 3.5" style="color:#000;display:inline;overflow:visible;visibility:visible;opacity:.98999999;fill:url(#f);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:.99999988;marker:none"/>
+  <path d="M43.5 24c0 10.77-8.731 19.5-19.5 19.5S4.5 34.77 4.5 24 13.23 4.5 24 4.5 43.5 13.23 43.5 24" style="opacity:.4;color:#000;fill:none;stroke:url(#g);stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible"/>
+  <path d="M24 3.5C12.689 3.5 3.5 12.689 3.5 24S12.689 44.5 24 44.5 44.5 35.311 44.5 24 35.311 3.5 24 3.5" style="opacity:.5;color:#000;fill:none;stroke:#7a0000;stroke-width:.99999988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;clip-rule:nonzero;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000;solid-opacity:1;fill-opacity:1;fill-rule:nonzero;filter-blend-mode:normal;filter-gaussianBlur-deviation:0;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto"/>
+  <path d="M17 14.5a3.5 3.5 0 0 0-2.475 1.025 3.5 3.5 0 0 0 0 4.95L19.051 25l-4.526 4.525a3.5 3.5 0 0 0 0 4.95 3.5 3.5 0 0 0 4.95 0L24 29.949l4.525 4.526a3.5 3.5 0 0 0 4.95 0 3.5 3.5 0 0 0 0-4.95L28.949 25l4.526-4.525a3.5 3.5 0 0 0 0-4.95 3.5 3.5 0 0 0-4.95 0L24 20.051l-4.525-4.526A3.5 3.5 0 0 0 17 14.5" style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#7a0000;stroke-linecap:round;stroke-linejoin:round;paint-order:markers stroke fill;stop-color:#000;stop-opacity:1;opacity:.15"/>
+  <path d="M15.232 16.232a2.5 2.5 0 0 0 0 3.536L20.465 25l-5.233 5.232a2.5 2.5 0 0 0 0 3.536 2.5 2.5 0 0 0 3.536 0L24 28.535l5.232 5.233a2.5 2.5 0 0 0 3.536 0 2.5 2.5 0 0 0 0-3.536L27.535 25l5.233-5.232a2.5 2.5 0 0 0 0-3.536 2.5 2.5 0 0 0-3.536 0L24 21.465l-5.232-5.233a2.5 2.5 0 0 0-3.536 0" style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#7a0000;stroke-linecap:round;stroke-linejoin:round;paint-order:markers stroke fill;stop-color:#000;stop-opacity:1;opacity:.3"/>
+  <path d="M15.232 15.232a2.5 2.5 0 0 0 0 3.536L20.465 24l-5.233 5.232a2.5 2.5 0 0 0 0 3.536 2.5 2.5 0 0 0 3.536 0L24 27.535l5.232 5.233a2.5 2.5 0 0 0 3.536 0 2.5 2.5 0 0 0 0-3.536L27.535 24l5.233-5.232a2.5 2.5 0 0 0 0-3.536 2.5 2.5 0 0 0-3.536 0L24 20.465l-5.232-5.233a2.5 2.5 0 0 0-3.536 0" style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#faf8f7;stroke-linecap:round;stroke-linejoin:round;paint-order:markers stroke fill;stop-color:#000;stop-opacity:1;opacity:1;fill-opacity:1"/>
+  <path d="M17 14.5a2.5 2.5 0 0 0-2.45 3 2.5 2.5 0 0 1 4.218-1.268L24 21.465l5.232-5.233a2.5 2.5 0 0 1 3.536 0 2.5 2.5 0 0 1 .675 1.268 2.5 2.5 0 0 0-.675-2.268 2.5 2.5 0 0 0-3.536 0L24 20.465l-5.232-5.233A2.5 2.5 0 0 0 17 14.5m3.465 9.5-5.233 5.232a2.5 2.5 0 0 0-.675 2.268 2.5 2.5 0 0 1 .675-1.268l5.733-5.732Zm7.07 0-.5.5 5.733 5.732a2.5 2.5 0 0 1 .675 1.268 2.5 2.5 0 0 0-.675-2.268z" style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#fff;fill-opacity:1;stroke-linecap:round;stroke-linejoin:round;paint-order:markers stroke fill;stop-color:#000"/>
+  <path d="M14.621 16.25a2.5 2.5 0 0 0 .611 2.518L20.465 24l.75-.75-5.983-5.982a2.5 2.5 0 0 1-.61-1.018m18.758 0a2.5 2.5 0 0 1-.611 1.018l-5.983 5.982.75.75 5.233-5.232a2.5 2.5 0 0 0 .61-2.518M24 26.035l-5.232 5.233a2.5 2.5 0 0 1-3.536 0 2.5 2.5 0 0 1-.61-1.018 2.5 2.5 0 0 0 .61 2.518 2.5 2.5 0 0 0 3.536 0L24 27.535l5.232 5.233a2.5 2.5 0 0 0 3.536 0 2.5 2.5 0 0 0 .61-2.518 2.5 2.5 0 0 1-.61 1.018 2.5 2.5 0 0 1-3.536 0z" style="baseline-shift:baseline;display:inline;overflow:visible;opacity:.07;vector-effect:none;fill:#7a0000;fill-opacity:1;stroke-linecap:round;stroke-linejoin:round;paint-order:markers stroke fill;stop-color:#000"/>
+  <path d="M14.557 16.5a2.5 2.5 0 0 0 .675 2.268L20.465 24l.5-.5-5.733-5.732a2.5 2.5 0 0 1-.675-1.268m18.886 0a2.5 2.5 0 0 1-.675 1.268L27.035 23.5l.5.5 5.233-5.232a2.5 2.5 0 0 0 .675-2.268M24 26.535l-5.232 5.233a2.5 2.5 0 0 1-3.536 0 2.5 2.5 0 0 1-.675-1.268 2.5 2.5 0 0 0 .675 2.268 2.5 2.5 0 0 0 3.536 0L24 27.535l5.232 5.233a2.5 2.5 0 0 0 3.536 0 2.5 2.5 0 0 0 .675-2.268 2.5 2.5 0 0 1-.675 1.268 2.5 2.5 0 0 1-3.536 0z" style="baseline-shift:baseline;display:inline;overflow:visible;opacity:.15;vector-effect:none;fill:#7a0000;fill-opacity:1;stroke-linecap:round;stroke-linejoin:round;paint-order:markers stroke fill;stop-color:#000"/>
+</svg>

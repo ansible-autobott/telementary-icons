@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48">
+  <defs>
+    <linearGradient id="a">
+      <stop offset="0" style="stop-color:#000;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#000;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="b">
+      <stop offset="0" style="stop-color:#797a78;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#555754;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="c">
+      <stop offset="0" style="stop-color:#fff;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.34020618"/>
+    </linearGradient>
+    <linearGradient xlink:href="#c" id="f" x1="31.865" x2="16.145" y1="17.13" y2="32.85" gradientTransform="rotate(-44.915 18.746 45.356)scale(1.45702)skewX(.17)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient xlink:href="#b" id="e" x1="23.946" x2="23.946" y1="7.509" y2="42.576" gradientTransform="translate(0 2.51)" gradientUnits="userSpaceOnUse"/>
+    <radialGradient xlink:href="#a" id="d" cx="23.071" cy="35.127" r="10.319" fx="23.071" fy="35.127" gradientTransform="matrix(2.10517 .02428 -.0189 .40984 -23.646 28.671)" gradientUnits="userSpaceOnUse"/>
+  </defs>
+  <path d="M47.747 43.547C47.747 46.007 37.115 48 24 48S.253 46.007.253 43.547 10.885 39.095 24 39.095s23.747 1.993 23.747 4.452" style="opacity:.25570774;fill:url(#d);fill-opacity:1;stroke:none"/>
+  <path d="M41.892 37.52 31.5 27.503l10-10.494-7.209-6.5L24 20.51l-10.5-10L6 17.25 16.5 27.46 6 37.51l7.5 7 10.488-10.5L34.5 44.51z" style="font-size:59.90107727px;font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:url(#e);fill-opacity:1;stroke:#4d4d4d;stroke-width:.98169869;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Bitstream Vera Sans"/>
+  <path d="m40 17.01-5.65-5.132L24 22.009 13.442 11.894 7.5 17.279M18 27.454 7.5 37.509m32.942 0L30 27.51" style="font-size:59.90107727px;font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;opacity:.4;fill:none;stroke:url(#f);stroke-width:.98199999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Bitstream Vera Sans"/>
+</svg>

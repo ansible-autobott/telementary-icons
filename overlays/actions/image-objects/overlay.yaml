@@ -1,0 +1,74 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# image-objects — actions. The "Image & objects" group of the elementary
+# overlay review (review/decisions.md, `make review`), one block per approved
+# icon.
+#
+# object-locked / object-unlocked (elementary links them to status/locked and
+# status/changes-allow). Tela aliases many lock names onto these two (lock,
+# document-encrypt / -decrypt, kdenlive-lock, …), which follow.
+#
+# Artwork is elementary's (GPL-3.0, same license as the vendored Tela base) and
+# replaces the monochrome Tela glyph (or the Breeze fallback) under each name.
+# Numeric sizes are elementary's art after a single svgo pass. elementary ships
+# no 22, so the 24 art also serves 22, and a size it lacks is covered by the
+# nearest one it has (the first size in `sizes` is the real copy). Where
+# elementary's name is a symlink, `from` is the file it resolves to, and names
+# that share art share one source SVG. No symbolic bucket was reviewed for
+# these two, so object-locked-symbolic / object-unlocked-symbolic stay Tela's.
+#
+# NOTE: the art is full-color and does NOT follow the KDE color scheme. Tela
+# ships many legacy names as symlinks onto the files replaced here, so those
+# switch to this art too (see review/decisions.md, each task's "also changes"
+# line).
+
+set: image-objects
+
+origin:
+  theme: elementary
+
+links:
+  # --- object-locked — locked art ---
+  - src: object-locked-16.svg
+    from: status/16/locked.svg
+    category: actions
+    names: [object-locked]
+    sizes: [16]
+  - src: object-locked-24.svg
+    from: status/24/locked.svg
+    category: actions
+    names: [object-locked]
+    sizes: [24, 22]
+  - src: object-locked-32.svg
+    from: status/32/locked.svg
+    category: actions
+    names: [object-locked]
+    sizes: [32]
+  - src: object-locked-48.svg
+    from: status/48/locked.svg
+    category: actions
+    names: [object-locked]
+    sizes: [48]
+
+  # --- object-unlocked — changes-allow art ---
+  - src: object-unlocked-16.svg
+    from: status/16/changes-allow.svg
+    category: actions
+    names: [object-unlocked]
+    sizes: [16]
+  - src: object-unlocked-24.svg
+    from: status/24/changes-allow.svg
+    category: actions
+    names: [object-unlocked]
+    sizes: [24, 22]
+  - src: object-unlocked-32.svg
+    from: status/32/changes-allow.svg
+    category: actions
+    names: [object-unlocked]
+    sizes: [32]
+  - src: object-unlocked-48.svg
+    from: status/48/changes-allow.svg
+    category: actions
+    names: [object-unlocked]
+    sizes: [48]

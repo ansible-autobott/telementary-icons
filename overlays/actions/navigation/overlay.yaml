@@ -18,6 +18,17 @@
 # go-home: elementary's actions/go-home is a symlink to places/user-home, so the
 # numeric buckets (16/24/32/48; 22 via the 24 art) are that full-color house art
 # copied verbatim, and the symbolic bucket is recolored to ColorScheme-Text.
+#
+# Also the "Navigation" group of the elementary overlay review
+# (review/decisions.md, `make review`):
+#   * go-first-rtl / go-last-rtl / go-next-rtl / go-previous-rtl — what a
+#     right-to-left layout shows. elementary links each to its mirror
+#     (go-first-rtl is go-last, go-next-rtl is go-previous, …), so they are
+#     extra names on the mirror's numeric links below and share its art —
+#     including the gray recolor, so RTL arrows match LTR ones. Numeric sizes
+#     only, as reviewed; their symbolic names stay Tela's.
+#   * go-jump and its -rtl mirror — elementary's blue curved arrow, after a
+#     single svgo pass; its symbolic glyphs are recolored to ColorScheme-Text.
 
 set: navigation
 
@@ -29,22 +40,22 @@ links:
   - src: go-previous-16.svg
     from: actions/16/go-previous.svg
     category: actions
-    names: [go-previous]
+    names: [go-previous, go-next-rtl]
     sizes: [16]
   - src: go-previous-24.svg
     from: actions/24/go-previous.svg
     category: actions
-    names: [go-previous]
+    names: [go-previous, go-next-rtl]
     sizes: [24, 22]
   - src: go-previous-32.svg
     from: actions/32/go-previous.svg
     category: actions
-    names: [go-previous]
+    names: [go-previous, go-next-rtl]
     sizes: [32]
   - src: go-previous-48.svg
     from: actions/48/go-previous.svg
     category: actions
-    names: [go-previous]
+    names: [go-previous, go-next-rtl]
     sizes: [48]
   - src: go-previous-symbolic.svg
     from: actions/symbolic/go-previous-symbolic.svg
@@ -56,22 +67,22 @@ links:
   - src: go-next-16.svg
     from: actions/16/go-next.svg
     category: actions
-    names: [go-next]
+    names: [go-next, go-previous-rtl]
     sizes: [16]
   - src: go-next-24.svg
     from: actions/24/go-next.svg
     category: actions
-    names: [go-next]
+    names: [go-next, go-previous-rtl]
     sizes: [24, 22]
   - src: go-next-32.svg
     from: actions/32/go-next.svg
     category: actions
-    names: [go-next]
+    names: [go-next, go-previous-rtl]
     sizes: [32]
   - src: go-next-48.svg
     from: actions/48/go-next.svg
     category: actions
-    names: [go-next]
+    names: [go-next, go-previous-rtl]
     sizes: [48]
   - src: go-next-symbolic.svg
     from: actions/symbolic/go-next-symbolic.svg
@@ -137,22 +148,22 @@ links:
   - src: go-first-16.svg
     from: actions/16/go-first.svg
     category: actions
-    names: [go-first]
+    names: [go-first, go-last-rtl]
     sizes: [16]
   - src: go-first-24.svg
     from: actions/24/go-first.svg
     category: actions
-    names: [go-first]
+    names: [go-first, go-last-rtl]
     sizes: [24, 22]
   - src: go-first-32.svg
     from: actions/32/go-first.svg
     category: actions
-    names: [go-first]
+    names: [go-first, go-last-rtl]
     sizes: [32]
   - src: go-first-48.svg
     from: actions/48/go-first.svg
     category: actions
-    names: [go-first]
+    names: [go-first, go-last-rtl]
     sizes: [48]
   - src: go-first-symbolic.svg
     from: actions/symbolic/go-first-symbolic.svg
@@ -164,22 +175,22 @@ links:
   - src: go-last-16.svg
     from: actions/16/go-last.svg
     category: actions
-    names: [go-last]
+    names: [go-last, go-first-rtl]
     sizes: [16]
   - src: go-last-24.svg
     from: actions/24/go-last.svg
     category: actions
-    names: [go-last]
+    names: [go-last, go-first-rtl]
     sizes: [24, 22]
   - src: go-last-32.svg
     from: actions/32/go-last.svg
     category: actions
-    names: [go-last]
+    names: [go-last, go-first-rtl]
     sizes: [32]
   - src: go-last-48.svg
     from: actions/48/go-last.svg
     category: actions
-    names: [go-last]
+    names: [go-last, go-first-rtl]
     sizes: [48]
   - src: go-last-symbolic.svg
     from: actions/symbolic/go-last-symbolic.svg
@@ -268,4 +279,56 @@ links:
     from: actions/symbolic/go-home-symbolic.svg
     category: actions
     names: [go-home-symbolic]
+    sizes: [symbolic]
+
+  # --- go-jump (Go to / jump) — elementary art, recolored symbolic ---
+  - src: go-jump-16.svg
+    from: actions/16/go-jump.svg
+    category: actions
+    names: [go-jump]
+    sizes: [16]
+  - src: go-jump-24.svg
+    from: actions/24/go-jump.svg
+    category: actions
+    names: [go-jump]
+    sizes: [24, 22]
+  - src: go-jump-32.svg
+    from: actions/32/go-jump.svg
+    category: actions
+    names: [go-jump]
+    sizes: [32]
+  - src: go-jump-48.svg
+    from: actions/48/go-jump.svg
+    category: actions
+    names: [go-jump]
+    sizes: [48]
+  - src: go-jump-symbolic.svg
+    from: actions/symbolic/go-jump-symbolic.svg
+    category: actions
+    names: [go-jump-symbolic]
+    sizes: [symbolic]
+  - src: go-jump-rtl-16.svg
+    from: actions/16/go-jump-rtl.svg
+    category: actions
+    names: [go-jump-rtl]
+    sizes: [16]
+  - src: go-jump-rtl-24.svg
+    from: actions/24/go-jump-rtl.svg
+    category: actions
+    names: [go-jump-rtl]
+    sizes: [24, 22]
+  - src: go-jump-rtl-32.svg
+    from: actions/32/go-jump-rtl.svg
+    category: actions
+    names: [go-jump-rtl]
+    sizes: [32]
+  - src: go-jump-rtl-48.svg
+    from: actions/48/go-jump-rtl.svg
+    category: actions
+    names: [go-jump-rtl]
+    sizes: [48]
+  - src: go-jump-symbolic-rtl.svg
+    from: actions/symbolic/go-jump-symbolic-rtl.svg
+    category: actions
+    names: [go-jump-symbolic-rtl]
     sizes: [symbolic]

@@ -23,6 +23,9 @@ Requires `go` and `nfpm` on PATH.
   `telementary-icons_<version>_all.deb` via `nfpm`. Version comes from `VERSION`
   (defaults to `git describe`); override with `make build VERSION=1.2.3`.
 - `make view` — serve a browsable view of the theme for design work.
+- `make review` — the same server; open `/review` to approve/reject the
+  elementary overlay candidates (see `review/` below). Needs the elementary
+  source theme: `ELEMENTARY=` (default `~/.datos/edit/design/icons/elementary`).
 - `make clean` — remove `*.deb` and the generated `output/`.
 - `make tag version="v1.2.3"` — create and push an annotated git tag (only from a
   clean `main`), which triggers the release workflow.
@@ -107,6 +110,41 @@ The workflow:
 example. Only list sizes a category actually has (e.g. `apps` has no `22`; use
 `symbolic` for the symbolic bucket).
 
+### `review/` — elementary overlay review (committed)
+
+`review/candidates.yaml` lists proposed overlays: action icons the theme shows
+as monochrome glyphs (Tela's, or Breeze's when the theme lacks the name) that
+elementary can replace with full-color art. Each item is written as
+overlay.yaml-style links, with `from` relative to the elementary theme root.
+It is a one-off generated snapshot (its header records how it was built; the
+generator is not in the repo). Edit it by hand to add, drop or re-map items:
+the review page re-reads it on every request.
+
+The review page (`make review`, then `/review`) walks the candidates one at a
+time: for each size, what KDE resolves today next to the proposed art, on light
+and dark backgrounds, plus the Tela aliases that would follow. Each approve or
+reject (with an optional comment) is written to `review/decisions.md`, a
+todo-app file with `## Approved` / `## Rejected` tasks. The page rewrites those
+two categories on every decision and regenerates each task's proposal lines;
+only the checkbox state, the `Comment:` and any other lines (sub-tasks, notes)
+are kept.
+
+**Implementing a decision** = adding the overlay set under `overlays/` that the
+task describes. A comment overrides the proposal. Mark the task `[x]` when done.
+Implemented and rejected items are then dropped from `candidates.yaml`; their
+tasks stay in `decisions.md` verbatim (the page keeps tasks it has no candidate
+for).
+
+### `staged/` — overlay sets being reworked (committed)
+
+Same layout and `overlay.yaml` format as `overlays/`, but **not applied**: the
+generator only reads `overlays/`, so nothing here ships. It holds rejected
+review items (`staged/actions/<group>/`, one set per review group, each block
+carrying the review comment) prepared like the shipped sets, for hand editing.
+To ship one, move its block and SVGs into the matching `overlays/` set and run
+`make theme`. Validate the staged sets with a dry run:
+`cd tools && go run . overlay -overlays ../staged`.
+
 ### `tools/` — the Go generator
 
 The `tools/` directory holds the Go program (`module icons`) that builds the
@@ -115,7 +153,8 @@ theme. Subcommands (run via the make targets):
 - `theme` — wipe `output/`, lay down Tela, apply overlays, then `gen-theme`.
 - `overlay` — apply just the design overlays (dry-run unless `-apply`).
 - `gen-theme` — regenerate `index.theme`, `@2x`/`@3x` scaled dirs, and aliases.
-- `view` — serve a browsable name×size matrix (with a base theme as reference).
+- `view` — serve a browsable name×size matrix (with a base theme as reference),
+  plus the overlay review page at `/review`.
 
 Default paths are anchored at the repo root (found by walking up to `.git`), so
 the tool works from any cwd: `output/`, `tela-icons/`, `overlays/`.
@@ -125,3 +164,7 @@ the tool works from any cwd: `output/`, `tela-icons/`, `overlays/`.
 Use Inkscape and follow the elementary
 [Icon Design Guidelines](https://elementary.io/docs/human-interface-guidelines#iconography).
 "Vacuum Defs" in Inkscape to keep SVGs lean before committing.
+
+To turn a flat or symbolic shape into the beveled gray `go-first` icon type
+(as done for `go-home-16/24` and the view-modes icons), use the `bevel-icon`
+skill (`.claude/skills/bevel-icon/`, script `bevel.py`).

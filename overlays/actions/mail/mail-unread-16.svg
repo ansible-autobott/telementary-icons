@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16">
+  <defs>
+    <linearGradient id="a">
+      <stop offset="0" style="stop-color:#fff;stop-opacity:1"/>
+      <stop offset=".508" style="stop-color:#fff;stop-opacity:.23529412"/>
+      <stop offset=".835" style="stop-color:#fff;stop-opacity:.15686275"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.39215687"/>
+    </linearGradient>
+    <linearGradient id="b">
+      <stop offset="0" style="stop-color:#90dbec;stop-opacity:1"/>
+      <stop offset=".262" style="stop-color:#55c1ec;stop-opacity:1"/>
+      <stop offset=".705" style="stop-color:#3689e6;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#2b63a0;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient xlink:href="#a" id="e" x1="71.204" x2="71.204" y1="6.238" y2="44.341" gradientTransform="translate(-9.449 1.832)scale(.24324)" gradientUnits="userSpaceOnUse"/>
+    <radialGradient xlink:href="#b" id="d" cx="5.78" cy="8.45" r="20" fx="5.78" fy="8.45" gradientTransform="matrix(0 .65921 -.69737 0 13.893 -2.277)" gradientUnits="userSpaceOnUse"/>
+  </defs>
+  <path d="M8 2.5A5.504 5.504 0 0 0 2.5 8c0 3.035 2.465 5.5 5.5 5.5s5.5-2.465 5.5-5.5S11.035 2.5 8 2.5" style="color:#000;fill:url(#d);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:.99999994000000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible"/>
+  <path d="M12.5 8a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0" style="opacity:.5;color:#000;fill:none;stroke:url(#e);stroke-width:.99999988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible"/>
+  <path d="M8 2.5A5.504 5.504 0 0 0 2.5 8c0 3.035 2.465 5.5 5.5 5.5s5.5-2.465 5.5-5.5S11.035 2.5 8 2.5z" style="color:#000;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#004270;stroke-width:.99992179999999997;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;opacity:.5"/>
+</svg>

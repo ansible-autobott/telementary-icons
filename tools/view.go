@@ -259,6 +259,15 @@ func referenceThemes(iconsDir string) map[string]string {
 	return out
 }
 
+// baseURL is the browsable URL for a listen address: ":3033" listens on every
+// interface, so it is reached as localhost.
+func baseURL(addr string) string {
+	if strings.HasPrefix(addr, ":") {
+		return "http://localhost" + addr
+	}
+	return "http://" + addr
+}
+
 // setNoStore tells the browser never to cache the response, so edits to the
 // theme show up immediately on reload.
 func setNoStore(w http.ResponseWriter) {
@@ -285,6 +294,12 @@ func cmdView(args []string) {
 	var refPaths multiFlag
 	fs.Var(&refPaths, "ref",
 		"extra reference icon theme path, repeatable (selectable base theme, same as a discovered theme)")
+	elementary := fs.String("elementary", "",
+		"elementary icon theme root; the review page's proposals (candidates `from` paths) are relative to it")
+	candidates := fs.String("candidates", defaultReviewFile("candidates.yaml"),
+		"overlay candidates the review page (/review) walks through")
+	decisions := fs.String("decisions", defaultReviewFile("decisions.md"),
+		"todo-format markdown file the review page writes approve/reject decisions to")
 	fs.Parse(args)
 
 	root, err := filepath.Abs(*theme)
@@ -401,8 +416,29 @@ func cmdView(args []string) {
 		}
 	})
 
-	fmt.Printf("icons: serving %s on http://localhost%s\n", root, *addr)
+	// The overlay review page: its current-icon fallback is the base theme the
+	// generated theme inherits (Breeze), when installed.
+	rv := &reviewer{theme: root, candidates: *candidates, decisions: *decisions}
+	if *elementary != "" {
+		if rv.elementary, err = filepath.Abs(*elementary); err != nil {
+			log.Fatal(err)
+		}
+	}
+	rv.base = func() (*iconSet, string, string) {
+		for _, name := range refNames {
+			if strings.EqualFold(name, "breeze") {
+				if s, rroot, err := getRef(name); err == nil && s != nil {
+					return s, name, rroot
+				}
+			}
+		}
+		return nil, "", ""
+	}
+	rv.register(http.DefaultServeMux)
+
+	fmt.Printf("icons: serving %s on %s\n", root, baseURL(*addr))
 	fmt.Printf("references: %d themes (%s + %s + %d passed): %v\n", len(registry), *iconsDir, userIconsDir(), len(refPaths), refNames)
+	fmt.Printf("overlay review: %s/review (%s -> %s)\n", baseURL(*addr), *candidates, *decisions)
 	log.Fatal(http.ListenAndServe(*addr, nil))
 }
 
@@ -481,6 +517,12 @@ var page = template.Must(template.New("page").Parse(`<!doctype html>
   .only:hover { background:#fdecee; }
   .only:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
   .only.on { background:var(--danger); border-color:var(--danger); color:#fff; }
+  .review-link {
+    font-size:12px; color:var(--accent); text-decoration:none;
+    border:1px solid var(--line-strong); border-radius:5px; padding:3px 8px;
+  }
+  .review-link:hover { background:#eef4fa; }
+  .review-link:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
   .swatch { width:12px; height:12px; border-radius:3px; border:1px solid var(--line-strong); }
   .swatch.ov { background:#dfeaf5; border-color:var(--accent); }
   .swatch.fb { background:var(--panel); border-style:dashed; }
@@ -643,6 +685,7 @@ var page = template.Must(template.New("page").Parse(`<!doctype html>
       <button type="button" class="leg" data-cat="extra" title="click to hide/show"><span class="swatch tri"></span>not in base</button>
     </div>
     <button type="button" class="only" id="onlyExtra" aria-pressed="false" title="collapse the table to only rows that have a not-in-base icon">▲ only not-in-base</button>
+    <a class="review-link" href="/review">overlay review →</a>
   </form>
 </header>
 

@@ -1,0 +1,804 @@
+# overlay.yaml — applies this design set into the icon theme via `make theme`.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# file-documents — actions. The "File & documents" group of the elementary
+# overlay review (review/decisions.md, `make review`), one block per approved
+# icon.
+#
+# File and document actions: New, Open, Open Folder, Save / Save As / Revert,
+# Print / Print Preview / Page Setup, Properties, Export / Import, and the "new"
+# actions (window, tab, bookmark, tag, appointment, address book, contact,
+# database, folder), plus folder copy/move, folder-tag, send-to and Move to
+# Trash.
+#
+# Artwork is elementary's (GPL-3.0, same license as the vendored Tela base) and
+# replaces the monochrome Tela glyph (or the Breeze fallback) under each name.
+# Numeric sizes are elementary's art after a single svgo pass. elementary ships
+# no 22, so the 24 art also serves 22, and a size it lacks is covered by the
+# nearest one it has (the first size in `sizes` is the real copy). Where
+# elementary's name is a symlink, `from` is the file it resolves to, and names
+# that share art share one source SVG.
+#
+# The *-symbolic.svg files are not verbatim copies: elementary paints them with
+# GNOME's `url(#gpa:foreground)`, which KDE cannot recolor, so after the same
+# svgo pass the fill was swapped for this repo's ColorScheme-Text /
+# currentColor pattern (see overlays/README.md), and a viewBox was added where
+# it was missing so they scale in the symbolic bucket.
+#
+# NOTE: the numeric art is full-color and does NOT follow the KDE color scheme;
+# only the symbolic bucket recolors. Tela ships many legacy names as symlinks
+# onto the files replaced here, so those switch to this art too (see
+# review/decisions.md, each task's "also changes" line).
+#
+# Recolored per the review comments: the folder in folder-new, folder-open /
+# document-open-folder, folder-copy, folder-move and document-save-as is
+# elementary's tan folder turned into the theme's blue, with the same map as
+# places/folder-types (#efdfc4 -> #b4cee1, #e7c591 -> #5d9fcd, #b6802e ->
+# #3c7caa, #987124 -> #3c6480). The rest of those icons (paper, the green
+# arrow and plus badge) is unchanged.
+#
+# Substitutes, where elementary has no art under the KDE name:
+# document-open-folder uses folder-open (elementary's own document-open links
+# there), tab-new uses window-new, and trash-empty uses user-trash — the same
+# art as the places/trash set.
+#
+# document-open is the exception: rejected in the review (elementary's is the
+# same folder-open art as document-open-folder), then reworked in staged/. It
+# is elementary's document-save flipped by hand, so the green arrow points up,
+# out of the tray: the counterpart of Save. Each size (and the symbolic, still
+# ColorScheme-Text) is the matching document-save flipped, after the same svgo
+# pass.
+
+set: file-documents
+
+origin:
+  theme: elementary
+
+links:
+  # --- document-save ---
+  - src: document-save-16.svg
+    from: actions/16/document-save.svg
+    category: actions
+    names: [document-save]
+    sizes: [16]
+  - src: document-save-24.svg
+    from: actions/24/document-save.svg
+    category: actions
+    names: [document-save]
+    sizes: [24, 22]
+  - src: document-save-32.svg
+    from: actions/32/document-save.svg
+    category: actions
+    names: [document-save]
+    sizes: [32]
+  - src: document-save-48.svg
+    from: actions/48/document-save.svg
+    category: actions
+    names: [document-save]
+    sizes: [48]
+  - src: document-save-symbolic.svg
+    from: actions/symbolic/document-save-symbolic.svg
+    category: actions
+    names: [document-save-symbolic]
+    sizes: [symbolic]
+
+  # --- document-new ---
+  - src: document-new-16.svg
+    from: actions/16/document-new.svg
+    category: actions
+    names: [document-new]
+    sizes: [16]
+  - src: document-new-24.svg
+    from: actions/24/document-new.svg
+    category: actions
+    names: [document-new]
+    sizes: [24, 22]
+  - src: document-new-32.svg
+    from: actions/32/document-new.svg
+    category: actions
+    names: [document-new]
+    sizes: [32]
+  - src: document-new-48.svg
+    from: actions/48/document-new.svg
+    category: actions
+    names: [document-new]
+    sizes: [48]
+  - src: document-new-symbolic.svg
+    from: actions/symbolic/document-new-symbolic.svg
+    category: actions
+    names: [document-new-symbolic]
+    sizes: [symbolic]
+
+  # --- document-edit ---
+  - src: document-edit-16.svg
+    from: actions/16/document-edit.svg
+    category: actions
+    names: [document-edit]
+    sizes: [16]
+  - src: document-edit-24.svg
+    from: actions/24/document-edit.svg
+    category: actions
+    names: [document-edit]
+    sizes: [24, 22]
+  - src: document-edit-48.svg
+    from: actions/48/document-edit.svg
+    category: actions
+    names: [document-edit]
+    sizes: [48]
+  - src: document-edit-symbolic.svg
+    from: actions/symbolic/document-edit-symbolic.svg
+    category: actions
+    names: [document-edit-symbolic]
+    sizes: [symbolic]
+
+  # --- document-open — document-save art, flipped ---
+  # document-open-data, hb-source, irc-join-channel, scriptopen and
+  # xsi-document-open-symbolic follow it as Tela aliases.
+  - src: document-open-16.svg
+    from: actions/16/document-save.svg
+    category: actions
+    names: [document-open]
+    sizes: [16]
+  - src: document-open-24.svg
+    from: actions/24/document-save.svg
+    category: actions
+    names: [document-open]
+    sizes: [24, 22]
+  - src: document-open-32.svg
+    from: actions/32/document-save.svg
+    category: actions
+    names: [document-open]
+    sizes: [32]
+  - src: document-open-48.svg
+    from: actions/48/document-save.svg
+    category: actions
+    names: [document-open]
+    sizes: [48]
+  - src: document-open-symbolic.svg
+    from: actions/symbolic/document-save-symbolic.svg
+    category: actions
+    names: [document-open-symbolic]
+    sizes: [symbolic]
+
+  # --- document-open-folder — folder-open art, folder recolored blue ---
+  - src: folder-open-16.svg
+    from: places/16/folder-open.svg
+    category: actions
+    names: [document-open-folder]
+    sizes: [16]
+  - src: folder-open-24.svg
+    from: places/24/folder-open.svg
+    category: actions
+    names: [document-open-folder]
+    sizes: [24, 22]
+  - src: folder-open-32.svg
+    from: places/32/folder-open.svg
+    category: actions
+    names: [document-open-folder]
+    sizes: [32]
+  - src: folder-open-48.svg
+    from: places/48/folder-open.svg
+    category: actions
+    names: [document-open-folder]
+    sizes: [48]
+
+  # --- document-properties ---
+  - src: document-properties-16.svg
+    from: actions/16/document-properties.svg
+    category: actions
+    names: [document-properties]
+    sizes: [16]
+  - src: document-properties-24.svg
+    from: actions/24/document-properties.svg
+    category: actions
+    names: [document-properties]
+    sizes: [24, 22]
+  - src: document-properties-48.svg
+    from: actions/48/document-properties.svg
+    category: actions
+    names: [document-properties]
+    sizes: [48]
+  - src: document-properties-symbolic.svg
+    from: actions/symbolic/document-properties-symbolic.svg
+    category: actions
+    names: [document-properties-symbolic]
+    sizes: [symbolic]
+
+  # --- document-export ---
+  - src: document-export-16.svg
+    from: actions/16/document-export.svg
+    category: actions
+    names: [document-export]
+    sizes: [16]
+  - src: document-export-24.svg
+    from: actions/24/document-export.svg
+    category: actions
+    names: [document-export]
+    sizes: [24, 22]
+  - src: document-export-32.svg
+    from: actions/32/document-export.svg
+    category: actions
+    names: [document-export]
+    sizes: [32]
+  - src: document-export-48.svg
+    from: actions/48/document-export.svg
+    category: actions
+    names: [document-export]
+    sizes: [48]
+  - src: document-export-symbolic.svg
+    from: actions/symbolic/document-export-symbolic.svg
+    category: actions
+    names: [document-export-symbolic]
+    sizes: [symbolic]
+  - src: document-export-rtl-16.svg
+    from: actions/16/document-export-rtl.svg
+    category: actions
+    names: [document-export-rtl]
+    sizes: [16]
+  - src: document-export-rtl-24.svg
+    from: actions/24/document-export-rtl.svg
+    category: actions
+    names: [document-export-rtl]
+    sizes: [24, 22]
+  - src: document-export-rtl-32.svg
+    from: actions/32/document-export-rtl.svg
+    category: actions
+    names: [document-export-rtl]
+    sizes: [32]
+  - src: document-export-rtl-48.svg
+    from: actions/48/document-export-rtl.svg
+    category: actions
+    names: [document-export-rtl]
+    sizes: [48]
+  - src: document-export-symbolic-rtl.svg
+    from: actions/symbolic/document-export-symbolic-rtl.svg
+    category: actions
+    names: [document-export-symbolic-rtl]
+    sizes: [symbolic]
+
+  # --- document-import ---
+  - src: document-import-16.svg
+    from: actions/16/document-import.svg
+    category: actions
+    names: [document-import]
+    sizes: [16]
+  - src: document-import-24.svg
+    from: actions/24/document-import.svg
+    category: actions
+    names: [document-import]
+    sizes: [24, 22]
+  - src: document-import-32.svg
+    from: actions/32/document-import.svg
+    category: actions
+    names: [document-import]
+    sizes: [32]
+  - src: document-import-48.svg
+    from: actions/48/document-import.svg
+    category: actions
+    names: [document-import]
+    sizes: [48]
+  - src: document-import-symbolic.svg
+    from: actions/symbolic/document-import-symbolic.svg
+    category: actions
+    names: [document-import-symbolic]
+    sizes: [symbolic]
+  - src: document-import-rtl-16.svg
+    from: actions/16/document-import-rtl.svg
+    category: actions
+    names: [document-import-rtl]
+    sizes: [16]
+  - src: document-import-rtl-24.svg
+    from: actions/24/document-import-rtl.svg
+    category: actions
+    names: [document-import-rtl]
+    sizes: [24, 22]
+  - src: document-import-rtl-32.svg
+    from: actions/32/document-import-rtl.svg
+    category: actions
+    names: [document-import-rtl]
+    sizes: [32]
+  - src: document-import-rtl-48.svg
+    from: actions/48/document-import-rtl.svg
+    category: actions
+    names: [document-import-rtl]
+    sizes: [48]
+  - src: document-import-symbolic-rtl.svg
+    from: actions/symbolic/document-import-symbolic-rtl.svg
+    category: actions
+    names: [document-import-symbolic-rtl]
+    sizes: [symbolic]
+
+  # --- folder-new — folder recolored blue ---
+  - src: folder-new-16.svg
+    from: actions/16/folder-new.svg
+    category: actions
+    names: [folder-new]
+    sizes: [16]
+  - src: folder-new-24.svg
+    from: actions/24/folder-new.svg
+    category: actions
+    names: [folder-new]
+    sizes: [24, 22]
+  - src: folder-new-32.svg
+    from: actions/32/folder-new.svg
+    category: actions
+    names: [folder-new]
+    sizes: [32]
+  - src: folder-new-48.svg
+    from: actions/48/folder-new.svg
+    category: actions
+    names: [folder-new]
+    sizes: [48]
+  - src: folder-new-symbolic.svg
+    from: actions/symbolic/folder-new-symbolic.svg
+    category: actions
+    names: [folder-new-symbolic]
+    sizes: [symbolic]
+
+  # --- tab-new — window-new art ---
+  - src: window-new-16.svg
+    from: actions/16/window-new.svg
+    category: actions
+    names: [tab-new]
+    sizes: [16]
+  - src: window-new-24.svg
+    from: actions/24/window-new.svg
+    category: actions
+    names: [tab-new]
+    sizes: [24, 22]
+  - src: window-new-32.svg
+    from: actions/32/window-new.svg
+    category: actions
+    names: [tab-new]
+    sizes: [32]
+  - src: window-new-48.svg
+    from: actions/48/window-new.svg
+    category: actions
+    names: [tab-new]
+    sizes: [48]
+
+  # --- document-save-as — folder recolored blue ---
+  - src: document-save-as-16.svg
+    from: actions/16/document-save-as.svg
+    category: actions
+    names: [document-save-as]
+    sizes: [16]
+  - src: document-save-as-24.svg
+    from: actions/24/document-save-as.svg
+    category: actions
+    names: [document-save-as]
+    sizes: [24, 22]
+  - src: document-save-as-32.svg
+    from: actions/32/document-save-as.svg
+    category: actions
+    names: [document-save-as]
+    sizes: [32]
+  - src: document-save-as-48.svg
+    from: actions/48/document-save-as.svg
+    category: actions
+    names: [document-save-as]
+    sizes: [48]
+  - src: document-save-as-symbolic.svg
+    from: actions/symbolic/document-save-as-symbolic.svg
+    category: actions
+    names: [document-save-as-symbolic]
+    sizes: [symbolic]
+
+  # --- bookmark-new ---
+  - src: bookmark-new-16.svg
+    from: actions/16/bookmark-new.svg
+    category: actions
+    names: [bookmark-new]
+    sizes: [16]
+  - src: bookmark-new-24.svg
+    from: actions/24/bookmark-new.svg
+    category: actions
+    names: [bookmark-new]
+    sizes: [24, 22]
+  - src: bookmark-new-32.svg
+    from: actions/32/bookmark-new.svg
+    category: actions
+    names: [bookmark-new]
+    sizes: [32]
+  - src: bookmark-new-48.svg
+    from: actions/48/bookmark-new.svg
+    category: actions
+    names: [bookmark-new]
+    sizes: [48]
+  - src: bookmark-new-symbolic.svg
+    from: actions/symbolic/bookmark-new-symbolic.svg
+    category: actions
+    names: [bookmark-new-symbolic]
+    sizes: [symbolic]
+
+  # --- window-new ---
+  - src: window-new-16.svg
+    from: actions/16/window-new.svg
+    category: actions
+    names: [window-new]
+    sizes: [16]
+  - src: window-new-24.svg
+    from: actions/24/window-new.svg
+    category: actions
+    names: [window-new]
+    sizes: [24, 22]
+  - src: window-new-32.svg
+    from: actions/32/window-new.svg
+    category: actions
+    names: [window-new]
+    sizes: [32]
+  - src: window-new-48.svg
+    from: actions/48/window-new.svg
+    category: actions
+    names: [window-new]
+    sizes: [48]
+  - src: window-new-symbolic.svg
+    from: actions/symbolic/window-new-symbolic.svg
+    category: actions
+    names: [window-new-symbolic]
+    sizes: [symbolic]
+
+  # --- document-revert ---
+  - src: document-revert-16.svg
+    from: actions/16/document-revert.svg
+    category: actions
+    names: [document-revert]
+    sizes: [16]
+  - src: document-revert-24.svg
+    from: actions/24/document-revert.svg
+    category: actions
+    names: [document-revert]
+    sizes: [24, 22]
+  - src: document-revert-32.svg
+    from: actions/32/document-revert.svg
+    category: actions
+    names: [document-revert]
+    sizes: [32]
+  - src: document-revert-48.svg
+    from: actions/48/document-revert.svg
+    category: actions
+    names: [document-revert]
+    sizes: [48]
+  - src: document-revert-symbolic.svg
+    from: actions/symbolic/document-revert-symbolic.svg
+    category: actions
+    names: [document-revert-symbolic]
+    sizes: [symbolic]
+  - src: document-revert-rtl-16.svg
+    from: actions/16/document-revert-rtl.svg
+    category: actions
+    names: [document-revert-rtl]
+    sizes: [16]
+  - src: document-revert-rtl-24.svg
+    from: actions/24/document-revert-rtl.svg
+    category: actions
+    names: [document-revert-rtl]
+    sizes: [24, 22]
+  - src: document-revert-rtl-32.svg
+    from: actions/32/document-revert-rtl.svg
+    category: actions
+    names: [document-revert-rtl]
+    sizes: [32]
+  - src: document-revert-rtl-48.svg
+    from: actions/48/document-revert-rtl.svg
+    category: actions
+    names: [document-revert-rtl]
+    sizes: [48]
+  - src: document-revert-symbolic-rtl.svg
+    from: actions/symbolic/document-revert-symbolic-rtl.svg
+    category: actions
+    names: [document-revert-symbolic-rtl]
+    sizes: [symbolic]
+
+  # --- folder-open — folder recolored blue ---
+  - src: folder-open-16.svg
+    from: places/16/folder-open.svg
+    category: actions
+    names: [folder-open]
+    sizes: [16]
+  - src: folder-open-24.svg
+    from: places/24/folder-open.svg
+    category: actions
+    names: [folder-open]
+    sizes: [24, 22]
+  - src: folder-open-32.svg
+    from: places/32/folder-open.svg
+    category: actions
+    names: [folder-open]
+    sizes: [32]
+  - src: folder-open-48.svg
+    from: places/48/folder-open.svg
+    category: actions
+    names: [folder-open]
+    sizes: [48]
+  - src: folder-open-symbolic.svg
+    from: status/symbolic/folder-open-symbolic.svg
+    category: actions
+    names: [folder-open-symbolic]
+    sizes: [symbolic]
+
+  # --- trash-empty — user-trash art ---
+  - src: trash-empty-16.svg
+    from: places/16/user-trash.svg
+    category: actions
+    names: [trash-empty]
+    sizes: [16]
+  - src: trash-empty-24.svg
+    from: places/24/user-trash.svg
+    category: actions
+    names: [trash-empty]
+    sizes: [24, 22]
+  - src: trash-empty-32.svg
+    from: places/32/user-trash.svg
+    category: actions
+    names: [trash-empty]
+    sizes: [32]
+  - src: trash-empty-48.svg
+    from: places/48/user-trash.svg
+    category: actions
+    names: [trash-empty]
+    sizes: [48]
+
+  # --- document-print — printer art ---
+  - src: document-print-24.svg
+    from: devices/24/printer.svg
+    category: actions
+    names: [document-print]
+    sizes: [24, 16, 22]
+  - src: document-print-32.svg
+    from: devices/32/printer.svg
+    category: actions
+    names: [document-print]
+    sizes: [32]
+  - src: document-print-48.svg
+    from: devices/48/printer.svg
+    category: actions
+    names: [document-print]
+    sizes: [48]
+  - src: document-print-symbolic.svg
+    from: actions/symbolic/document-print-symbolic.svg
+    category: actions
+    names: [document-print-symbolic]
+    sizes: [symbolic]
+
+  # --- document-print-preview ---
+  - src: document-print-preview-24.svg
+    from: actions/24/document-print-preview.svg
+    category: actions
+    names: [document-print-preview]
+    sizes: [24, 16, 22]
+  - src: document-print-preview-32.svg
+    from: actions/32/document-print-preview.svg
+    category: actions
+    names: [document-print-preview]
+    sizes: [32]
+  - src: document-print-preview-48.svg
+    from: actions/48/document-print-preview.svg
+    category: actions
+    names: [document-print-preview]
+    sizes: [48]
+  - src: document-print-preview-symbolic.svg
+    from: actions/symbolic/document-print-preview-symbolic.svg
+    category: actions
+    names: [document-print-preview-symbolic]
+    sizes: [symbolic]
+
+  # --- tag-new ---
+  - src: tag-new-16.svg
+    from: actions/16/tag-new.svg
+    category: actions
+    names: [tag-new]
+    sizes: [16]
+  - src: tag-new-24.svg
+    from: actions/24/tag-new.svg
+    category: actions
+    names: [tag-new]
+    sizes: [24, 22]
+  - src: tag-new-32.svg
+    from: actions/32/tag-new.svg
+    category: actions
+    names: [tag-new]
+    sizes: [32]
+  - src: tag-new-48.svg
+    from: actions/48/tag-new.svg
+    category: actions
+    names: [tag-new]
+    sizes: [48]
+  - src: tag-new-symbolic.svg
+    from: actions/symbolic/tag-new-symbolic.svg
+    category: actions
+    names: [tag-new-symbolic]
+    sizes: [symbolic]
+
+  # --- appointment-new ---
+  - src: appointment-new-16.svg
+    from: actions/16/appointment-new.svg
+    category: actions
+    names: [appointment-new]
+    sizes: [16]
+  - src: appointment-new-24.svg
+    from: actions/24/appointment-new.svg
+    category: actions
+    names: [appointment-new]
+    sizes: [24, 22]
+  - src: appointment-new-32.svg
+    from: actions/32/appointment-new.svg
+    category: actions
+    names: [appointment-new]
+    sizes: [32]
+  - src: appointment-new-48.svg
+    from: actions/48/appointment-new.svg
+    category: actions
+    names: [appointment-new]
+    sizes: [48]
+  - src: appointment-new-symbolic.svg
+    from: actions/symbolic/appointment-new-symbolic.svg
+    category: actions
+    names: [appointment-new-symbolic]
+    sizes: [symbolic]
+
+  # --- address-book-new ---
+  - src: address-book-new-16.svg
+    from: actions/16/address-book-new.svg
+    category: actions
+    names: [address-book-new]
+    sizes: [16]
+  - src: address-book-new-24.svg
+    from: actions/24/address-book-new.svg
+    category: actions
+    names: [address-book-new]
+    sizes: [24, 22]
+  - src: address-book-new-32.svg
+    from: actions/32/address-book-new.svg
+    category: actions
+    names: [address-book-new]
+    sizes: [32]
+  - src: address-book-new-48.svg
+    from: actions/48/address-book-new.svg
+    category: actions
+    names: [address-book-new]
+    sizes: [48]
+  - src: address-book-new-symbolic.svg
+    from: actions/symbolic/address-book-new-symbolic.svg
+    category: actions
+    names: [address-book-new-symbolic]
+    sizes: [symbolic]
+
+  # --- contact-new ---
+  - src: contact-new-16.svg
+    from: actions/16/contact-new.svg
+    category: actions
+    names: [contact-new]
+    sizes: [16]
+  - src: contact-new-24.svg
+    from: actions/24/contact-new.svg
+    category: actions
+    names: [contact-new]
+    sizes: [24, 22]
+  - src: contact-new-32.svg
+    from: actions/32/contact-new.svg
+    category: actions
+    names: [contact-new]
+    sizes: [32]
+  - src: contact-new-48.svg
+    from: actions/48/contact-new.svg
+    category: actions
+    names: [contact-new]
+    sizes: [48]
+  - src: contact-new-symbolic.svg
+    from: actions/symbolic/contact-new-symbolic.svg
+    category: actions
+    names: [contact-new-symbolic]
+    sizes: [symbolic]
+
+  # --- document-page-setup ---
+  - src: document-page-setup-16.svg
+    from: actions/16/document-page-setup.svg
+    category: actions
+    names: [document-page-setup]
+    sizes: [16]
+  - src: document-page-setup-24.svg
+    from: actions/24/document-page-setup.svg
+    category: actions
+    names: [document-page-setup]
+    sizes: [24, 22]
+  - src: document-page-setup-32.svg
+    from: actions/32/document-page-setup.svg
+    category: actions
+    names: [document-page-setup]
+    sizes: [32]
+  - src: document-page-setup-48.svg
+    from: actions/48/document-page-setup.svg
+    category: actions
+    names: [document-page-setup]
+    sizes: [48]
+  - src: document-page-setup-symbolic.svg
+    from: actions/symbolic/document-page-setup-symbolic.svg
+    category: actions
+    names: [document-page-setup-symbolic]
+    sizes: [symbolic]
+
+  # --- folder-copy — folder recolored blue ---
+  - src: folder-copy-16.svg
+    from: actions/16/folder-copy.svg
+    category: actions
+    names: [folder-copy]
+    sizes: [16]
+  - src: folder-copy-24.svg
+    from: actions/24/folder-copy.svg
+    category: actions
+    names: [folder-copy]
+    sizes: [24, 22]
+
+  # --- folder-move — folder recolored blue ---
+  - src: folder-move-16.svg
+    from: actions/16/folder-move.svg
+    category: actions
+    names: [folder-move]
+    sizes: [16]
+  - src: folder-move-24.svg
+    from: actions/24/folder-move.svg
+    category: actions
+    names: [folder-move]
+    sizes: [24, 22]
+
+  # --- folder-tag ---
+  - src: folder-tag-16.svg
+    from: places/16/folder-tag.svg
+    category: actions
+    names: [folder-tag]
+    sizes: [16]
+  - src: folder-tag-24.svg
+    from: places/24/folder-tag.svg
+    category: actions
+    names: [folder-tag]
+    sizes: [24, 22]
+  - src: folder-tag-32.svg
+    from: places/32/folder-tag.svg
+    category: actions
+    names: [folder-tag]
+    sizes: [32]
+  - src: folder-tag-48.svg
+    from: places/48/folder-tag.svg
+    category: actions
+    names: [folder-tag]
+    sizes: [48]
+
+  # --- office-database-new ---
+  - src: office-database-new-16.svg
+    from: actions/16/office-database-new.svg
+    category: actions
+    names: [office-database-new]
+    sizes: [16]
+  - src: office-database-new-24.svg
+    from: actions/24/office-database-new.svg
+    category: actions
+    names: [office-database-new]
+    sizes: [24, 22]
+  - src: office-database-new-32.svg
+    from: actions/32/office-database-new.svg
+    category: actions
+    names: [office-database-new]
+    sizes: [32]
+  - src: office-database-new-48.svg
+    from: actions/48/office-database-new.svg
+    category: actions
+    names: [office-database-new]
+    sizes: [48]
+
+  # --- send-to ---
+  - src: send-to-16.svg
+    from: actions/16/send-to.svg
+    category: actions
+    names: [send-to]
+    sizes: [16]
+  - src: send-to-24.svg
+    from: actions/24/send-to.svg
+    category: actions
+    names: [send-to]
+    sizes: [24, 22]
+  - src: send-to-symbolic.svg
+    from: actions/symbolic/send-to-symbolic.svg
+    category: actions
+    names: [send-to-symbolic]
+    sizes: [symbolic]

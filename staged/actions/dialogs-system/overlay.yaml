@@ -1,0 +1,286 @@
+# overlay.yaml — STAGED design set: NOT applied to the theme. `make theme`
+# reads only overlays/, so nothing here ships; move a block (and its SVGs)
+# into the matching overlays/actions/dialogs-system/ set once the art is ready.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# dialogs-system — actions. The rejected items of the "Dialogs & system" group of the
+# elementary overlay review (review/decisions.md, `make review`), staged here
+# to be reworked by hand: configure, system-run, help-about, tab-close, configure-shortcuts, notification-disabled.
+#
+# The other tab actions were added next to tab-close so the whole family is
+# reworked together (they were not in the review): tab-close-other,
+# tab-duplicate, tab-detach, tab-new-background and the tab-* symbolics.
+# elementary has no tab art beyond tab-new-symbolic, so each borrows the
+# nearest elementary icon, noted per block.
+#
+# The art is the review's proposal, prepared like the shipped sets: elementary's
+# (GPL-3.0) after a single svgo pass, `from` is the file an elementary symlink
+# resolves to, and the first size in `sizes` is the real copy (elementary ships
+# no 22, so 24 serves it). Every icon has its own SVGs, so they can diverge.
+# The *-symbolic.svg files are recolored from GNOME's `url(#gpa:foreground)` to
+# the ColorScheme-Text / currentColor pattern (see overlays/README.md).
+
+set: dialogs-system
+
+origin:
+  theme: elementary
+
+links:
+  # --- configure ---
+  # elementary's preferences-system gear.
+  - src: configure-16.svg
+    from: categories/16/preferences-system.svg
+    category: actions
+    names: [configure]
+    sizes: [16]
+  - src: configure-24.svg
+    from: categories/24/preferences-system.svg
+    category: actions
+    names: [configure]
+    sizes: [24, 22]
+  - src: configure-32.svg
+    from: categories/32/preferences-system.svg
+    category: actions
+    names: [configure]
+    sizes: [32]
+  - src: configure-48.svg
+    from: categories/48/preferences-system.svg
+    category: actions
+    names: [configure]
+    sizes: [48]
+
+  # --- system-run ---
+  - src: system-run-16.svg
+    from: actions/16/system-run.svg
+    category: actions
+    names: [system-run]
+    sizes: [16]
+  - src: system-run-24.svg
+    from: actions/24/system-run.svg
+    category: actions
+    names: [system-run]
+    sizes: [24, 22]
+  - src: system-run-32.svg
+    from: actions/32/system-run.svg
+    category: actions
+    names: [system-run]
+    sizes: [32]
+  - src: system-run-48.svg
+    from: actions/48/system-run.svg
+    category: actions
+    names: [system-run]
+    sizes: [48]
+  - src: system-run-symbolic.svg
+    from: actions/symbolic/system-run-symbolic.svg
+    category: actions
+    names: [system-run-symbolic]
+    sizes: [symbolic]
+
+  # --- help-about ---
+  - src: help-about-16.svg
+    from: actions/16/help-about.svg
+    category: actions
+    names: [help-about]
+    sizes: [16]
+  - src: help-about-24.svg
+    from: actions/24/help-about.svg
+    category: actions
+    names: [help-about]
+    sizes: [24, 22]
+  - src: help-about-32.svg
+    from: actions/32/help-about.svg
+    category: actions
+    names: [help-about]
+    sizes: [32]
+  - src: help-about-48.svg
+    from: actions/48/help-about.svg
+    category: actions
+    names: [help-about]
+    sizes: [48]
+  - src: help-about-symbolic.svg
+    from: actions/symbolic/help-about-symbolic.svg
+    category: actions
+    names: [help-about-symbolic]
+    sizes: [symbolic]
+
+  # --- tab-close ---
+  # elementary's window-close art.
+  - src: tab-close-16.svg
+    from: actions/16/window-close.svg
+    category: actions
+    names: [tab-close]
+    sizes: [16]
+  - src: tab-close-24.svg
+    from: actions/24/window-close.svg
+    category: actions
+    names: [tab-close]
+    sizes: [24, 22]
+  - src: tab-close-48.svg
+    from: actions/48/window-close.svg
+    category: actions
+    names: [tab-close]
+    sizes: [48]
+  - src: tab-close-symbolic.svg
+    from: actions/symbolic/window-close-symbolic.svg
+    category: actions
+    names: [tab-close-symbolic]
+    sizes: [symbolic]
+
+  # --- tab-close-other ---
+  # elementary's window-close art, like tab-close. Tela links tab-close-other
+  # and the legacy tab_remove_other onto tab-close; their own block keeps them
+  # apart from it.
+  - src: tab-close-other-16.svg
+    from: actions/16/window-close.svg
+    category: actions
+    names: [tab-close-other, tab_remove_other]
+    sizes: [16]
+  - src: tab-close-other-24.svg
+    from: actions/24/window-close.svg
+    category: actions
+    names: [tab-close-other, tab_remove_other]
+    sizes: [24, 22]
+  - src: tab-close-other-48.svg
+    from: actions/48/window-close.svg
+    category: actions
+    names: [tab-close-other, tab_remove_other]
+    sizes: [48]
+  - src: tab-close-other-symbolic.svg
+    from: actions/symbolic/window-close-symbolic.svg
+    category: actions
+    names: [tab-close-other-symbolic]
+    sizes: [symbolic]
+
+  # --- tab-duplicate ---
+  # elementary's edit-copy art. Tela also links tab-detach and the legacy
+  # tab_breakoff onto tab-duplicate; they get the tab-detach block below.
+  - src: tab-duplicate-16.svg
+    from: actions/16/edit-copy.svg
+    category: actions
+    names: [tab-duplicate]
+    sizes: [16]
+  - src: tab-duplicate-24.svg
+    from: actions/24/edit-copy.svg
+    category: actions
+    names: [tab-duplicate]
+    sizes: [24, 22]
+  - src: tab-duplicate-32.svg
+    from: actions/32/edit-copy.svg
+    category: actions
+    names: [tab-duplicate]
+    sizes: [32]
+  - src: tab-duplicate-48.svg
+    from: actions/48/edit-copy.svg
+    category: actions
+    names: [tab-duplicate]
+    sizes: [48]
+  - src: tab-duplicate-symbolic.svg
+    from: actions/symbolic/edit-copy-symbolic.svg
+    category: actions
+    names: [tab-duplicate-symbolic]
+    sizes: [symbolic]
+
+  # --- tab-detach ---
+  # elementary has no full-color pop-out: window-new art as a placeholder
+  # (detaching opens the tab in a new window). The symbolic is elementary's
+  # window-pop-out glyph.
+  - src: tab-detach-16.svg
+    from: actions/16/window-new.svg
+    category: actions
+    names: [tab-detach, tab_breakoff]
+    sizes: [16]
+  - src: tab-detach-24.svg
+    from: actions/24/window-new.svg
+    category: actions
+    names: [tab-detach, tab_breakoff]
+    sizes: [24, 22]
+  - src: tab-detach-32.svg
+    from: actions/32/window-new.svg
+    category: actions
+    names: [tab-detach, tab_breakoff]
+    sizes: [32]
+  - src: tab-detach-48.svg
+    from: actions/48/window-new.svg
+    category: actions
+    names: [tab-detach, tab_breakoff]
+    sizes: [48]
+  - src: tab-detach-symbolic.svg
+    from: actions/symbolic/window-pop-out-symbolic.svg
+    category: actions
+    names: [tab-detach-symbolic]
+    sizes: [symbolic]
+
+  # --- tab-new-background ---
+  # elementary's window-new art, like the shipped tab-new
+  # (overlays/actions/file-documents); the symbolic is elementary's
+  # tab-new-symbolic. Konqueror / Falkon "open in background tab".
+  - src: tab-new-background-16.svg
+    from: actions/16/window-new.svg
+    category: actions
+    names: [tab-new-background]
+    sizes: [16]
+  - src: tab-new-background-24.svg
+    from: actions/24/window-new.svg
+    category: actions
+    names: [tab-new-background]
+    sizes: [24, 22]
+  - src: tab-new-background-32.svg
+    from: actions/32/window-new.svg
+    category: actions
+    names: [tab-new-background]
+    sizes: [32]
+  - src: tab-new-background-48.svg
+    from: actions/48/window-new.svg
+    category: actions
+    names: [tab-new-background]
+    sizes: [48]
+  - src: tab-new-background-symbolic.svg
+    from: actions/symbolic/tab-new-symbolic.svg
+    category: actions
+    names: [tab-new-background-symbolic]
+    sizes: [symbolic]
+
+  # --- tab-new-symbolic ---
+  # The full-color tab-new already ships (window-new art, in
+  # overlays/actions/file-documents); this is elementary's own
+  # tab-new-symbolic, a plain plus.
+  - src: tab-new-symbolic.svg
+    from: actions/symbolic/tab-new-symbolic.svg
+    category: actions
+    names: [tab-new-symbolic]
+    sizes: [symbolic]
+
+  # --- configure-shortcuts ---
+  # elementary's preferences-desktop-keyboard art.
+  - src: configure-shortcuts-16.svg
+    from: categories/16/preferences-desktop-keyboard.svg
+    category: actions
+    names: [configure-shortcuts]
+    sizes: [16]
+  - src: configure-shortcuts-24.svg
+    from: categories/24/preferences-desktop-keyboard.svg
+    category: actions
+    names: [configure-shortcuts]
+    sizes: [24, 22]
+  - src: configure-shortcuts-32.svg
+    from: categories/32/preferences-desktop-keyboard.svg
+    category: actions
+    names: [configure-shortcuts]
+    sizes: [32]
+  - src: configure-shortcuts-48.svg
+    from: categories/48/preferences-desktop-keyboard.svg
+    category: actions
+    names: [configure-shortcuts]
+    sizes: [48]
+
+  # --- notification-disabled ---
+  - src: notification-disabled-48.svg
+    from: status/48/notification-disabled.svg
+    category: actions
+    names: [notification-disabled]
+    sizes: [48, 16, 22, 24]
+  - src: notification-disabled-symbolic.svg
+    from: status/symbolic/notification-disabled-symbolic.svg
+    category: actions
+    names: [notification-disabled-symbolic]
+    sizes: [symbolic]

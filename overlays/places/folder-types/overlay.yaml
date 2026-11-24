@@ -255,6 +255,9 @@ links:
     sizes: [symbolic]
 
   # --- Downloads ------------------------------------------------------------
+  # At 16/24 elementary draws this as a green round badge, not a folder; its
+  # green was swapped for folder-16's blue (#9bdb4d→#b4cee1, #68b723→#5d9fcd,
+  # #206b00→#3c6480) so it sits in the same palette as the folders.
   - src: folder-download-16.svg
     from: places/16/folder-download.svg
     category: places
@@ -347,3 +350,20 @@ links:
     category: places
     names: [folder-recent-symbolic, folder-open-recent-symbolic]
     sizes: [symbolic]
+
+  # folder-open-recent is ALSO a real Tela file in actions/16, 22 and 24 (a
+  # monochrome glyph). Icon lookup scans index.theme directories in order
+  # regardless of Context and actions/* comes before places/*, so without
+  # these the Tela glyph wins at those sizes (see overlays/places/recent/ for
+  # the same fix on document-open-recent). Tela has no actions copy at 32+.
+  - src: folder-recent-16.svg
+    from: places/16/folder-recent.svg
+    category: actions
+    names: [folder-open-recent]
+    sizes: [16]
+
+  - src: folder-recent-24.svg
+    from: places/24/folder-recent.svg
+    category: actions
+    names: [folder-open-recent]
+    sizes: [24, 22]

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32">
+  <defs>
+    <linearGradient id="a">
+      <stop offset="0" style="stop-color:#fff;stop-opacity:1"/>
+      <stop offset="0" style="stop-color:#fff;stop-opacity:.23529412"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.15686275"/>
+      <stop offset="1" style="stop-color:#fff;stop-opacity:.39215687"/>
+    </linearGradient>
+    <linearGradient id="c">
+      <stop offset="0" style="stop-color:#000;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#000;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient xlink:href="#a" id="f" x1="24.139" x2="24.139" y1="20.284" y2="26.012" gradientTransform="matrix(.74136 0 0 .70024 -.607 -.195)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient xlink:href="#b" id="e" x1="14.559" x2="9.705" y1="6.003" y2="6.003" gradientTransform="matrix(0 -1.4 -1.35294 0 30.886 32.8)" gradientUnits="userSpaceOnUse"/>
+    <linearGradient id="b">
+      <stop offset="0" style="stop-color:#ed5353;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#c6262e;stop-opacity:1"/>
+    </linearGradient>
+    <radialGradient xlink:href="#c" id="d" cx="24.837" cy="36.421" r="15.645" fx="24.837" fy="36.421" gradientTransform="matrix(.9058 0 0 -.24352 -6.498 35.998)" gradientUnits="userSpaceOnUse"/>
+  </defs>
+  <path d="M30.171 27.129a14.171 3.81 0 1 0-28.342 0 14.171 3.81 0 0 0 28.342 0" style="display:inline;overflow:visible;visibility:visible;opacity:.1;fill:url(#d);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.00001;marker:none"/>
+  <rect width="23" height="7" x="4.5" y="12.5" rx=".802" ry=".802" style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:url(#e);fill-opacity:1;stroke:#7a0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:.5;stop-color:#000;stop-opacity:1"/>
+  <path d="M5.5 18.5v-5h21v5z" style="display:inline;opacity:.4;fill:none;stroke:url(#f);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+</svg>

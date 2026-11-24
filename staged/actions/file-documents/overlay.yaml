@@ -1,0 +1,62 @@
+# overlay.yaml — STAGED design set: NOT applied to the theme. `make theme`
+# reads only overlays/, so nothing here ships; move a block (and its SVGs)
+# into the matching overlays/actions/file-documents/ set once the art is ready.
+# See overlays/apps/smb4k/overlay.yaml for the full field reference.
+#
+# file-documents — actions. A floppy-disk Save, to replace the shipped
+# document-save (elementary's tray with the green down arrow).
+#
+# The numeric art is the old elementary 3.5" diskette (system-floppy.svg) as
+# kept by elementary-breeze under devices/<size>/media-floppy.svg, after a
+# single svgo pass. It ships 24, 32 and 48 only: 24 also serves 22, and
+# document-save-16.svg is the 32 art drawn at exactly half size (width/height
+# 16 over a 0 0 32 32 viewBox) — the 2:1 scale keeps the outline on the pixel
+# grid, which the 24 art at 2/3 does not.
+#
+# The symbolic is current elementary's devices/symbolic/media-floppy-symbolic.svg
+# (not elementary-breeze's), recolored from GNOME's `url(#gpa:foreground)` to
+# the ColorScheme-Text / currentColor pattern (see overlays/README.md), with a
+# viewBox added.
+#
+# NOTE for shipping — these SVGs share their file names with the shipped tray
+# art in overlays/actions/file-documents/, so moving them in overwrites it.
+# Tela's browser-download and epiphany-download are symlinks onto
+# document-save, so they would turn into floppies too; to keep the tray for
+# them, rename the shipped document-save-*.svg (e.g. browser-download-*.svg)
+# and point those blocks at names [browser-download, epiphany-download] before
+# moving these in. document-open (the tray flipped, arrow up) was drawn as
+# Save's counterpart and would no longer pair with it.
+
+set: file-documents
+
+origin:
+  theme: elementary-breeze
+
+links:
+  # --- document-save ---
+  - src: document-save-16.svg
+    from: devices/32/media-floppy.svg
+    category: actions
+    names: [document-save]
+    sizes: [16]
+  - src: document-save-24.svg
+    from: devices/24/media-floppy.svg
+    category: actions
+    names: [document-save]
+    sizes: [24, 22]
+  - src: document-save-32.svg
+    from: devices/32/media-floppy.svg
+    category: actions
+    names: [document-save]
+    sizes: [32]
+  - src: document-save-48.svg
+    from: devices/48/media-floppy.svg
+    category: actions
+    names: [document-save]
+    sizes: [48]
+  # from current elementary, not elementary-breeze
+  - src: document-save-symbolic.svg
+    from: devices/symbolic/media-floppy-symbolic.svg
+    category: actions
+    names: [document-save-symbolic]
+    sizes: [symbolic]

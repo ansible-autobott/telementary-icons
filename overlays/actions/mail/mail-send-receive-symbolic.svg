@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <style id="current-color-scheme" type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+  </defs>
+  <path fill-rule="evenodd" d="M4.5 1.75a.5.5 0 0 0-.387.182L.615 6.182A.5.5 0 0 0 1.002 7H2.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5h1.498a.49.49 0 0 0 .453-.287.49.49 0 0 0-.066-.531l-3.498-4.25A.5.5 0 0 0 4.5 1.75" class="ColorScheme-Text" paint-order="markers fill stroke" style="fill:currentColor" />
+  <path fill-rule="evenodd" d="M11.5 14.25a.5.5 0 0 0 .387-.182l3.498-4.25A.5.5 0 0 0 14.998 9H13.5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-.5.5H8.002a.49.49 0 0 0-.453.287.49.49 0 0 0 .066.531l3.498 4.25a.5.5 0 0 0 .387.182" class="ColorScheme-Text" paint-order="markers fill stroke" style="fill:currentColor" />
+</svg>
